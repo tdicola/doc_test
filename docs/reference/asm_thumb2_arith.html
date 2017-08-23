@@ -1,0 +1,285 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5. Arithmetic instructions &mdash; Adafruit CircuitPython 0.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Adafruit CircuitPython 0.0.0 documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Adafruit CircuitPython
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../shared-bindings/index.html">Core Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drivers.html">Additional Libraries on GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common_hal.html">Adding <code class="docutils literal"><span class="pre">*io</span></code> support to other ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_guide.html">Design Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../supported_ports.html">Supported Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../library/index.html">MicroPython libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">Adafruit CircuitPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CONTRIBUTING.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">MicroPython &amp; CircuitPython license information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Adafruit CircuitPython</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>5. Arithmetic instructions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/docs/reference/asm_thumb2_arith.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="arithmetic-instructions">
+<h1>5. Arithmetic instructions<a class="headerlink" href="#arithmetic-instructions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="document-conventions">
+<h2>5.1. Document conventions<a class="headerlink" href="#document-conventions" title="Permalink to this headline">¶</a></h2>
+<p>Notation: <code class="docutils literal"><span class="pre">Rd,</span> <span class="pre">Rm,</span> <span class="pre">Rn</span></code> denote ARM registers R0-R7. <code class="docutils literal"><span class="pre">immN</span></code> denotes an immediate
+value having a width of N bits e.g. <code class="docutils literal"><span class="pre">imm8</span></code>, <code class="docutils literal"><span class="pre">imm3</span></code>. <code class="docutils literal"><span class="pre">carry</span></code> denotes
+the carry condition flag, <code class="docutils literal"><span class="pre">not(carry)</span></code> denotes its complement. In the case of instructions
+with more than one register argument, it is permissible for some to be identical. For example
+the following will add the contents of R0 to itself, placing the result in R0:</p>
+<ul class="simple">
+<li>add(r0, r0, r0)</li>
+</ul>
+<p>Arithmetic instructions affect the condition flags except where stated.</p>
+</div>
+<div class="section" id="addition">
+<h2>5.2. Addition<a class="headerlink" href="#addition" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>add(Rdn, imm8) <code class="docutils literal"><span class="pre">Rdn</span> <span class="pre">=</span> <span class="pre">Rdn</span> <span class="pre">+</span> <span class="pre">imm8</span></code></li>
+<li>add(Rd, Rn, imm3) <code class="docutils literal"><span class="pre">Rd</span> <span class="pre">=</span> <span class="pre">Rn</span> <span class="pre">+</span> <span class="pre">imm3</span></code></li>
+<li>add(Rd, Rn, Rm) <code class="docutils literal"><span class="pre">Rd</span> <span class="pre">=</span> <span class="pre">Rn</span> <span class="pre">+Rm</span></code></li>
+<li>adc(Rd, Rn) <code class="docutils literal"><span class="pre">Rd</span> <span class="pre">=</span> <span class="pre">Rd</span> <span class="pre">+</span> <span class="pre">Rn</span> <span class="pre">+</span> <span class="pre">carry</span></code></li>
+</ul>
+</div>
+<div class="section" id="subtraction">
+<h2>5.3. Subtraction<a class="headerlink" href="#subtraction" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>sub(Rdn, imm8) <code class="docutils literal"><span class="pre">Rdn</span> <span class="pre">=</span> <span class="pre">Rdn</span> <span class="pre">-</span> <span class="pre">imm8</span></code></li>
+<li>sub(Rd, Rn, imm3) <code class="docutils literal"><span class="pre">Rd</span> <span class="pre">=</span> <span class="pre">Rn</span> <span class="pre">-</span> <span class="pre">imm3</span></code></li>
+<li>sub(Rd, Rn, Rm) <code class="docutils literal"><span class="pre">Rd</span> <span class="pre">=</span> <span class="pre">Rn</span> <span class="pre">-</span> <span class="pre">Rm</span></code></li>
+<li>sbc(Rd, Rn) <code class="docutils literal"><span class="pre">Rd</span> <span class="pre">=</span> <span class="pre">Rd</span> <span class="pre">-</span> <span class="pre">Rn</span> <span class="pre">-</span> <span class="pre">not(carry)</span></code></li>
+</ul>
+</div>
+<div class="section" id="negation">
+<h2>5.4. Negation<a class="headerlink" href="#negation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>neg(Rd, Rn) <code class="docutils literal"><span class="pre">Rd</span> <span class="pre">=</span> <span class="pre">-Rn</span></code></li>
+</ul>
+</div>
+<div class="section" id="multiplication-and-division">
+<h2>5.5. Multiplication and division<a class="headerlink" href="#multiplication-and-division" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>mul(Rd, Rn) <code class="docutils literal"><span class="pre">Rd</span> <span class="pre">=</span> <span class="pre">Rd</span> <span class="pre">*</span> <span class="pre">Rn</span></code></li>
+</ul>
+<p>This produces a 32 bit result with overflow lost. The result may be treated as
+signed or unsigned according to the definition of the operands.</p>
+<ul class="simple">
+<li>sdiv(Rd, Rn, Rm) <code class="docutils literal"><span class="pre">Rd</span> <span class="pre">=</span> <span class="pre">Rn</span> <span class="pre">/</span> <span class="pre">Rm</span></code></li>
+<li>udiv(Rd, Rn, Rm) <code class="docutils literal"><span class="pre">Rd</span> <span class="pre">=</span> <span class="pre">Rn</span> <span class="pre">/</span> <span class="pre">Rm</span></code></li>
+</ul>
+<p>These functions perform signed and unsigned division respectively. Condition flags
+are not affected.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, MicroPython &amp; CircuitPython contributors (https://github.com/adafruit/circuitpython/graphs/contributors).
+      Last updated on 17 Aug 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

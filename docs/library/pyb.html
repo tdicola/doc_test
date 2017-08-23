@@ -1,0 +1,423 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pyb — functions related to the board &mdash; Adafruit CircuitPython 0.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Adafruit CircuitPython 0.0.0 documentation" href="../../index.html"/>
+        <link rel="up" title="MicroPython libraries" href="index.html"/>
+        <link rel="next" title="class Accel – accelerometer control" href="pyb.Accel.html"/>
+        <link rel="prev" title="uctypes – access binary data in a structured way" href="uctypes.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Adafruit CircuitPython
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../shared-bindings/index.html">Core Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drivers.html">Additional Libraries on GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common_hal.html">Adding <code class="docutils literal"><span class="pre">*io</span></code> support to other ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_guide.html">Design Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../supported_ports.html">Supported Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">MicroPython libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">Adafruit CircuitPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CONTRIBUTING.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">MicroPython &amp; CircuitPython license information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Adafruit CircuitPython</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">MicroPython libraries</a> &raquo;</li>
+        
+      <li><code class="docutils literal"><span class="pre">pyb</span></code> — functions related to the board</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/docs/library/pyb.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-pyb">
+<span id="pyb-functions-related-to-the-board"></span><h1><a class="reference internal" href="#module-pyb" title="pyb: functions related to the board"><code class="xref py py-mod docutils literal"><span class="pre">pyb</span></code></a> — functions related to the board<a class="headerlink" href="#module-pyb" title="Permalink to this headline">¶</a></h1>
+<p>The <code class="docutils literal"><span class="pre">pyb</span></code> module contains specific functions related to the board.</p>
+<div class="section" id="time-related-functions">
+<h2>Time related functions<a class="headerlink" href="#time-related-functions" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pyb.delay">
+<code class="descclassname">pyb.</code><code class="descname">delay</code><span class="sig-paren">(</span><em>ms</em><span class="sig-paren">)</span><a class="headerlink" href="#pyb.delay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delay for the given number of milliseconds.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyb.udelay">
+<code class="descclassname">pyb.</code><code class="descname">udelay</code><span class="sig-paren">(</span><em>us</em><span class="sig-paren">)</span><a class="headerlink" href="#pyb.udelay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delay for the given number of microseconds.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyb.millis">
+<code class="descclassname">pyb.</code><code class="descname">millis</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyb.millis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of milliseconds since the board was last reset.</p>
+<p>The result is always a micropython smallint (31-bit signed number), so
+after 2^30 milliseconds (about 12.4 days) this will start to return
+negative numbers.</p>
+<p>Note that if <a class="reference internal" href="#pyb.stop" title="pyb.stop"><code class="xref py py-meth docutils literal"><span class="pre">pyb.stop()</span></code></a> is issued the hardware counter supporting this
+function will pause for the duration of the “sleeping” state. This
+will affect the outcome of <a class="reference internal" href="#pyb.elapsed_millis" title="pyb.elapsed_millis"><code class="xref py py-meth docutils literal"><span class="pre">pyb.elapsed_millis()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyb.micros">
+<code class="descclassname">pyb.</code><code class="descname">micros</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyb.micros" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of microseconds since the board was last reset.</p>
+<p>The result is always a micropython smallint (31-bit signed number), so
+after 2^30 microseconds (about 17.8 minutes) this will start to return
+negative numbers.</p>
+<p>Note that if <a class="reference internal" href="#pyb.stop" title="pyb.stop"><code class="xref py py-meth docutils literal"><span class="pre">pyb.stop()</span></code></a> is issued the hardware counter supporting this
+function will pause for the duration of the “sleeping” state. This
+will affect the outcome of <a class="reference internal" href="#pyb.elapsed_micros" title="pyb.elapsed_micros"><code class="xref py py-meth docutils literal"><span class="pre">pyb.elapsed_micros()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyb.elapsed_millis">
+<code class="descclassname">pyb.</code><code class="descname">elapsed_millis</code><span class="sig-paren">(</span><em>start</em><span class="sig-paren">)</span><a class="headerlink" href="#pyb.elapsed_millis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of milliseconds which have elapsed since <code class="docutils literal"><span class="pre">start</span></code>.</p>
+<p>This function takes care of counter wrap, and always returns a positive
+number. This means it can be used to measure periods up to about 12.4 days.</p>
+<p>Example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">millis</span><span class="p">()</span>
+<span class="k">while</span> <span class="n">pyb</span><span class="o">.</span><span class="n">elapsed_millis</span><span class="p">(</span><span class="n">start</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">:</span>
+    <span class="c1"># Perform some operation</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyb.elapsed_micros">
+<code class="descclassname">pyb.</code><code class="descname">elapsed_micros</code><span class="sig-paren">(</span><em>start</em><span class="sig-paren">)</span><a class="headerlink" href="#pyb.elapsed_micros" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of microseconds which have elapsed since <code class="docutils literal"><span class="pre">start</span></code>.</p>
+<p>This function takes care of counter wrap, and always returns a positive
+number. This means it can be used to measure periods up to about 17.8 minutes.</p>
+<p>Example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">micros</span><span class="p">()</span>
+<span class="k">while</span> <span class="n">pyb</span><span class="o">.</span><span class="n">elapsed_micros</span><span class="p">(</span><span class="n">start</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">:</span>
+    <span class="c1"># Perform some operation</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="reset-related-functions">
+<h2>Reset related functions<a class="headerlink" href="#reset-related-functions" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pyb.hard_reset">
+<code class="descclassname">pyb.</code><code class="descname">hard_reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyb.hard_reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the pyboard in a manner similar to pushing the external RESET
+button.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyb.bootloader">
+<code class="descclassname">pyb.</code><code class="descname">bootloader</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyb.bootloader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activate the bootloader without BOOT* pins.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyb.fault_debug">
+<code class="descclassname">pyb.</code><code class="descname">fault_debug</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pyb.fault_debug" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable or disable hard-fault debugging.  A hard-fault is when there is a fatal
+error in the underlying system, like an invalid memory access.</p>
+<p>If the <a class="reference internal" href="machine.Signal.html#machine.Signal.value" title="machine.Signal.value"><code class="xref any py py-meth docutils literal"><span class="pre">value</span></code></a> argument is <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.6)"><code class="xref any docutils literal"><span class="pre">False</span></code></a> then the board will automatically reset if
+there is a hard fault.</p>
+<p>If <a class="reference internal" href="machine.Signal.html#machine.Signal.value" title="machine.Signal.value"><code class="xref any py py-meth docutils literal"><span class="pre">value</span></code></a> is <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.6)"><code class="xref any docutils literal"><span class="pre">True</span></code></a> then, when the board has a hard fault, it will print the
+registers and the stack trace, and then cycle the LEDs indefinitely.</p>
+<p>The default value is disabled, i.e. to automatically reset.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="interrupt-related-functions">
+<h2>Interrupt related functions<a class="headerlink" href="#interrupt-related-functions" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pyb.disable_irq">
+<code class="descclassname">pyb.</code><code class="descname">disable_irq</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyb.disable_irq" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disable interrupt requests.
+Returns the previous IRQ state: <code class="docutils literal"><span class="pre">False</span></code>/<code class="docutils literal"><span class="pre">True</span></code> for disabled/enabled IRQs
+respectively.  This return value can be passed to enable_irq to restore
+the IRQ to its original state.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyb.enable_irq">
+<code class="descclassname">pyb.</code><code class="descname">enable_irq</code><span class="sig-paren">(</span><em>state=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pyb.enable_irq" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable interrupt requests.
+If <code class="docutils literal"><span class="pre">state</span></code> is <code class="docutils literal"><span class="pre">True</span></code> (the default value) then IRQs are enabled.
+If <code class="docutils literal"><span class="pre">state</span></code> is <code class="docutils literal"><span class="pre">False</span></code> then IRQs are disabled.  The most common use of
+this function is to pass it the value returned by <code class="docutils literal"><span class="pre">disable_irq</span></code> to
+exit a critical section.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="power-related-functions">
+<h2>Power related functions<a class="headerlink" href="#power-related-functions" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="miscellaneous-functions">
+<h2>Miscellaneous functions<a class="headerlink" href="#miscellaneous-functions" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pyb.main">
+<code class="descclassname">pyb.</code><code class="descname">main</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#pyb.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the filename of the main script to run after boot.py is finished.  If
+this function is not called then the default file main.py will be executed.</p>
+<p>It only makes sense to call this function from within boot.py.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyb.repl_uart">
+<code class="descclassname">pyb.</code><code class="descname">repl_uart</code><span class="sig-paren">(</span><em>uart</em><span class="sig-paren">)</span><a class="headerlink" href="#pyb.repl_uart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get or set the UART object where the REPL is repeated on.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyb.sync">
+<code class="descclassname">pyb.</code><code class="descname">sync</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyb.sync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sync all file systems.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyb.usb_mode">
+<code class="descclassname">pyb.</code><code class="descname">usb_mode</code><span class="sig-paren">(</span><span class="optional">[</span><em>modestr</em>, <span class="optional">]</span><em>vid=0xf055</em>, <em>pid=0x9801</em>, <em>hid=pyb.hid_mouse</em><span class="sig-paren">)</span><a class="headerlink" href="#pyb.usb_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>If called with no arguments, return the current USB mode as a string.</p>
+<p>If called with <code class="docutils literal"><span class="pre">modestr</span></code> provided, attempts to set USB mode.
+This can only be done when called from <code class="docutils literal"><span class="pre">boot.py</span></code> before
+<a class="reference internal" href="#pyb.main" title="pyb.main"><code class="xref py py-meth docutils literal"><span class="pre">pyb.main()</span></code></a> has been called.  The following values of
+<code class="docutils literal"><span class="pre">modestr</span></code> are understood:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">None</span></code>: disables USB</li>
+<li><code class="docutils literal"><span class="pre">'VCP'</span></code>: enable with VCP (Virtual COM Port) interface</li>
+<li><code class="docutils literal"><span class="pre">'VCP+MSC'</span></code>: enable with VCP and MSC (mass storage device class)</li>
+<li><code class="docutils literal"><span class="pre">'VCP+HID'</span></code>: enable with VCP and HID (human interface device)</li>
+</ul>
+<p>For backwards compatibility, <code class="docutils literal"><span class="pre">'CDC'</span></code> is understood to mean
+<code class="docutils literal"><span class="pre">'VCP'</span></code> (and similarly for <code class="docutils literal"><span class="pre">'CDC+MSC'</span></code> and <code class="docutils literal"><span class="pre">'CDC+HID'</span></code>).</p>
+<p>The <code class="docutils literal"><span class="pre">vid</span></code> and <code class="docutils literal"><span class="pre">pid</span></code> parameters allow you to specify the VID
+(vendor id) and PID (product id).</p>
+<p>If enabling HID mode, you may also specify the HID details by
+passing the <code class="docutils literal"><span class="pre">hid</span></code> keyword parameter.  It takes a tuple of
+(subclass, protocol, max packet length, polling interval, report
+descriptor).  By default it will set appropriate values for a USB
+mouse.  There is also a <code class="docutils literal"><span class="pre">pyb.hid_keyboard</span></code> constant, which is an
+appropriate tuple for a USB keyboard.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pyb.Accel.html" class="btn btn-neutral float-right" title="class Accel – accelerometer control" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="uctypes.html" class="btn btn-neutral" title="uctypes – access binary data in a structured way" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, MicroPython &amp; CircuitPython contributors (https://github.com/adafruit/circuitpython/graphs/contributors).
+      Last updated on 17 Aug 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

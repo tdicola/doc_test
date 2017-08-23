@@ -1,0 +1,307 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4. WLAN step by step &mdash; Adafruit CircuitPython 0.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Adafruit CircuitPython 0.0.0 documentation" href="../../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Adafruit CircuitPython
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../shared-bindings/index.html">Core Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drivers.html">Additional Libraries on GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common_hal.html">Adding <code class="docutils literal"><span class="pre">*io</span></code> support to other ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../design_guide.html">Design Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../supported_ports.html">Supported Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../library/index.html">MicroPython libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html">Adafruit CircuitPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../CONTRIBUTING.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">MicroPython &amp; CircuitPython license information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Adafruit CircuitPython</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>4. WLAN step by step</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/docs/wipy/tutorial/wlan.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="wlan-step-by-step">
+<h1>4. WLAN step by step<a class="headerlink" href="#wlan-step-by-step" title="Permalink to this headline">¶</a></h1>
+<p>The WLAN is a system feature of the WiPy, therefore it is always enabled
+(even while in <code class="docutils literal"><span class="pre">machine.SLEEP</span></code>), except when deepsleep mode is entered.</p>
+<p>In order to retrieve the current WLAN instance, do:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">network</span> <span class="k">import</span> <span class="n">WLAN</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wlan</span> <span class="o">=</span> <span class="n">WLAN</span><span class="p">()</span> <span class="c1"># we call the constructor without params</span>
+</pre></div>
+</div>
+<p>You can check the current mode (which is always <code class="docutils literal"><span class="pre">WLAN.AP</span></code> after power up):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wlan</span><span class="o">.</span><span class="n">mode</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>When you change the WLAN mode following the instructions below, your WLAN
+connection to the WiPy will be broken. This means you will not be able
+to run these commands interactively over the WLAN.</p>
+<dl class="last docutils">
+<dt>There are two ways around this::</dt>
+<dd><ol class="first last arabic simple">
+<li>put this setup code into your <a class="reference internal" href="../general.html#wipy-filesystem"><span class="std std-ref">boot.py file</span></a> so that it gets executed automatically after reset.</li>
+<li><a class="reference internal" href="repl.html#wipy-uart"><span class="std std-ref">duplicate the REPL on UART</span></a>, so that you can run commands via USB.</li>
+</ol>
+</dd>
+</dl>
+</div>
+<div class="section" id="connecting-to-your-home-router">
+<h2>4.1. Connecting to your home router<a class="headerlink" href="#connecting-to-your-home-router" title="Permalink to this headline">¶</a></h2>
+<p>The WLAN network card always boots in <code class="docutils literal"><span class="pre">WLAN.AP</span></code> mode, so we must first configure
+it as a station:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">network</span> <span class="k">import</span> <span class="n">WLAN</span>
+<span class="n">wlan</span> <span class="o">=</span> <span class="n">WLAN</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">WLAN</span><span class="o">.</span><span class="n">STA</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now you can proceed to scan for networks:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">nets</span> <span class="o">=</span> <span class="n">wlan</span><span class="o">.</span><span class="n">scan</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">net</span> <span class="ow">in</span> <span class="n">nets</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">net</span><span class="o">.</span><span class="n">ssid</span> <span class="o">==</span> <span class="s1">&#39;mywifi&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Network found!&#39;</span><span class="p">)</span>
+        <span class="n">wlan</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">ssid</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">sec</span><span class="p">,</span> <span class="s1">&#39;mywifikey&#39;</span><span class="p">),</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+        <span class="k">while</span> <span class="ow">not</span> <span class="n">wlan</span><span class="o">.</span><span class="n">isconnected</span><span class="p">():</span>
+            <span class="n">machine</span><span class="o">.</span><span class="n">idle</span><span class="p">()</span> <span class="c1"># save power while waiting</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;WLAN connection succeeded!&#39;</span><span class="p">)</span>
+        <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="assigning-a-static-ip-address-when-booting">
+<h2>4.2. Assigning a static IP address when booting<a class="headerlink" href="#assigning-a-static-ip-address-when-booting" title="Permalink to this headline">¶</a></h2>
+<p>If you want your WiPy to connect to your home router after boot-up, and with a fixed
+IP address so that you can access it via telnet or FTP, use the following script as /flash/boot.py:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">from</span> <span class="nn">network</span> <span class="k">import</span> <span class="n">WLAN</span>
+<span class="n">wlan</span> <span class="o">=</span> <span class="n">WLAN</span><span class="p">()</span> <span class="c1"># get current object, without changing the mode</span>
+
+<span class="k">if</span> <span class="n">machine</span><span class="o">.</span><span class="n">reset_cause</span><span class="p">()</span> <span class="o">!=</span> <span class="n">machine</span><span class="o">.</span><span class="n">SOFT_RESET</span><span class="p">:</span>
+    <span class="n">wlan</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">WLAN</span><span class="o">.</span><span class="n">STA</span><span class="p">)</span>
+    <span class="c1"># configuration below MUST match your home router settings!!</span>
+    <span class="n">wlan</span><span class="o">.</span><span class="n">ifconfig</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;192.168.178.107&#39;</span><span class="p">,</span> <span class="s1">&#39;255.255.255.0&#39;</span><span class="p">,</span> <span class="s1">&#39;192.168.178.1&#39;</span><span class="p">,</span> <span class="s1">&#39;8.8.8.8&#39;</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">wlan</span><span class="o">.</span><span class="n">isconnected</span><span class="p">():</span>
+    <span class="c1"># change the line below to match your network ssid, security and password</span>
+    <span class="n">wlan</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;mywifi&#39;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="n">WLAN</span><span class="o">.</span><span class="n">WPA2</span><span class="p">,</span> <span class="s1">&#39;mywifikey&#39;</span><span class="p">),</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">wlan</span><span class="o">.</span><span class="n">isconnected</span><span class="p">():</span>
+        <span class="n">machine</span><span class="o">.</span><span class="n">idle</span><span class="p">()</span> <span class="c1"># save power while waiting</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Notice how we check for the reset cause and the connection status, this is crucial in order
+to be able to soft reset the WiPy during a telnet session without breaking the connection.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, MicroPython &amp; CircuitPython contributors (https://github.com/adafruit/circuitpython/graphs/contributors).
+      Last updated on 17 Aug 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

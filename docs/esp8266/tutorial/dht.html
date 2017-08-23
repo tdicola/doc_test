@@ -1,0 +1,303 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>12. Temperature and Humidity &mdash; Adafruit CircuitPython 0.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Adafruit CircuitPython 0.0.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="MicroPython tutorial for ESP8266" href="index.html"/>
+        <link rel="next" title="13. Next steps" href="nextsteps.html"/>
+        <link rel="prev" title="11. Controlling NeoPixels" href="neopixel.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Adafruit CircuitPython
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../shared-bindings/index.html">Core Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drivers.html">Additional Libraries on GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common_hal.html">Adding <code class="docutils literal"><span class="pre">*io</span></code> support to other ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../design_guide.html">Design Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../supported_ports.html">Supported Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../library/index.html">MicroPython libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html">Adafruit CircuitPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../CONTRIBUTING.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">MicroPython &amp; CircuitPython license information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Adafruit CircuitPython</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../supported_ports.html">Supported Ports</a> &raquo;</li>
+        
+          <li><a href="../index.html">ESP8266</a> &raquo;</li>
+        
+          <li><a href="index.html">MicroPython tutorial for ESP8266</a> &raquo;</li>
+        
+      <li>12. Temperature and Humidity</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/docs/esp8266/tutorial/dht.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="temperature-and-humidity">
+<h1>12. Temperature and Humidity<a class="headerlink" href="#temperature-and-humidity" title="Permalink to this headline">¶</a></h1>
+<p>DHT (Digital Humidity &amp; Temperature) sensors are low cost digital sensors with
+capacitive humidity sensors and thermistors to measure the surrounding air.
+They feature a chip that handles analog to digital conversion and provide a
+1-wire interface. Newer sensors additionally provide an I2C interface.</p>
+<p>The DHT11 (blue) and DHT22 (white) sensors provide the same 1-wire interface,
+however, the DHT22 requires a separate object as it has more complex
+calculation. DHT22 have 1 decimal place resolution for both humidity and
+temperature readings. DHT11 have whole number for both.</p>
+<p>A custom 1-wire protocol, which is different to Dallas 1-wire, is used to get
+the measurements from the sensor. The payload consists of a humidity value,
+a temperature value and a checksum.</p>
+<p>To use the 1-wire interface, construct the objects referring to their data pin:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">dht</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">machine</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">dht</span><span class="o">.</span><span class="n">DHT11</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">dht</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">machine</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">dht</span><span class="o">.</span><span class="n">DHT22</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Then measure and read their values with:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">temperature</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">humidity</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Values returned from <code class="docutils literal"><span class="pre">temperature()</span></code> are in degrees Celsius and values
+returned from <code class="docutils literal"><span class="pre">humidity()</span></code> are a percentage of relative humidity.</p>
+<p>The DHT11 can be called no more than once per second and the DHT22 once every
+two seconds for most accurate results. Sensor accuracy will degrade over time.
+Each sensor supports a different operating range. Refer to the product
+datasheets for specifics.</p>
+<p>In 1-wire mode, only three of the four pins are used and in I2C mode, all four
+pins are used. Older sensors may still have 4 pins even though they do not
+support I2C. The 3rd pin is simply not connected.</p>
+<p>Pin configurations:</p>
+<p>Sensor without I2C in 1-wire mode (eg. DHT11, DHT22, AM2301, AM2302):</p>
+<blockquote>
+<div>1=VDD, 2=Data, 3=NC, 4=GND</div></blockquote>
+<p>Sensor with I2C in 1-wire mode (eg. DHT12, AM2320, AM2321, AM2322):</p>
+<blockquote>
+<div>1=VDD, 2=Data, 3=GND, 4=GND</div></blockquote>
+<p>Sensor with I2C in I2C mode (eg. DHT12, AM2320, AM2321, AM2322):</p>
+<blockquote>
+<div>1=VDD, 2=SDA, 3=GND, 4=SCL</div></blockquote>
+<p>You should use pull-up resistors for the Data, SDA and SCL pins.</p>
+<p>To make newer I2C sensors work in backwards compatible 1-wire mode, you must
+connect both pins 3 and 4 to GND. This disables the I2C interface.</p>
+<p>DHT22 sensors are now sold under the name AM2302 and are otherwise identical.</p>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nextsteps.html" class="btn btn-neutral float-right" title="13. Next steps" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="neopixel.html" class="btn btn-neutral" title="11. Controlling NeoPixels" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, MicroPython &amp; CircuitPython contributors (https://github.com/adafruit/circuitpython/graphs/contributors).
+      Last updated on 17 Aug 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,394 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Adafruit CircuitPython &mdash; Adafruit CircuitPython 0.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Adafruit CircuitPython 0.0.0 documentation" href="index.html"/>
+        <link rel="next" title="Contributing" href="CONTRIBUTING.html"/>
+        <link rel="prev" title="esp — functions related to the ESP8266" href="docs/library/esp.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Adafruit CircuitPython
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="shared-bindings/index.html">Core Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/drivers.html">Additional Libraries on GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/common_hal.html">Adding <code class="docutils literal"><span class="pre">*io</span></code> support to other ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/design_guide.html">Design Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/supported_ports.html">Supported Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/library/index.html">MicroPython libraries</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Adafruit CircuitPython</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#project-status">Project Status</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#supported-boards">Supported boards</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#designed-for-circuitpython">Designed for CircuitPython</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#other">Other</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#download">Download</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#contributing">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#differences-from-micropython">Differences from MicroPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#project-structure">Project Structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#core">Core</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ports">Ports</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">MicroPython &amp; CircuitPython license information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Adafruit CircuitPython</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Adafruit CircuitPython</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/README.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="adafruit-circuitpython">
+<span id="adafruit-circuitpython"></span><h1>Adafruit CircuitPython<a class="headerlink" href="#adafruit-circuitpython" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://travis-ci.org/adafruit/circuitpython"><img alt="Build Status" src="https://travis-ci.org/adafruit/circuitpython.svg?branch=master" /></a> <a class="reference external" href="http://circuitpython.readthedocs.io/"><img alt="Doc Status" src="https://readthedocs.org/projects/circuitpython/badge/?version=latest" /></a> <a class="reference external" href="https://gitter.im/adafruit/circuitpython?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge"><img alt="Gitter" src="https://badges.gitter.im/adafruit/circuitpython.svg" /></a>
+<a class="reference external" href="https://discord.gg/nBQh6qu"><img alt="Discord" src="https://img.shields.io/discord/327254708534116352.svg" /></a></p>
+<p>This is an open source derivative of <a class="reference external" href="http://www.micropython.org">MicroPython</a>
+for use on educational development boards designed and sold by <a class="reference external" href="https://www.adafruit.com">Adafruit</a>.</p>
+<p>As a MicroPython derivative, this implements Python 3.x on microcontrollers such
+as the SAMD21 and ESP8266.</p>
+<div class="section" id="project-status">
+<span id="project-status"></span><h2>Project Status<a class="headerlink" href="#project-status" title="Permalink to this headline">¶</a></h2>
+<p>This project is in beta. Most APIs should be stable going forward.</p>
+<div class="section" id="supported-boards">
+<span id="supported-boards"></span><h3>Supported boards<a class="headerlink" href="#supported-boards" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="designed-for-circuitpython">
+<span id="designed-for-circuitpython"></span><h4>Designed for CircuitPython<a class="headerlink" href="#designed-for-circuitpython" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><a class="reference external" href="https://www.adafruit.com/product/3333">Adafruit CircuitPlayground Express</a></li>
+<li><a class="reference external" href="https://www.adafruit.com/product/3403">Adafruit Feather M0 Express</a></li>
+<li><a class="reference external" href="https://www.adafruit.com/product/3505">Adafruit Metro M0 Express</a></li>
+<li><a class="reference external" href="https://www.adafruit.com/product/3501">Adafruit Gemma M0</a></li>
+</ul>
+</div>
+<div class="section" id="other">
+<span id="other"></span><h4>Other<a class="headerlink" href="#other" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><a class="reference external" href="https://www.adafruit.com/products/2821">Adafruit Feather HUZZAH</a></li>
+<li><a class="reference external" href="https://www.adafruit.com/products/2772">Adafruit Feather M0 Basic</a></li>
+<li><a class="reference external" href="https://www.adafruit.com/products/2995">Adafruit Feather M0 Bluefruit LE</a> (uses M0 Basic binaries)</li>
+<li><a class="reference external" href="https://www.adafruit.com/product/2796">Adafruit Feather M0 Adalogger</a> (MicroSD card not supported yet.)</li>
+<li><a class="reference external" href="https://www.arduino.cc/en/Main/ArduinoBoardZero">Arduino Zero</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="download">
+<span id="download"></span><h2>Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h2>
+<p>Official binaries are available through the <a class="reference external" href="https://github.com/adafruit/circuitpython/releases">latest GitHub releases</a>.
+Continuous (one per commit) builds are available <a class="reference external" href="https://adafruit-circuit-python.s3.amazonaws.com/index.html?prefix=bin">here</a>
+which includes experimental hardware support.</p>
+</div>
+<div class="section" id="documentation">
+<span id="documentation"></span><h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<p>Guides and videos are available through the <a class="reference external" href="https://learn.adafruit.com/">Adafruit Learning System</a> under the <a class="reference external" href="https://learn.adafruit.com/category/circuitpython">CircuitPython category</a> and <a class="reference external" href="https://learn.adafruit.com/category/micropython">MicroPython category</a>. An API reference is also available on <a class="reference external" href="http://circuitpython.readthedocs.io/en/latest/?">Read the Docs</a>.</p>
+</div>
+<div class="section" id="contributing">
+<span id="contributing"></span><h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
+<p>See <a class="reference external" href="https://github.com/adafruit/circuitpython/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a>
+for full guidelines but please be aware that by contributing to this project you
+are agreeing to the
+<a class="reference external" href="https://github.com/adafruit/circuitpython/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a>.
+Contributors who follow the
+<a class="reference external" href="https://github.com/adafruit/circuitpython/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a>
+are welcome to submit pull requests and they will be promptly reviewed by
+project admins. Please join the <a class="reference external" href="https://gitter.im/adafruit/circuitpython">Gitter chat</a> or <a class="reference external" href="https://discord.gg/nBQh6qu">Discord</a> too.</p>
+</div>
+<div class="section" id="differences-from-micropython">
+<span id="differences-from-micropython"></span><h2>Differences from <a class="reference external" href="https://github.com/micropython/micropython">MicroPython</a><a class="headerlink" href="#differences-from-micropython" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Port for Atmel SAMD21 (Commonly known as M0 in product names.)</li>
+<li>No <code class="docutils literal"><span class="pre">machine</span></code> API on Atmel SAMD21 port.</li>
+<li>Only supports Atmel SAMD21 and ESP8266 ports.</li>
+<li>The order that files are run and the state thats shared between them. The goal is to clarify the role of each file and make them independent from each other.<ul>
+<li><code class="docutils literal"><span class="pre">boot.py</span></code> (or <code class="docutils literal"><span class="pre">settings.py</span></code>) runs only once on start up before USB is initialized. This lays the ground work for configuring USB at startup rather than it being fixed. Since serial is not available, output is written to boot_out.txt.</li>
+<li><code class="docutils literal"><span class="pre">code.py</span></code> (or <code class="docutils literal"><span class="pre">main.py</span></code>) is run after every reload until it finishes or is interrupted. After its done the vm and hardware is reinitialized. <strong>This means you cannot read state from code.py in the REPL anymore.</strong> This was changed to reduce confusion about pins and memory being in use.</li>
+<li>After code.py the REPL can be entered by pressing any key. It no longer shares state with code.py so its a fresh vm.</li>
+<li>Autoreload state will be maintained across reload.</li>
+</ul>
+</li>
+<li>Adds a safe mode that does not run user code after a hard crash or brown out. The hope is that this will make it easier to fix code that causes nasty crashes by making it available through mass storage after the crash. A reset (the button) is needed after its fixed to get back into normal mode.</li>
+<li>Unified hardware APIs:
+<a class="reference external" href="https://circuitpython.readthedocs.io/en/latest/shared-bindings/audioio/__init__.html"><code class="docutils literal"><span class="pre">audioio</span></code></a>, <a class="reference external" href="https://circuitpython.readthedocs.io/en/latest/shared-bindings/analogio/__init__.html"><code class="docutils literal"><span class="pre">analogio</span></code></a>, <a class="reference external" href="https://circuitpython.readthedocs.io/en/latest/shared-bindings/busio/__init__.html"><code class="docutils literal"><span class="pre">busio</span></code></a>, <a class="reference external" href="https://circuitpython.readthedocs.io/en/latest/shared-bindings/digitalio/__init__.html"><code class="docutils literal"><span class="pre">digitalio</span></code></a>, <a class="reference external" href="https://circuitpython.readthedocs.io/en/latest/shared-bindings/pulseio/__init__.html"><code class="docutils literal"><span class="pre">pulseio</span></code></a>, <a class="reference external" href="https://circuitpython.readthedocs.io/en/latest/shared-bindings/touchio/__init__.html"><code class="docutils literal"><span class="pre">touchio</span></code></a>, <a class="reference external" href="https://circuitpython.readthedocs.io/en/latest/shared-bindings/microcontroller/__init__.html"><code class="docutils literal"><span class="pre">microcontroller</span></code></a>, <a class="reference external" href="https://circuitpython.readthedocs.io/en/latest/shared-bindings/board/__init__.html"><code class="docutils literal"><span class="pre">board</span></code></a>, <a class="reference external" href="https://circuitpython.readthedocs.io/en/latest/shared-bindings/bitbangio/__init__.html"><code class="docutils literal"><span class="pre">bitbangio</span></code></a> (Only available on atmel-samd21 and ESP8266 currently.)</li>
+<li>Tracks MicroPython's releases (not master).</li>
+<li>No module aliasing. (<code class="docutils literal"><span class="pre">uos</span></code> and <code class="docutils literal"><span class="pre">utime</span></code> are not available as <code class="docutils literal"><span class="pre">os</span></code> and <code class="docutils literal"><span class="pre">time</span></code> respectively.) Instead <code class="docutils literal"><span class="pre">os</span></code>, <code class="docutils literal"><span class="pre">time</span></code>, and <code class="docutils literal"><span class="pre">random</span></code> are CPython compatible.</li>
+<li>New <code class="docutils literal"><span class="pre">storage</span></code> module which manages file system mounts. (Functionality from <code class="docutils literal"><span class="pre">uos</span></code> in MicroPython.)</li>
+<li>Modules with a CPython counterpart, such as <code class="docutils literal"><span class="pre">time</span></code>, <code class="docutils literal"><span class="pre">os</span></code> and <code class="docutils literal"><span class="pre">random</span></code>, are strict <a class="reference external" href="https://circuitpython.readthedocs.io/en/latest/shared-bindings/time/__init__.html">subsets</a> of their <a class="reference external" href="https://docs.python.org/3.4/library/time.html?highlight=time#module-time">CPython version</a>. Therefore, code from CircuitPython is runnable on CPython but not necessarily the reverse.</li>
+<li>tick count is available as <a class="reference external" href="https://circuitpython.readthedocs.io/en/latest/shared-bindings/time/__init__.html#time.monotonic"><code class="docutils literal"><span class="pre">time.monotonic()</span></code></a></li>
+<li>atmel-samd21 features<ul>
+<li>RGB status LED</li>
+<li>Auto-reload after file write over mass storage. (Disable with <code class="docutils literal"><span class="pre">samd.disable_autoreload()</span></code>)</li>
+<li>Wait state after boot and main run, before REPL.</li>
+<li>Main is one of these: <code class="docutils literal"><span class="pre">code.txt</span></code>, <code class="docutils literal"><span class="pre">code.py</span></code>, <code class="docutils literal"><span class="pre">main.py</span></code>, <code class="docutils literal"><span class="pre">main.txt</span></code></li>
+<li>Boot is one of these: <code class="docutils literal"><span class="pre">settings.txt</span></code>, <code class="docutils literal"><span class="pre">settings.py</span></code>, <code class="docutils literal"><span class="pre">boot.py</span></code>, <code class="docutils literal"><span class="pre">boot.txt</span></code></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="project-structure">
+<span id="project-structure"></span><h2>Project Structure<a class="headerlink" href="#project-structure" title="Permalink to this headline">¶</a></h2>
+<p>Here is an overview of the top-level directories.</p>
+<div class="section" id="core">
+<span id="core"></span><h3>Core<a class="headerlink" href="#core" title="Permalink to this headline">¶</a></h3>
+<p>The core code of MicroPython is shared amongst ports including CircuitPython:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">docs</span></code> High level user documentation in Sphinx reStructuredText format.</li>
+<li><code class="docutils literal"><span class="pre">drivers</span></code> External device drivers written in Python.</li>
+<li><code class="docutils literal"><span class="pre">examples</span></code> A few example Python scripts.</li>
+<li><code class="docutils literal"><span class="pre">extmod</span></code> Shared C code used in multiple ports' modules.</li>
+<li><code class="docutils literal"><span class="pre">lib</span></code> Shared core C code including externally developed libraries such as FATFS.</li>
+<li><code class="docutils literal"><span class="pre">logo</span></code> The MicroPython logo.</li>
+<li><code class="docutils literal"><span class="pre">mpy-cross</span></code> A cross compiler that converts Python files to byte code prior to being run in MicroPython. Useful for reducing library size.</li>
+<li><code class="docutils literal"><span class="pre">py</span></code> Core Python implementation, including compiler, runtime, and
+core library.</li>
+<li><code class="docutils literal"><span class="pre">shared-bindings</span></code> Shared definition of Python modules, their docs and backing C APIs. Ports must implement the C API to support the corresponding module.</li>
+<li><code class="docutils literal"><span class="pre">shared-module</span></code> Shared implementation of Python modules that may be based on <code class="docutils literal"><span class="pre">common-hal</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">tests</span></code> Test framework and test scripts.</li>
+<li><code class="docutils literal"><span class="pre">tools</span></code> Various tools, including the pyboard.py module.</li>
+</ul>
+</div>
+<div class="section" id="ports">
+<span id="ports"></span><h3>Ports<a class="headerlink" href="#ports" title="Permalink to this headline">¶</a></h3>
+<p>Ports include the code unique to a microcontroller line and also variations
+based on the board.</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">atmel-samd</span></code> Support for SAMD21 based boards such as <a class="reference external" href="https://www.arduino.cc/en/Main/ArduinoBoardZero">Arduino Zero</a>, <a class="reference external" href="https://www.adafruit.com/products/2772">Adafruit Feather M0 Basic</a>,  and
+<a class="reference external" href="https://www.adafruit.com/products/2995">Adafruit Feather M0 Bluefruit LE</a>.</li>
+<li><code class="docutils literal"><span class="pre">bare-arm</span></code> A bare minimum version of MicroPython for ARM MCUs.</li>
+<li><code class="docutils literal"><span class="pre">cc3200</span></code> Support for boards based <a class="reference external" href="http://www.ti.com/product/CC3200">CC3200</a> from TI such as the <a class="reference external" href="https://www.pycom.io/solutions/py-boards/wipy1/">WiPy 1.0</a>.</li>
+<li><code class="docutils literal"><span class="pre">esp8266</span></code> Support for boards based on ESP8266 WiFi modules such as the <a class="reference external" href="https://www.adafruit.com/products/2821">Adafruit Feather HUZZAH</a>.</li>
+<li><code class="docutils literal"><span class="pre">minimal</span></code> A minimal MicroPython port. Start with this if you want
+to port MicroPython to another microcontroller.</li>
+<li><code class="docutils literal"><span class="pre">pic16bit</span></code> Support for 16-bit PIC microcontrollers.</li>
+<li><code class="docutils literal"><span class="pre">qemu-arm</span></code> Support for ARM emulation through <a class="reference external" href="https://qemu.org">QEMU</a>.</li>
+<li><code class="docutils literal"><span class="pre">stmhal</span></code> Support for boards based on STM32 microcontrollers including the MicroPython flagship <a class="reference external" href="https://store.micropython.org/store/#/products/PYBv1_1">PyBoard</a>.</li>
+<li><code class="docutils literal"><span class="pre">teensy</span></code> Support for the Teensy line of boards such as the <a class="reference external" href="https://www.pjrc.com/teensy/teensy31.html">Teensy 3.1</a>.</li>
+<li><code class="docutils literal"><span class="pre">unix</span></code> Support for UNIX.</li>
+<li><code class="docutils literal"><span class="pre">windows</span></code> Support for <a class="reference external" href="https://www.microsoft.com/en-us/windows/">Windows</a>.</li>
+<li><code class="docutils literal"><span class="pre">zephyr</span></code> Support for <a class="reference external" href="https://www.zephyrproject.org/">Zephyr</a>, a real-time operating system by the Linux Foundation.</li>
+</ul>
+<p>CircuitPython only maintains the <code class="docutils literal"><span class="pre">atmel-samd</span></code> and <code class="docutils literal"><span class="pre">esp8266</span></code> ports. The rest are here to maintain compatibility with the <a class="reference external" href="https://github.com/micropython/micropython">MicroPython</a> parent project.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="CONTRIBUTING.html" class="btn btn-neutral float-right" title="Contributing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="docs/library/esp.html" class="btn btn-neutral" title="esp — functions related to the ESP8266" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, MicroPython &amp; CircuitPython contributors (https://github.com/adafruit/circuitpython/graphs/contributors).
+      Last updated on 17 Aug 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,294 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>General information about the pyboard &mdash; Adafruit CircuitPython 0.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Adafruit CircuitPython 0.0.0 documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Adafruit CircuitPython
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../shared-bindings/index.html">Core Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drivers.html">Additional Libraries on GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common_hal.html">Adding <code class="docutils literal"><span class="pre">*io</span></code> support to other ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_guide.html">Design Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../supported_ports.html">Supported Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../library/index.html">MicroPython libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">Adafruit CircuitPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CONTRIBUTING.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">MicroPython &amp; CircuitPython license information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Adafruit CircuitPython</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>General information about the pyboard</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/docs/pyboard/general.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="general-information-about-the-pyboard">
+<h1>General information about the pyboard<a class="headerlink" href="#general-information-about-the-pyboard" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="local-filesystem-and-sd-card">
+<h2>Local filesystem and SD card<a class="headerlink" href="#local-filesystem-and-sd-card" title="Permalink to this headline">¶</a></h2>
+<p>There is a small internal filesystem (a drive) on the pyboard, called <code class="docutils literal"><span class="pre">/flash</span></code>,
+which is stored within the microcontroller’s flash memory.  If a micro SD card
+is inserted into the slot, it is available as <code class="docutils literal"><span class="pre">/sd</span></code>.</p>
+<p>When the pyboard boots up, it needs to choose a filesystem to boot from.  If
+there is no SD card, then it uses the internal filesystem <code class="docutils literal"><span class="pre">/flash</span></code> as the boot
+filesystem, otherwise, it uses the SD card <code class="docutils literal"><span class="pre">/sd</span></code>. After the boot, the current
+directory is set to one of the directories above.</p>
+<p>If needed, you can prevent the use of the SD card by creating an empty file
+called <code class="docutils literal"><span class="pre">/flash/SKIPSD</span></code>.  If this file exists when the pyboard boots
+up then the SD card will be skipped and the pyboard will always boot from the
+internal filesystem (in this case the SD card won’t be mounted but you can still
+mount and use it later in your program using <code class="docutils literal"><span class="pre">os.mount</span></code>).</p>
+<p>(Note that on older versions of the board, <code class="docutils literal"><span class="pre">/flash</span></code> is called <code class="docutils literal"><span class="pre">0:/</span></code> and <code class="docutils literal"><span class="pre">/sd</span></code>
+is called <code class="docutils literal"><span class="pre">1:/</span></code>).</p>
+<p>The boot filesystem is used for 2 things: it is the filesystem from which
+the <code class="docutils literal"><span class="pre">boot.py</span></code> and <code class="docutils literal"><span class="pre">main.py</span></code> files are searched for, and it is the filesystem
+which is made available on your PC over the USB cable.</p>
+<p>The filesystem will be available as a USB flash drive on your PC.  You can
+save files to the drive, and edit <code class="docutils literal"><span class="pre">boot.py</span></code> and <code class="docutils literal"><span class="pre">main.py</span></code>.</p>
+<p><em>Remember to eject (on Linux, unmount) the USB drive before you reset your
+pyboard.</em></p>
+</div>
+<div class="section" id="boot-modes">
+<h2>Boot modes<a class="headerlink" href="#boot-modes" title="Permalink to this headline">¶</a></h2>
+<p>If you power up normally, or press the reset button, the pyboard will boot
+into standard mode: the <code class="docutils literal"><span class="pre">boot.py</span></code> file will be executed first, then the
+USB will be configured, then <code class="docutils literal"><span class="pre">main.py</span></code> will run.</p>
+<p>You can override this boot sequence by holding down the user switch as
+the board is booting up.  Hold down user switch and press reset, and then
+as you continue to hold the user switch, the LEDs will count in binary.
+When the LEDs have reached the mode you want, let go of the user switch,
+the LEDs for the selected mode will flash quickly, and the board will boot.</p>
+<p>The modes are:</p>
+<ol class="arabic simple">
+<li>Green LED only, <em>standard boot</em>: run <code class="docutils literal"><span class="pre">boot.py</span></code> then <code class="docutils literal"><span class="pre">main.py</span></code>.</li>
+<li>Orange LED only, <em>safe boot</em>: don’t run any scripts on boot-up.</li>
+<li>Green and orange LED together, <em>filesystem reset</em>: resets the flash
+filesystem to its factory state, then boots in safe mode.</li>
+</ol>
+<p>If your filesystem becomes corrupt, boot into mode 3 to fix it.
+If resetting the filesystem while plugged into your compute doesn’t work,
+you can try doing the same procedure while the board is plugged into a USB
+charger, or other USB power supply without data connection.</p>
+</div>
+<div class="section" id="errors-flashing-leds">
+<h2>Errors: flashing LEDs<a class="headerlink" href="#errors-flashing-leds" title="Permalink to this headline">¶</a></h2>
+<p>There are currently 2 kinds of errors that you might see:</p>
+<ol class="arabic simple">
+<li><dl class="first docutils">
+<dt>If the red and green LEDs flash alternatively, then a Python script</dt>
+<dd>(eg <code class="docutils literal"><span class="pre">main.py</span></code>) has an error.  Use the REPL to debug it.</dd>
+</dl>
+</li>
+<li>If all 4 LEDs cycle on and off slowly, then there was a hard fault.
+This cannot be recovered from and you need to do a hard reset.</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, MicroPython &amp; CircuitPython contributors (https://github.com/adafruit/circuitpython/graphs/contributors).
+      Last updated on 17 Aug 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

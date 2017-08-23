@@ -1,0 +1,312 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pulseio --- Support for pulse based protocols &mdash; Adafruit CircuitPython 0.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Adafruit CircuitPython 0.0.0 documentation" href="../../index.html"/>
+        <link rel="up" title="Core Modules" href="../index.html"/>
+        <link rel="next" title="PulseIn -- Read a series of pulse durations" href="PulseIn.html"/>
+        <link rel="prev" title="os --- functions that an OS normally provides" href="../os/__init__.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Adafruit CircuitPython
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Core Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#support-matrix">Support Matrix</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#modules">Modules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../analogio/__init__.html"><code class="docutils literal"><span class="pre">analogio</span></code> --- Analog hardware support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../audiobusio/__init__.html"><code class="docutils literal"><span class="pre">audiobusio</span></code> --- Support for audio input and output over digital bus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../audioio/__init__.html"><code class="docutils literal"><span class="pre">audioio</span></code> --- Support for audio input and output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bitbangio/__init__.html"><code class="docutils literal"><span class="pre">bitbangio</span></code> --- Digital protocols implemented by the CPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../board/__init__.html"><code class="docutils literal"><span class="pre">board</span></code> --- Board specific pin names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../busio/__init__.html"><code class="docutils literal"><span class="pre">busio</span></code> --- Hardware accelerated behavior</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../digitalio/__init__.html"><code class="docutils literal"><span class="pre">digitalio</span></code> --- Basic digital pin support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microcontroller/__init__.html"><code class="docutils literal"><span class="pre">microcontroller</span></code> --- Pin references and core functionality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multiterminal/__init__.html"><code class="docutils literal"><span class="pre">multiterminal</span></code> --- Manage additional terminal sources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../neopixel_write/__init__.html"><code class="docutils literal"><span class="pre">neopixel_write</span></code> --- Low-level neopixel implementation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../os/__init__.html"><code class="docutils literal"><span class="pre">os</span></code> --- functions that an OS normally provides</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="docutils literal"><span class="pre">pulseio</span></code> --- Support for pulse based protocols</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="PulseIn.html"><code class="docutils literal"><span class="pre">PulseIn</span></code> -- Read a series of pulse durations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PulseOut.html"><code class="docutils literal"><span class="pre">PulseOut</span></code> -- Output a pulse train</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PWMOut.html"><code class="docutils literal"><span class="pre">PWMOut</span></code> -- Output a Pulse Width Modulated signal</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../random/__init__.html"><code class="docutils literal"><span class="pre">random</span></code> --- psuedo-random numbers and choices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../storage/__init__.html"><code class="docutils literal"><span class="pre">storage</span></code> --- storage management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../time/__init__.html"><code class="docutils literal"><span class="pre">time</span></code> --- time and timing related functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../touchio/__init__.html"><code class="docutils literal"><span class="pre">touchio</span></code> --- Touch related IO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uheap/__init__.html"><code class="docutils literal"><span class="pre">uheap</span></code> --- Heap size analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usb_hid/__init__.html"><code class="docutils literal"><span class="pre">usb_hid</span></code> --- USB Human Interface Device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ustack/__init__.html"><code class="docutils literal"><span class="pre">ustack</span></code> --- Stack information and analysis</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/drivers.html">Additional Libraries on GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/common_hal.html">Adding <code class="docutils literal"><span class="pre">*io</span></code> support to other ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/design_guide.html">Design Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/supported_ports.html">Supported Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/library/index.html">MicroPython libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">Adafruit CircuitPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CONTRIBUTING.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">MicroPython &amp; CircuitPython license information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Adafruit CircuitPython</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Core Modules</a> &raquo;</li>
+        
+      <li><code class="docutils literal"><span class="pre">pulseio</span></code> --- Support for pulse based protocols</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/shared-bindings/pulseio/__init__.c.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-pulseio">
+<span id="pulseio-support-for-pulse-based-protocols"></span><h1><a class="reference internal" href="#module-pulseio" title="pulseio: Support for pulse based protocols (SAMD21, ESP8266)"><code class="xref py py-mod docutils literal"><span class="pre">pulseio</span></code></a> --- Support for pulse based protocols<a class="headerlink" href="#module-pulseio" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-pulseio" title="pulseio: Support for pulse based protocols (SAMD21, ESP8266)"><code class="xref any py py-mod docutils literal"><span class="pre">pulseio</span></code></a> module contains classes to provide access to basic pulse IO.</p>
+<p>Libraries</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="PulseIn.html"><code class="docutils literal"><span class="pre">PulseIn</span></code> -- Read a series of pulse durations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PulseOut.html"><code class="docutils literal"><span class="pre">PulseOut</span></code> -- Output a pulse train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PWMOut.html"><code class="docutils literal"><span class="pre">PWMOut</span></code> -- Output a Pulse Width Modulated signal</a></li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This module is not available in some SAMD21 builds. See the
+<a class="reference internal" href="../index.html#module-support-matrix"><span class="std std-ref">Support Matrix</span></a> for more info.</p>
+</div>
+<p>All classes change hardware state and should be deinitialized when they
+are no longer needed if the program continues after use. To do so, either
+call <code class="xref py py-meth docutils literal"><span class="pre">deinit()</span></code> or use a context manager. See
+<a class="reference internal" href="../../docs/design_guide.html#lifetime-and-contextmanagers"><span class="std std-ref">Lifetime and ContextManagers</span></a> for more info.</p>
+<p>For example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pulseio</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">board</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="n">pwm</span> <span class="o">=</span> <span class="n">pulseio</span><span class="o">.</span><span class="n">PWMOut</span><span class="p">(</span><span class="n">D13</span><span class="p">)</span>
+<span class="n">pwm</span><span class="o">.</span><span class="n">duty_cycle</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">15</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This example will initialize the the device, set
+<a class="reference internal" href="PWMOut.html#pulseio.PWMOut.duty_cycle" title="pulseio.PWMOut.duty_cycle"><code class="xref py py-data docutils literal"><span class="pre">duty_cycle</span></code></a>, and then sleep 0.1 seconds.
+CircuitPython will automatically turn off the PWM when it resets all
+hardware after program completion. Use <code class="docutils literal"><span class="pre">deinit()</span></code> or a <code class="docutils literal"><span class="pre">with</span></code> statement
+to do it yourself.</p>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="PulseIn.html" class="btn btn-neutral float-right" title="PulseIn -- Read a series of pulse durations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../os/__init__.html" class="btn btn-neutral" title="os --- functions that an OS normally provides" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, MicroPython &amp; CircuitPython contributors (https://github.com/adafruit/circuitpython/graphs/contributors).
+      Last updated on 17 Aug 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

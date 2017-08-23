@@ -1,0 +1,352 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Git commit conventions &mdash; Adafruit CircuitPython 0.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Adafruit CircuitPython 0.0.0 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Adafruit CircuitPython
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="shared-bindings/index.html">Core Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/drivers.html">Additional Libraries on GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/common_hal.html">Adding <code class="docutils literal"><span class="pre">*io</span></code> support to other ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/design_guide.html">Design Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/supported_ports.html">Supported Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/library/index.html">MicroPython libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">Adafruit CircuitPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">MicroPython &amp; CircuitPython license information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Adafruit CircuitPython</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Git commit conventions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/CODECONVENTIONS.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="git-commit-conventions">
+<span id="git-commit-conventions"></span><h1>Git commit conventions<a class="headerlink" href="#git-commit-conventions" title="Permalink to this headline">¶</a></h1>
+<p>Each commit message should start with a directory or full file path
+prefix, so it was clear which part of codebase a commit affects. If
+a change affects one file, it's better to use path to a file. If it
+affects few files in a subdirectory, using subdirectory as a prefix
+is ok. For longish paths, it's acceptable to drop intermediate
+components, which still should provide good context of a change.
+It's also ok to drop file extensions.</p>
+<p>Besides prefix, first line of a commit message should describe a
+change clearly and to the point, and be a grammatical sentence with
+final full stop. First line should fit within 78 characters. Examples
+of good first line of commit messages:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">py</span><span class="o">/</span><span class="n">objstr</span><span class="p">:</span> <span class="n">Add</span> <span class="n">splitlines</span><span class="p">()</span> <span class="n">method</span><span class="o">.</span>
+<span class="n">py</span><span class="p">:</span> <span class="n">Rename</span> <span class="n">FOO</span> <span class="n">to</span> <span class="n">BAR</span><span class="o">.</span>
+<span class="n">docs</span><span class="o">/</span><span class="n">machine</span><span class="p">:</span> <span class="n">Fix</span> <span class="n">typo</span> <span class="ow">in</span> <span class="n">reset</span><span class="p">()</span> <span class="n">description</span><span class="o">.</span>
+<span class="n">ports</span><span class="p">:</span> <span class="n">Switch</span> <span class="n">to</span> <span class="n">use</span> <span class="n">lib</span><span class="o">/</span><span class="n">foo</span> <span class="n">instead</span> <span class="n">of</span> <span class="n">duplicated</span> <span class="n">code</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>After the first line, add an empty line and in following lines describe
+a change in a detail, if needed. Any change beyond 5 lines would likely
+require such detailed description.</p>
+<p>To get good practical examples of good commits and their messages, browse
+the <code class="docutils literal"><span class="pre">git</span> <span class="pre">log</span></code> of the project.</p>
+</div>
+<div class="section" id="python-code-conventions">
+<span id="python-code-conventions"></span><h1>Python code conventions<a class="headerlink" href="#python-code-conventions" title="Permalink to this headline">¶</a></h1>
+<p>Python code follows <a class="reference external" href="http://legacy.python.org/dev/peps/pep-0008/">PEP 8</a>.</p>
+<p>Naming conventions:</p>
+<ul class="simple">
+<li>Module names are short and all lowercase; eg pyb, stm.</li>
+<li>Class names are CamelCase, with abbreviations all uppercase; eg I2C, not
+I2c.</li>
+<li>Function and method names are all lowercase with words separated by
+a single underscore as necessary to improve readability; eg mem_read.</li>
+<li>Constants are all uppercase with words separated by a single underscore;
+eg GPIO_IDR.</li>
+</ul>
+</div>
+<div class="section" id="c-code-conventions">
+<span id="c-code-conventions"></span><h1>C code conventions<a class="headerlink" href="#c-code-conventions" title="Permalink to this headline">¶</a></h1>
+<p>When writing new C code, please adhere to the following conventions.</p>
+<p>White space:</p>
+<ul class="simple">
+<li>Expand tabs to 4 spaces.</li>
+<li>Don't leave trailing whitespace at the end of a line.</li>
+<li>For control blocks (if, for, while), put 1 space between the
+keyword and the opening parenthesis.</li>
+<li>Put 1 space after a comma, and 1 space around operators.</li>
+</ul>
+<p>Braces:</p>
+<ul class="simple">
+<li>Use braces for all blocks, even no-line and single-line pieces of
+code.</li>
+<li>Put opening braces on the end of the line it belongs to, not on
+a new line.</li>
+<li>For else-statements, put the else on the same line as the previous
+closing brace.</li>
+</ul>
+<p>Header files:</p>
+<ul class="simple">
+<li>Header files should be protected from multiple inclusion with #if
+directives. See an existing header for naming convention.</li>
+</ul>
+<p>Names:</p>
+<ul class="simple">
+<li>Use underscore_case, not camelCase for all names.</li>
+<li>Use CAPS_WITH_UNDERSCORE for enums and macros.</li>
+<li>When defining a type use underscore_case and put '_t' after it.</li>
+</ul>
+<p>Integer types: MicroPython runs on 16, 32, and 64 bit machines, so it's
+important to use the correctly-sized (and signed) integer types.  The
+general guidelines are:</p>
+<ul class="simple">
+<li>For most cases use mp_int_t for signed and mp_uint_t for unsigned
+integer values.  These are guaranteed to be machine-word sized and
+therefore big enough to hold the value from a MicroPython small-int
+object.</li>
+<li>Use size_t for things that count bytes / sizes of objects.</li>
+<li>You can use int/uint, but remember that they may be 16-bits wide.</li>
+<li>If in doubt, use mp_int_t/mp_uint_t.</li>
+</ul>
+<p>Comments:</p>
+<ul class="simple">
+<li>Be concise and only write comments for things that are not obvious.</li>
+<li>Use <code class="docutils literal"><span class="pre">//</span></code> prefix, NOT <code class="docutils literal"><span class="pre">/*</span> <span class="pre">...</span> <span class="pre">*/</span></code>. No extra fluff.</li>
+</ul>
+<p>Memory allocation:</p>
+<ul class="simple">
+<li>Use m_new, m_renew, m_del (and friends) to allocate and free heap memory.
+These macros are defined in py/misc.h.</li>
+</ul>
+<div class="section" id="examples">
+<span id="examples"></span><h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Braces, spaces, names and comments:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#define TO_ADD (123)</span>
+
+<span class="o">//</span> <span class="n">This</span> <span class="n">function</span> <span class="n">will</span> <span class="n">always</span> <span class="n">recurse</span> <span class="n">indefinitely</span> <span class="ow">and</span> <span class="ow">is</span> <span class="n">only</span> <span class="n">used</span> <span class="n">to</span> <span class="n">show</span>
+<span class="o">//</span> <span class="n">coding</span> <span class="n">style</span>
+<span class="nb">int</span> <span class="n">foo_function</span><span class="p">(</span><span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">some_value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">some_value</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">foo</span><span class="p">(</span><span class="n">some_value</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">foo</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">TO_ADD</span><span class="p">,</span> <span class="n">some_value</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">my_counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">my_counter</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">;</span> <span class="n">my_counter</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Type declarations:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">typedef</span> <span class="n">struct</span> <span class="n">_my_struct_t</span> <span class="p">{</span>
+    <span class="nb">int</span> <span class="n">member</span><span class="p">;</span>
+    <span class="n">void</span> <span class="o">*</span><span class="n">data</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">my_struct_t</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, MicroPython &amp; CircuitPython contributors (https://github.com/adafruit/circuitpython/graphs/contributors).
+      Last updated on 17 Aug 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,400 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>DigitalInOut -- digital input and output &mdash; Adafruit CircuitPython 0.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Adafruit CircuitPython 0.0.0 documentation" href="../../index.html"/>
+        <link rel="up" title="digitalio --- Basic digital pin support" href="__init__.html"/>
+        <link rel="next" title="Direction -- defines the direction of a digital pin" href="Direction.html"/>
+        <link rel="prev" title="digitalio --- Basic digital pin support" href="__init__.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Adafruit CircuitPython
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Core Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#support-matrix">Support Matrix</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#modules">Modules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../analogio/__init__.html"><code class="docutils literal"><span class="pre">analogio</span></code> --- Analog hardware support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../audiobusio/__init__.html"><code class="docutils literal"><span class="pre">audiobusio</span></code> --- Support for audio input and output over digital bus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../audioio/__init__.html"><code class="docutils literal"><span class="pre">audioio</span></code> --- Support for audio input and output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bitbangio/__init__.html"><code class="docutils literal"><span class="pre">bitbangio</span></code> --- Digital protocols implemented by the CPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../board/__init__.html"><code class="docutils literal"><span class="pre">board</span></code> --- Board specific pin names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../busio/__init__.html"><code class="docutils literal"><span class="pre">busio</span></code> --- Hardware accelerated behavior</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="__init__.html"><code class="docutils literal"><span class="pre">digitalio</span></code> --- Basic digital pin support</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="docutils literal"><span class="pre">DigitalInOut</span></code> -- digital input and output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Direction.html"><code class="docutils literal"><span class="pre">Direction</span></code> -- defines the direction of a digital pin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DriveMode.html"><code class="docutils literal"><span class="pre">DriveMode</span></code> -- defines the drive mode of a digital pin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Pull.html"><code class="docutils literal"><span class="pre">Pull</span></code> -- defines the pull of a digital input pin</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../microcontroller/__init__.html"><code class="docutils literal"><span class="pre">microcontroller</span></code> --- Pin references and core functionality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multiterminal/__init__.html"><code class="docutils literal"><span class="pre">multiterminal</span></code> --- Manage additional terminal sources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../neopixel_write/__init__.html"><code class="docutils literal"><span class="pre">neopixel_write</span></code> --- Low-level neopixel implementation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../os/__init__.html"><code class="docutils literal"><span class="pre">os</span></code> --- functions that an OS normally provides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pulseio/__init__.html"><code class="docutils literal"><span class="pre">pulseio</span></code> --- Support for pulse based protocols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../random/__init__.html"><code class="docutils literal"><span class="pre">random</span></code> --- psuedo-random numbers and choices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../storage/__init__.html"><code class="docutils literal"><span class="pre">storage</span></code> --- storage management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../time/__init__.html"><code class="docutils literal"><span class="pre">time</span></code> --- time and timing related functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../touchio/__init__.html"><code class="docutils literal"><span class="pre">touchio</span></code> --- Touch related IO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uheap/__init__.html"><code class="docutils literal"><span class="pre">uheap</span></code> --- Heap size analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usb_hid/__init__.html"><code class="docutils literal"><span class="pre">usb_hid</span></code> --- USB Human Interface Device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ustack/__init__.html"><code class="docutils literal"><span class="pre">ustack</span></code> --- Stack information and analysis</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/drivers.html">Additional Libraries on GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/common_hal.html">Adding <code class="docutils literal"><span class="pre">*io</span></code> support to other ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/design_guide.html">Design Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/supported_ports.html">Supported Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/library/index.html">MicroPython libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">Adafruit CircuitPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CONTRIBUTING.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">MicroPython &amp; CircuitPython license information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Adafruit CircuitPython</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Core Modules</a> &raquo;</li>
+        
+          <li><a href="__init__.html"><code class="docutils literal"><span class="pre">digitalio</span></code> --- Basic digital pin support</a> &raquo;</li>
+        
+      <li><code class="docutils literal"><span class="pre">DigitalInOut</span></code> -- digital input and output</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/shared-bindings/digitalio/DigitalInOut.c.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="digitalinout-digital-input-and-output">
+<h1><a class="reference internal" href="#digitalio.DigitalInOut" title="digitalio.DigitalInOut"><code class="xref py py-class docutils literal"><span class="pre">DigitalInOut</span></code></a> -- digital input and output<a class="headerlink" href="#digitalinout-digital-input-and-output" title="Permalink to this headline">¶</a></h1>
+<p>A DigitalInOut is used to digitally control I/O pins. For analog control of
+a pin, see the <code class="xref py py-class docutils literal"><span class="pre">AnalogIn</span></code> and
+<code class="xref py py-class docutils literal"><span class="pre">AnalogOut</span></code> classes.</p>
+<dl class="class">
+<dt id="digitalio.DigitalInOut">
+<em class="property">class </em><code class="descclassname">digitalio.</code><code class="descname">DigitalInOut</code><span class="sig-paren">(</span><em>pin</em><span class="sig-paren">)</span><a class="headerlink" href="#digitalio.DigitalInOut" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new DigitalInOut object associated with the pin. Defaults to input
+with no pull. Use <a class="reference internal" href="#digitalio.DigitalInOut.switch_to_input" title="digitalio.DigitalInOut.switch_to_input"><code class="xref py py-meth docutils literal"><span class="pre">switch_to_input()</span></code></a> and
+<a class="reference internal" href="#digitalio.DigitalInOut.switch_to_output" title="digitalio.DigitalInOut.switch_to_output"><code class="xref py py-meth docutils literal"><span class="pre">switch_to_output()</span></code></a> to change the direction.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pin</strong> (<a class="reference internal" href="../microcontroller/Pin.html#microcontroller.Pin" title="microcontroller.Pin"><em>Pin</em></a>) -- The pin to control</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="digitalio.DigitalInOut.deinit">
+<code class="descname">deinit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#digitalio.DigitalInOut.deinit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn off the DigitalInOut and release the pin for other use.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="digitalio.DigitalInOut.__enter__">
+<code class="descname">__enter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#digitalio.DigitalInOut.__enter__" title="Permalink to this definition">¶</a></dt>
+<dd><p>No-op used by Context Managers.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="digitalio.DigitalInOut.__exit__">
+<code class="descname">__exit__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#digitalio.DigitalInOut.__exit__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Automatically deinitializes the hardware when exiting a context. See
+<a class="reference internal" href="../../docs/design_guide.html#lifetime-and-contextmanagers"><span class="std std-ref">Lifetime and ContextManagers</span></a> for more info.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="digitalio.DigitalInOut.switch_to_output">
+<code class="descname">switch_to_output</code><span class="sig-paren">(</span><em>value=False</em>, <em>drive_mode=digitalio.DriveMode.PUSH_PULL</em><span class="sig-paren">)</span><a class="headerlink" href="#digitalio.DigitalInOut.switch_to_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the drive mode and value and then switch to writing out digital
+values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>value</strong> (<a class="reference internal" href="../../docs/library/builtins.html#bool" title="bool"><em>bool</em></a>) -- default value to set upon switching</li>
+<li><strong>drive_mode</strong> (<a class="reference internal" href="DriveMode.html#digitalio.digitalio.DriveMode" title="digitalio.digitalio.DriveMode"><em>DriveMode</em></a>) -- drive mode for the output</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="digitalio.DigitalInOut.switch_to_input">
+<code class="descname">switch_to_input</code><span class="sig-paren">(</span><em>pull=None</em><span class="sig-paren">)</span><a class="headerlink" href="#digitalio.DigitalInOut.switch_to_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the pull and then switch to read in digital values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pull</strong> (<a class="reference internal" href="Pull.html#digitalio.digitalio.Pull" title="digitalio.digitalio.Pull"><em>Pull</em></a>) -- pull configuration for the input</td>
+</tr>
+</tbody>
+</table>
+<p>Example usage:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">digitalio</span>
+<span class="kn">import</span> <span class="nn">board</span>
+
+<span class="n">switch</span> <span class="o">=</span> <span class="n">digitalio</span><span class="o">.</span><span class="n">DigitalInOut</span><span class="p">(</span><span class="n">board</span><span class="o">.</span><span class="n">SLIDE_SWITCH</span><span class="p">)</span>
+<span class="n">switch</span><span class="o">.</span><span class="n">switch_to_input</span><span class="p">(</span><span class="n">pull</span><span class="o">=</span><span class="n">digitalio</span><span class="o">.</span><span class="n">Pull</span><span class="o">.</span><span class="n">UP</span><span class="p">)</span>
+<span class="c1"># Or, after switch_to_input</span>
+<span class="n">switch</span><span class="o">.</span><span class="n">pull</span> <span class="o">=</span> <span class="n">digitalio</span><span class="o">.</span><span class="n">Pull</span><span class="o">.</span><span class="n">UP</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">switch</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="digitalio.DigitalInOut.direction">
+<code class="descname">direction</code><a class="headerlink" href="#digitalio.DigitalInOut.direction" title="Permalink to this definition">¶</a></dt>
+<dd><p>The direction of the pin.</p>
+<p>Setting this will use the defaults from the corresponding
+<a class="reference internal" href="#digitalio.DigitalInOut.switch_to_input" title="digitalio.DigitalInOut.switch_to_input"><code class="xref py py-meth docutils literal"><span class="pre">switch_to_input()</span></code></a> or <a class="reference internal" href="#digitalio.DigitalInOut.switch_to_output" title="digitalio.DigitalInOut.switch_to_output"><code class="xref py py-meth docutils literal"><span class="pre">switch_to_output()</span></code></a> method. If
+you want to set pull, value or drive mode prior to switching, then use
+those methods instead.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="digitalio.DigitalInOut.value">
+<code class="descname">value</code><a class="headerlink" href="#digitalio.DigitalInOut.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>The digital logic level of the pin.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="digitalio.DigitalInOut.drive_mode">
+<code class="descname">drive_mode</code><a class="headerlink" href="#digitalio.DigitalInOut.drive_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get or set the pin drive mode.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="digitalio.DigitalInOut.pull">
+<code class="descname">pull</code><a class="headerlink" href="#digitalio.DigitalInOut.pull" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get or set the pin pull.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#AttributeError" title="(in Python v3.6)"><strong>AttributeError</strong></a> -- if the direction is ~`digitalio.Direction.OUTPUT`.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Direction.html" class="btn btn-neutral float-right" title="Direction -- defines the direction of a digital pin" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="__init__.html" class="btn btn-neutral" title="digitalio --- Basic digital pin support" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, MicroPython &amp; CircuitPython contributors (https://github.com/adafruit/circuitpython/graphs/contributors).
+      Last updated on 17 Aug 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

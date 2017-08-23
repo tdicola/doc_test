@@ -1,0 +1,372 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PyBoard &mdash; Adafruit CircuitPython 0.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Adafruit CircuitPython 0.0.0 documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Adafruit CircuitPython
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../shared-bindings/index.html">Core Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drivers.html">Additional Libraries on GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common_hal.html">Adding <code class="docutils literal"><span class="pre">*io</span></code> support to other ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_guide.html">Design Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../supported_ports.html">Supported Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../library/index.html">MicroPython libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">Adafruit CircuitPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CONTRIBUTING.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">MicroPython &amp; CircuitPython license information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Adafruit CircuitPython</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>PyBoard</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/docs/pyboard/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pyboard">
+<h1>PyBoard<a class="headerlink" href="#pyboard" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickref.html">Quick reference for the pyboard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickref.html#general-board-control">General board control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickref.html#delay-and-timing">Delay and timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickref.html#leds">LEDs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickref.html#pins-and-gpio">Pins and GPIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickref.html#servo-control">Servo control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickref.html#external-interrupts">External interrupts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickref.html#timers">Timers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickref.html#pwm-pulse-width-modulation">PWM (pulse width modulation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickref.html#adc-analog-to-digital-conversion">ADC (analog to digital conversion)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickref.html#dac-digital-to-analog-conversion">DAC (digital to analog conversion)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickref.html#uart-serial-bus">UART (serial bus)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickref.html#spi-bus">SPI bus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickref.html#i2c-bus">I2C bus</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="general.html">General information about the pyboard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="general.html#local-filesystem-and-sd-card">Local filesystem and SD card</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#boot-modes">Boot modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#errors-flashing-leds">Errors: flashing LEDs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/index.html">MicroPython tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/intro.html">1. Introduction to the pyboard</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/intro.html#caring-for-your-pyboard">1.1. Caring for your pyboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/intro.html#layout-of-the-pyboard">1.2. Layout of the pyboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/intro.html#plugging-in-and-powering-on">1.3. Plugging in and powering on</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/intro.html#powering-by-an-external-power-source">1.4. Powering by an external power source</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/script.html">2. Running your first script</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/script.html#connecting-your-pyboard">2.1. Connecting your pyboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/script.html#opening-the-pyboard-usb-drive">2.2. Opening the pyboard USB drive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/script.html#editing-main-py">2.3. Editing <code class="docutils literal"><span class="pre">main.py</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/script.html#resetting-the-pyboard">2.4. Resetting the pyboard</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/repl.html">3. Getting a MicroPython REPL prompt</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/repl.html#windows">3.1. Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/repl.html#mac-os-x">3.2. Mac OS X</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/repl.html#linux">3.3. Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/repl.html#using-the-repl-prompt">3.4. Using the REPL prompt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/repl.html#resetting-the-board">3.5. Resetting the board</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/leds.html">4. Turning on LEDs and basic Python concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/leds.html#a-disco-on-your-pyboard">4.1. A Disco on your pyboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/leds.html#the-fourth-special-led">4.2. The Fourth Special LED</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/switch.html">5. The Switch, callbacks and interrupts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/switch.html#switch-callbacks">5.1. Switch callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/switch.html#technical-details-of-interrupts">5.2. Technical details of interrupts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/switch.html#further-reading">5.3. Further reading</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/accel.html">6. The accelerometer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/accel.html#using-the-accelerometer">6.1. Using the accelerometer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/accel.html#making-a-spirit-level">6.2. Making a spirit level</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/reset.html">7. Safe mode and factory reset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/reset.html#safe-mode">7.1. Safe mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/reset.html#factory-reset-the-filesystem">7.2. Factory reset the filesystem</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/usb_mouse.html">8. Making the pyboard act as a USB mouse</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/usb_mouse.html#sending-mouse-events-by-hand">8.1. Sending mouse events by hand</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/usb_mouse.html#making-a-mouse-with-the-accelerometer">8.2. Making a mouse with the accelerometer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/usb_mouse.html#restoring-your-pyboard-to-normal">8.3. Restoring your pyboard to normal</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/timer.html">9. The Timers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/timer.html#timer-counter">9.1. Timer counter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/timer.html#timer-callbacks">9.2. Timer callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/timer.html#making-a-microsecond-counter">9.3. Making a microsecond counter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/assembler.html">10. Inline assembler</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/assembler.html#returning-a-value">10.1. Returning a value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/assembler.html#accessing-peripherals">10.2. Accessing peripherals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/assembler.html#accepting-arguments">10.3. Accepting arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/assembler.html#loops">10.4. Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/assembler.html#further-reading">10.5. Further reading</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/power_ctrl.html">11. Power control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/index.html#tutorials-requiring-extra-components">Tutorials requiring extra components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/servo.html">1. Controlling hobby servo motors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tutorial/servo.html#creating-a-servo-object">1.1. Creating a Servo object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorial/servo.html#continuous-rotation-servos">1.2. Continuous rotation servos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorial/servo.html#calibration">1.3. Calibration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/fading_led.html">2. Fading LEDs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tutorial/fading_led.html#components">2.1. Components</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorial/fading_led.html#connecting-things-up">2.2. Connecting Things Up</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorial/fading_led.html#code">2.3. Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorial/fading_led.html#breathing-effect">2.4. Breathing Effect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorial/fading_led.html#advanced-exercise">2.5. Advanced Exercise</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorial/fading_led.html#addendum">2.6. Addendum</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/lcd_skin.html">3. The LCD and touch-sensor skin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tutorial/lcd_skin.html#using-the-lcd">3.1. Using the LCD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorial/lcd_skin.html#using-the-touch-sensor">3.2. Using the touch sensor</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/amp_skin.html">4. The AMP audio skin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tutorial/amp_skin.html#example-code">4.1. Example code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/lcd160cr_skin.html">5. The LCD160CR skin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tutorial/lcd160cr_skin.html#plugging-in-the-display">5.1. Plugging in the display</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorial/lcd160cr_skin.html#getting-the-driver">5.2. Getting the driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorial/lcd160cr_skin.html#testing-the-display">5.3. Testing the display</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorial/lcd160cr_skin.html#drawing-some-graphics">5.4. Drawing some graphics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorial/lcd160cr_skin.html#using-the-touch-sensor">5.5. Using the touch sensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorial/lcd160cr_skin.html#directing-the-micropython-output-to-the-display">5.6. Directing the MicroPython output to the display</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/index.html#tips-tricks-and-useful-things-to-know">Tips, tricks and useful things to know</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/debounce.html">1. Debouncing a pin input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/pass_through.html">2. Making a UART - USB pass through</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hardware/index.html">The pyboard hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware/index.html#datasheets-for-the-components-on-the-pyboard">Datasheets for the components on the pyboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware/index.html#datasheets-for-other-components">Datasheets for other components</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, MicroPython &amp; CircuitPython contributors (https://github.com/adafruit/circuitpython/graphs/contributors).
+      Last updated on 17 Aug 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,789 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MicroPython documentation and references &mdash; Adafruit CircuitPython 0.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Adafruit CircuitPython 0.0.0 documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Adafruit CircuitPython
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../shared-bindings/index.html">Core Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programming_guide/index.html">Programming Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drivers.html">Additional Libraries on GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common_hal.html">Adding <code class="docutils literal"><span class="pre">*io</span></code> support to other ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_guide.html">Design Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported_ports.html">Supported Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library/index.html">MicroPython libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Adafruit CircuitPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">MicroPython &amp; CircuitPython license information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Adafruit CircuitPython</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>MicroPython documentation and references</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/docs/pyboard_index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="micropython-documentation-and-references">
+<h1>MicroPython documentation and references<a class="headerlink" href="#micropython-documentation-and-references" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyboard/quickref.html">Quick reference for the pyboard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/quickref.html#general-board-control">General board control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/quickref.html#delay-and-timing">Delay and timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/quickref.html#leds">LEDs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/quickref.html#pins-and-gpio">Pins and GPIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/quickref.html#servo-control">Servo control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/quickref.html#external-interrupts">External interrupts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/quickref.html#timers">Timers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/quickref.html#pwm-pulse-width-modulation">PWM (pulse width modulation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/quickref.html#adc-analog-to-digital-conversion">ADC (analog to digital conversion)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/quickref.html#dac-digital-to-analog-conversion">DAC (digital to analog conversion)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/quickref.html#uart-serial-bus">UART (serial bus)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/quickref.html#spi-bus">SPI bus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/quickref.html#i2c-bus">I2C bus</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyboard/general.html">General information about the pyboard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/general.html#local-filesystem-and-sd-card">Local filesystem and SD card</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/general.html#boot-modes">Boot modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/general.html#errors-flashing-leds">Errors: flashing LEDs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyboard/tutorial/index.html">MicroPython tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/tutorial/intro.html">1. Introduction to the pyboard</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/intro.html#caring-for-your-pyboard">1.1. Caring for your pyboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/intro.html#layout-of-the-pyboard">1.2. Layout of the pyboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/intro.html#plugging-in-and-powering-on">1.3. Plugging in and powering on</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/intro.html#powering-by-an-external-power-source">1.4. Powering by an external power source</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/tutorial/script.html">2. Running your first script</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/script.html#connecting-your-pyboard">2.1. Connecting your pyboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/script.html#opening-the-pyboard-usb-drive">2.2. Opening the pyboard USB drive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/script.html#editing-main-py">2.3. Editing <code class="docutils literal"><span class="pre">main.py</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/script.html#resetting-the-pyboard">2.4. Resetting the pyboard</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/tutorial/repl.html">3. Getting a MicroPython REPL prompt</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/repl.html#windows">3.1. Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/repl.html#mac-os-x">3.2. Mac OS X</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/repl.html#linux">3.3. Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/repl.html#using-the-repl-prompt">3.4. Using the REPL prompt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/repl.html#resetting-the-board">3.5. Resetting the board</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/tutorial/leds.html">4. Turning on LEDs and basic Python concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/leds.html#a-disco-on-your-pyboard">4.1. A Disco on your pyboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/leds.html#the-fourth-special-led">4.2. The Fourth Special LED</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/tutorial/switch.html">5. The Switch, callbacks and interrupts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/switch.html#switch-callbacks">5.1. Switch callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/switch.html#technical-details-of-interrupts">5.2. Technical details of interrupts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/switch.html#further-reading">5.3. Further reading</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/tutorial/accel.html">6. The accelerometer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/accel.html#using-the-accelerometer">6.1. Using the accelerometer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/accel.html#making-a-spirit-level">6.2. Making a spirit level</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/tutorial/reset.html">7. Safe mode and factory reset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/reset.html#safe-mode">7.1. Safe mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/reset.html#factory-reset-the-filesystem">7.2. Factory reset the filesystem</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/tutorial/usb_mouse.html">8. Making the pyboard act as a USB mouse</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/usb_mouse.html#sending-mouse-events-by-hand">8.1. Sending mouse events by hand</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/usb_mouse.html#making-a-mouse-with-the-accelerometer">8.2. Making a mouse with the accelerometer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/usb_mouse.html#restoring-your-pyboard-to-normal">8.3. Restoring your pyboard to normal</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/tutorial/timer.html">9. The Timers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/timer.html#timer-counter">9.1. Timer counter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/timer.html#timer-callbacks">9.2. Timer callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/timer.html#making-a-microsecond-counter">9.3. Making a microsecond counter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/tutorial/assembler.html">10. Inline assembler</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/assembler.html#returning-a-value">10.1. Returning a value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/assembler.html#accessing-peripherals">10.2. Accessing peripherals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/assembler.html#accepting-arguments">10.3. Accepting arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/assembler.html#loops">10.4. Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/assembler.html#further-reading">10.5. Further reading</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/tutorial/power_ctrl.html">11. Power control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/tutorial/index.html#tutorials-requiring-extra-components">Tutorials requiring extra components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/servo.html">1. Controlling hobby servo motors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/servo.html#creating-a-servo-object">1.1. Creating a Servo object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/servo.html#continuous-rotation-servos">1.2. Continuous rotation servos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/servo.html#calibration">1.3. Calibration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/fading_led.html">2. Fading LEDs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/fading_led.html#components">2.1. Components</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/fading_led.html#connecting-things-up">2.2. Connecting Things Up</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/fading_led.html#code">2.3. Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/fading_led.html#breathing-effect">2.4. Breathing Effect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/fading_led.html#advanced-exercise">2.5. Advanced Exercise</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/fading_led.html#addendum">2.6. Addendum</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/lcd_skin.html">3. The LCD and touch-sensor skin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/lcd_skin.html#using-the-lcd">3.1. Using the LCD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/lcd_skin.html#using-the-touch-sensor">3.2. Using the touch sensor</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/amp_skin.html">4. The AMP audio skin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/amp_skin.html#example-code">4.1. Example code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/lcd160cr_skin.html">5. The LCD160CR skin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/lcd160cr_skin.html#plugging-in-the-display">5.1. Plugging in the display</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/lcd160cr_skin.html#getting-the-driver">5.2. Getting the driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/lcd160cr_skin.html#testing-the-display">5.3. Testing the display</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/lcd160cr_skin.html#drawing-some-graphics">5.4. Drawing some graphics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/lcd160cr_skin.html#using-the-touch-sensor">5.5. Using the touch sensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/lcd160cr_skin.html#directing-the-micropython-output-to-the-display">5.6. Directing the MicroPython output to the display</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/tutorial/index.html#tips-tricks-and-useful-things-to-know">Tips, tricks and useful things to know</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/debounce.html">1. Debouncing a pin input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/pass_through.html">2. Making a UART - USB pass through</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="library/index.html">MicroPython libraries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="library/index.html#python-standard-libraries-and-micro-libraries">Python standard libraries and micro-libraries</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="library/index.html#micropython-specific-libraries">MicroPython-specific libraries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="library/btree.html"><code class="docutils literal"><span class="pre">btree</span></code> – simple BTree database</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="library/btree.html#functions">Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library/btree.html#methods">Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library/btree.html#constants">Constants</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="library/framebuf.html"><code class="docutils literal"><span class="pre">framebuf</span></code> — Frame buffer manipulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="library/framebuf.html#class-framebuffer">class FrameBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library/framebuf.html#constructors">Constructors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library/framebuf.html#drawing-primitive-shapes">Drawing primitive shapes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library/framebuf.html#drawing-text">Drawing text</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library/framebuf.html#other-methods">Other methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library/framebuf.html#constants">Constants</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="library/machine.html"><code class="docutils literal"><span class="pre">machine</span></code> — functions related to the hardware</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="library/machine.html#reset-related-functions">Reset related functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library/machine.html#interrupt-related-functions">Interrupt related functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library/machine.html#power-related-functions">Power related functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library/machine.html#miscellaneous-functions">Miscellaneous functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library/machine.html#constants">Constants</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library/machine.html#classes">Classes</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="library/machine.Pin.html">class Pin – control I/O pins</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.Pin.html#constructors">Constructors</a></li>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.Pin.html#methods">Methods</a></li>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.Pin.html#constants">Constants</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="library/machine.Signal.html">class Signal – control and sense external I/O devices</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.Signal.html#constructors">Constructors</a></li>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.Signal.html#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="library/machine.UART.html">class UART – duplex serial communication bus</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.UART.html#constructors">Constructors</a></li>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.UART.html#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="library/machine.SPI.html">class SPI – a Serial Peripheral Interface bus protocol (master side)</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.SPI.html#constructors">Constructors</a></li>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.SPI.html#methods">Methods</a></li>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.SPI.html#constants">Constants</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="library/machine.I2C.html">class I2C – a two-wire serial protocol</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.I2C.html#constructors">Constructors</a></li>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.I2C.html#general-methods">General Methods</a></li>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.I2C.html#primitive-i2c-operations">Primitive I2C operations</a></li>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.I2C.html#standard-bus-operations">Standard bus operations</a></li>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.I2C.html#memory-operations">Memory operations</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="library/machine.RTC.html">class RTC – real time clock</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.RTC.html#constructors">Constructors</a></li>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.RTC.html#methods">Methods</a></li>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.RTC.html#constants">Constants</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="library/machine.Timer.html">class Timer – control hardware timers</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.Timer.html#constructors">Constructors</a></li>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.Timer.html#methods">Methods</a></li>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.Timer.html#constants">Constants</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="library/machine.WDT.html">class WDT – watchdog timer</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.WDT.html#constructors">Constructors</a></li>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.WDT.html#methods">Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="library/micropython.html"><code class="docutils literal"><span class="pre">micropython</span></code> – access and control MicroPython internals</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="library/micropython.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="library/network.html"><code class="docutils literal"><span class="pre">network</span></code> — network configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="library/network.html#common-network-adapter-interface">Common network adapter interface</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="library/uctypes.html"><code class="docutils literal"><span class="pre">uctypes</span></code> – access binary data in a structured way</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="library/uctypes.html#defining-structure-layout">Defining structure layout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library/uctypes.html#module-contents">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library/uctypes.html#structure-descriptors-and-instantiating-structure-objects">Structure descriptors and instantiating structure objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library/uctypes.html#structure-objects">Structure objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library/uctypes.html#limitations">Limitations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyboard/hardware/index.html">The pyboard hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyboard/hardware/index.html#datasheets-for-the-components-on-the-pyboard">Datasheets for the components on the pyboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyboard/hardware/index.html#datasheets-for-other-components">Datasheets for other components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyboard_contents.html">MicroPython documentation contents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/quickref.html">Quick reference for the pyboard</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/quickref.html#general-board-control">General board control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/quickref.html#delay-and-timing">Delay and timing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/quickref.html#leds">LEDs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/quickref.html#pins-and-gpio">Pins and GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/quickref.html#servo-control">Servo control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/quickref.html#external-interrupts">External interrupts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/quickref.html#timers">Timers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/quickref.html#pwm-pulse-width-modulation">PWM (pulse width modulation)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/quickref.html#adc-analog-to-digital-conversion">ADC (analog to digital conversion)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/quickref.html#dac-digital-to-analog-conversion">DAC (digital to analog conversion)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/quickref.html#uart-serial-bus">UART (serial bus)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/quickref.html#spi-bus">SPI bus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/quickref.html#i2c-bus">I2C bus</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/general.html">General information about the pyboard</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/general.html#local-filesystem-and-sd-card">Local filesystem and SD card</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/general.html#boot-modes">Boot modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/general.html#errors-flashing-leds">Errors: flashing LEDs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/tutorial/index.html">MicroPython tutorial</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/intro.html">1. Introduction to the pyboard</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/intro.html#caring-for-your-pyboard">1.1. Caring for your pyboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/intro.html#layout-of-the-pyboard">1.2. Layout of the pyboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/intro.html#plugging-in-and-powering-on">1.3. Plugging in and powering on</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/intro.html#powering-by-an-external-power-source">1.4. Powering by an external power source</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/script.html">2. Running your first script</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/script.html#connecting-your-pyboard">2.1. Connecting your pyboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/script.html#opening-the-pyboard-usb-drive">2.2. Opening the pyboard USB drive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/script.html#editing-main-py">2.3. Editing <code class="docutils literal"><span class="pre">main.py</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/script.html#resetting-the-pyboard">2.4. Resetting the pyboard</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/repl.html">3. Getting a MicroPython REPL prompt</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/repl.html#windows">3.1. Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/repl.html#mac-os-x">3.2. Mac OS X</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/repl.html#linux">3.3. Linux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/repl.html#using-the-repl-prompt">3.4. Using the REPL prompt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/repl.html#resetting-the-board">3.5. Resetting the board</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/leds.html">4. Turning on LEDs and basic Python concepts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/leds.html#a-disco-on-your-pyboard">4.1. A Disco on your pyboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/leds.html#the-fourth-special-led">4.2. The Fourth Special LED</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/switch.html">5. The Switch, callbacks and interrupts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/switch.html#switch-callbacks">5.1. Switch callbacks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/switch.html#technical-details-of-interrupts">5.2. Technical details of interrupts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/switch.html#further-reading">5.3. Further reading</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/accel.html">6. The accelerometer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/accel.html#using-the-accelerometer">6.1. Using the accelerometer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/accel.html#making-a-spirit-level">6.2. Making a spirit level</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/reset.html">7. Safe mode and factory reset</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/reset.html#safe-mode">7.1. Safe mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/reset.html#factory-reset-the-filesystem">7.2. Factory reset the filesystem</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/usb_mouse.html">8. Making the pyboard act as a USB mouse</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/usb_mouse.html#sending-mouse-events-by-hand">8.1. Sending mouse events by hand</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/usb_mouse.html#making-a-mouse-with-the-accelerometer">8.2. Making a mouse with the accelerometer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/usb_mouse.html#restoring-your-pyboard-to-normal">8.3. Restoring your pyboard to normal</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/timer.html">9. The Timers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/timer.html#timer-counter">9.1. Timer counter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/timer.html#timer-callbacks">9.2. Timer callbacks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/timer.html#making-a-microsecond-counter">9.3. Making a microsecond counter</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/assembler.html">10. Inline assembler</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/assembler.html#returning-a-value">10.1. Returning a value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/assembler.html#accessing-peripherals">10.2. Accessing peripherals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/assembler.html#accepting-arguments">10.3. Accepting arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/assembler.html#loops">10.4. Loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/assembler.html#further-reading">10.5. Further reading</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/power_ctrl.html">11. Power control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/index.html#tutorials-requiring-extra-components">Tutorials requiring extra components</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/servo.html">1. Controlling hobby servo motors</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="pyboard/tutorial/servo.html#creating-a-servo-object">1.1. Creating a Servo object</a></li>
+<li class="toctree-l5"><a class="reference internal" href="pyboard/tutorial/servo.html#continuous-rotation-servos">1.2. Continuous rotation servos</a></li>
+<li class="toctree-l5"><a class="reference internal" href="pyboard/tutorial/servo.html#calibration">1.3. Calibration</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/fading_led.html">2. Fading LEDs</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="pyboard/tutorial/fading_led.html#components">2.1. Components</a></li>
+<li class="toctree-l5"><a class="reference internal" href="pyboard/tutorial/fading_led.html#connecting-things-up">2.2. Connecting Things Up</a></li>
+<li class="toctree-l5"><a class="reference internal" href="pyboard/tutorial/fading_led.html#code">2.3. Code</a></li>
+<li class="toctree-l5"><a class="reference internal" href="pyboard/tutorial/fading_led.html#breathing-effect">2.4. Breathing Effect</a></li>
+<li class="toctree-l5"><a class="reference internal" href="pyboard/tutorial/fading_led.html#advanced-exercise">2.5. Advanced Exercise</a></li>
+<li class="toctree-l5"><a class="reference internal" href="pyboard/tutorial/fading_led.html#addendum">2.6. Addendum</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/lcd_skin.html">3. The LCD and touch-sensor skin</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="pyboard/tutorial/lcd_skin.html#using-the-lcd">3.1. Using the LCD</a></li>
+<li class="toctree-l5"><a class="reference internal" href="pyboard/tutorial/lcd_skin.html#using-the-touch-sensor">3.2. Using the touch sensor</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/amp_skin.html">4. The AMP audio skin</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="pyboard/tutorial/amp_skin.html#example-code">4.1. Example code</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/lcd160cr_skin.html">5. The LCD160CR skin</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="pyboard/tutorial/lcd160cr_skin.html#plugging-in-the-display">5.1. Plugging in the display</a></li>
+<li class="toctree-l5"><a class="reference internal" href="pyboard/tutorial/lcd160cr_skin.html#getting-the-driver">5.2. Getting the driver</a></li>
+<li class="toctree-l5"><a class="reference internal" href="pyboard/tutorial/lcd160cr_skin.html#testing-the-display">5.3. Testing the display</a></li>
+<li class="toctree-l5"><a class="reference internal" href="pyboard/tutorial/lcd160cr_skin.html#drawing-some-graphics">5.4. Drawing some graphics</a></li>
+<li class="toctree-l5"><a class="reference internal" href="pyboard/tutorial/lcd160cr_skin.html#using-the-touch-sensor">5.5. Using the touch sensor</a></li>
+<li class="toctree-l5"><a class="reference internal" href="pyboard/tutorial/lcd160cr_skin.html#directing-the-micropython-output-to-the-display">5.6. Directing the MicroPython output to the display</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyboard/tutorial/index.html#tips-tricks-and-useful-things-to-know">Tips, tricks and useful things to know</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/debounce.html">1. Debouncing a pin input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyboard/tutorial/pass_through.html">2. Making a UART - USB pass through</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="library/index.html">MicroPython libraries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="library/index.html#python-standard-libraries-and-micro-libraries">Python standard libraries and micro-libraries</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="library/index.html#micropython-specific-libraries">MicroPython-specific libraries</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="library/btree.html"><code class="docutils literal"><span class="pre">btree</span></code> – simple BTree database</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="library/btree.html#functions">Functions</a></li>
+<li class="toctree-l5"><a class="reference internal" href="library/btree.html#methods">Methods</a></li>
+<li class="toctree-l5"><a class="reference internal" href="library/btree.html#constants">Constants</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="library/framebuf.html"><code class="docutils literal"><span class="pre">framebuf</span></code> — Frame buffer manipulation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="library/framebuf.html#class-framebuffer">class FrameBuffer</a></li>
+<li class="toctree-l5"><a class="reference internal" href="library/framebuf.html#constructors">Constructors</a></li>
+<li class="toctree-l5"><a class="reference internal" href="library/framebuf.html#drawing-primitive-shapes">Drawing primitive shapes</a></li>
+<li class="toctree-l5"><a class="reference internal" href="library/framebuf.html#drawing-text">Drawing text</a></li>
+<li class="toctree-l5"><a class="reference internal" href="library/framebuf.html#other-methods">Other methods</a></li>
+<li class="toctree-l5"><a class="reference internal" href="library/framebuf.html#constants">Constants</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="library/machine.html"><code class="docutils literal"><span class="pre">machine</span></code> — functions related to the hardware</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="library/machine.html#reset-related-functions">Reset related functions</a></li>
+<li class="toctree-l5"><a class="reference internal" href="library/machine.html#interrupt-related-functions">Interrupt related functions</a></li>
+<li class="toctree-l5"><a class="reference internal" href="library/machine.html#power-related-functions">Power related functions</a></li>
+<li class="toctree-l5"><a class="reference internal" href="library/machine.html#miscellaneous-functions">Miscellaneous functions</a></li>
+<li class="toctree-l5"><a class="reference internal" href="library/machine.html#constants">Constants</a></li>
+<li class="toctree-l5"><a class="reference internal" href="library/machine.html#classes">Classes</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.Pin.html">class Pin – control I/O pins</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="library/machine.Pin.html#constructors">Constructors</a></li>
+<li class="toctree-l7"><a class="reference internal" href="library/machine.Pin.html#methods">Methods</a></li>
+<li class="toctree-l7"><a class="reference internal" href="library/machine.Pin.html#constants">Constants</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.Signal.html">class Signal – control and sense external I/O devices</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="library/machine.Signal.html#constructors">Constructors</a></li>
+<li class="toctree-l7"><a class="reference internal" href="library/machine.Signal.html#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.UART.html">class UART – duplex serial communication bus</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="library/machine.UART.html#constructors">Constructors</a></li>
+<li class="toctree-l7"><a class="reference internal" href="library/machine.UART.html#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.SPI.html">class SPI – a Serial Peripheral Interface bus protocol (master side)</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="library/machine.SPI.html#constructors">Constructors</a></li>
+<li class="toctree-l7"><a class="reference internal" href="library/machine.SPI.html#methods">Methods</a></li>
+<li class="toctree-l7"><a class="reference internal" href="library/machine.SPI.html#constants">Constants</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.I2C.html">class I2C – a two-wire serial protocol</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="library/machine.I2C.html#constructors">Constructors</a></li>
+<li class="toctree-l7"><a class="reference internal" href="library/machine.I2C.html#general-methods">General Methods</a></li>
+<li class="toctree-l7"><a class="reference internal" href="library/machine.I2C.html#primitive-i2c-operations">Primitive I2C operations</a></li>
+<li class="toctree-l7"><a class="reference internal" href="library/machine.I2C.html#standard-bus-operations">Standard bus operations</a></li>
+<li class="toctree-l7"><a class="reference internal" href="library/machine.I2C.html#memory-operations">Memory operations</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.RTC.html">class RTC – real time clock</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="library/machine.RTC.html#constructors">Constructors</a></li>
+<li class="toctree-l7"><a class="reference internal" href="library/machine.RTC.html#methods">Methods</a></li>
+<li class="toctree-l7"><a class="reference internal" href="library/machine.RTC.html#constants">Constants</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.Timer.html">class Timer – control hardware timers</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="library/machine.Timer.html#constructors">Constructors</a></li>
+<li class="toctree-l7"><a class="reference internal" href="library/machine.Timer.html#methods">Methods</a></li>
+<li class="toctree-l7"><a class="reference internal" href="library/machine.Timer.html#constants">Constants</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="library/machine.WDT.html">class WDT – watchdog timer</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="library/machine.WDT.html#constructors">Constructors</a></li>
+<li class="toctree-l7"><a class="reference internal" href="library/machine.WDT.html#methods">Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="library/micropython.html"><code class="docutils literal"><span class="pre">micropython</span></code> – access and control MicroPython internals</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="library/micropython.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="library/network.html"><code class="docutils literal"><span class="pre">network</span></code> — network configuration</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="library/network.html#common-network-adapter-interface">Common network adapter interface</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="library/uctypes.html"><code class="docutils literal"><span class="pre">uctypes</span></code> – access binary data in a structured way</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="library/uctypes.html#defining-structure-layout">Defining structure layout</a></li>
+<li class="toctree-l5"><a class="reference internal" href="library/uctypes.html#module-contents">Module contents</a></li>
+<li class="toctree-l5"><a class="reference internal" href="library/uctypes.html#structure-descriptors-and-instantiating-structure-objects">Structure descriptors and instantiating structure objects</a></li>
+<li class="toctree-l5"><a class="reference internal" href="library/uctypes.html#structure-objects">Structure objects</a></li>
+<li class="toctree-l5"><a class="reference internal" href="library/uctypes.html#limitations">Limitations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reference/index.html">The MicroPython language</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reference/repl.html">The MicroPython Interactive Interpreter Mode (aka REPL)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reference/repl.html#auto-indent">Auto-indent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reference/repl.html#auto-completion">Auto-completion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reference/repl.html#interrupting-a-running-program">Interrupting a running program</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reference/repl.html#paste-mode">Paste Mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reference/repl.html#soft-reset">Soft Reset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reference/repl.html#the-special-variable-underscore">The special variable _ (underscore)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reference/repl.html#raw-mode">Raw Mode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="reference/isr_rules.html">Writing interrupt handlers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reference/isr_rules.html#tips-and-recommended-practices">Tips and recommended practices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reference/isr_rules.html#micropython-issues">MicroPython Issues</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="reference/isr_rules.html#the-emergency-exception-buffer">The emergency exception buffer</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/isr_rules.html#simplicity">Simplicity</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/isr_rules.html#communication-between-an-isr-and-the-main-program">Communication between an ISR and the main program</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/isr_rules.html#the-use-of-object-methods-as-callbacks">The use of object methods as callbacks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/isr_rules.html#creation-of-python-objects">Creation of Python objects</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/isr_rules.html#use-of-python-objects">Use of Python objects</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/isr_rules.html#overcoming-the-float-limitation">Overcoming the float limitation</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="reference/isr_rules.html#exceptions">Exceptions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reference/isr_rules.html#general-issues">General Issues</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="reference/isr_rules.html#interrupt-handler-design">Interrupt Handler Design</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/isr_rules.html#reentrancy">Reentrancy</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/isr_rules.html#critical-sections">Critical Sections</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/isr_rules.html#interrupts-and-the-repl">Interrupts and the REPL</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="reference/speed_python.html">Maximising Python Speed</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reference/speed_python.html#designing-for-speed">Designing for speed</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="reference/speed_python.html#algorithms">Algorithms</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/speed_python.html#ram-allocation">RAM Allocation</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/speed_python.html#buffers">Buffers</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/speed_python.html#floating-point">Floating Point</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/speed_python.html#arrays">Arrays</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="reference/speed_python.html#identifying-the-slowest-section-of-code">Identifying the slowest section of code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reference/speed_python.html#micropython-code-improvements">MicroPython code improvements</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="reference/speed_python.html#the-const-declaration">The const() declaration</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/speed_python.html#caching-object-references">Caching object references</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/speed_python.html#controlling-garbage-collection">Controlling garbage collection</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/speed_python.html#accessing-hardware-directly">Accessing hardware directly</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="reference/speed_python.html#the-native-code-emitter">The Native code emitter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reference/speed_python.html#the-viper-code-emitter">The Viper code emitter</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="reference/constrained.html">MicroPython on Microcontrollers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reference/constrained.html#flash-memory">Flash Memory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reference/constrained.html#ram">RAM</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="reference/constrained.html#compilation-phase">Compilation Phase</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/constrained.html#execution-phase">Execution Phase</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="reference/constrained.html#the-heap">The Heap</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="reference/constrained.html#fragmentation">Fragmentation</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/constrained.html#reporting">Reporting</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/constrained.html#control-of-garbage-collection">Control of Garbage Collection</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="reference/constrained.html#string-operations">String Operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reference/constrained.html#postscript">Postscript</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="reference/constrained.html#footnote-gc-collect-return-value">Footnote: gc.collect() return value</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/hardware/index.html">The pyboard hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/hardware/index.html#datasheets-for-the-components-on-the-pyboard">Datasheets for the components on the pyboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyboard/hardware/index.html#datasheets-for-other-components">Datasheets for other components</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="../genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="../py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="../search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, MicroPython &amp; CircuitPython contributors (https://github.com/adafruit/circuitpython/graphs/contributors).
+      Last updated on 22 Aug 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,328 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4. Network basics &mdash; Adafruit CircuitPython 0.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Adafruit CircuitPython 0.0.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="MicroPython tutorial for ESP8266" href="index.html"/>
+        <link rel="next" title="5. Network - TCP sockets" href="network_tcp.html"/>
+        <link rel="prev" title="3. The internal filesystem" href="filesystem.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Adafruit CircuitPython
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../shared-bindings/index.html">Core Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drivers.html">Additional Libraries on GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common_hal.html">Adding <code class="docutils literal"><span class="pre">*io</span></code> support to other ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../design_guide.html">Design Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../supported_ports.html">Supported Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../library/index.html">MicroPython libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html">Adafruit CircuitPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../CONTRIBUTING.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">MicroPython &amp; CircuitPython license information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Adafruit CircuitPython</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../supported_ports.html">Supported Ports</a> &raquo;</li>
+        
+          <li><a href="../index.html">ESP8266</a> &raquo;</li>
+        
+          <li><a href="index.html">MicroPython tutorial for ESP8266</a> &raquo;</li>
+        
+      <li>4. Network basics</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/docs/esp8266/tutorial/network_basics.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="network-basics">
+<h1>4. Network basics<a class="headerlink" href="#network-basics" title="Permalink to this headline">¶</a></h1>
+<p>The network module is used to configure the WiFi connection.  There are two WiFi
+interfaces, one for the station (when the ESP8266 connects to a router) and one
+for the access point (for other devices to connect to the ESP8266).  Create
+instances of these objects using:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">network</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sta_if</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">WLAN</span><span class="p">(</span><span class="n">network</span><span class="o">.</span><span class="n">STA_IF</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ap_if</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">WLAN</span><span class="p">(</span><span class="n">network</span><span class="o">.</span><span class="n">AP_IF</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can check if the interfaces are active by:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sta_if</span><span class="o">.</span><span class="n">active</span><span class="p">()</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ap_if</span><span class="o">.</span><span class="n">active</span><span class="p">()</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>You can also check the network settings of the interface by:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ap_if</span><span class="o">.</span><span class="n">ifconfig</span><span class="p">()</span>
+<span class="go">(&#39;192.168.4.1&#39;, &#39;255.255.255.0&#39;, &#39;192.168.4.1&#39;, &#39;8.8.8.8&#39;)</span>
+</pre></div>
+</div>
+<p>The returned values are: IP address, netmask, gateway, DNS.</p>
+<div class="section" id="configuration-of-the-wifi">
+<h2>4.1. Configuration of the WiFi<a class="headerlink" href="#configuration-of-the-wifi" title="Permalink to this headline">¶</a></h2>
+<p>Upon a fresh install the ESP8266 is configured in access point mode, so the
+AP_IF interface is active and the STA_IF interface is inactive.  You can
+configure the module to connect to your own network using the STA_IF interface.</p>
+<p>First activate the station interface:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sta_if</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then connect to your WiFi network:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sta_if</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;&lt;your ESSID&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;your password&gt;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To check if the connection is established use:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sta_if</span><span class="o">.</span><span class="n">isconnected</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Once established you can check the IP address:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sta_if</span><span class="o">.</span><span class="n">ifconfig</span><span class="p">()</span>
+<span class="go">(&#39;192.168.0.2&#39;, &#39;255.255.255.0&#39;, &#39;192.168.0.1&#39;, &#39;8.8.8.8&#39;)</span>
+</pre></div>
+</div>
+<p>You can then disable the access-point interface if you no longer need it:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ap_if</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here is a function you can run (or put in your boot.py file) to automatically
+connect to your WiFi network:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">do_connect</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">network</span>
+    <span class="n">sta_if</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">WLAN</span><span class="p">(</span><span class="n">network</span><span class="o">.</span><span class="n">STA_IF</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">sta_if</span><span class="o">.</span><span class="n">isconnected</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;connecting to network...&#39;</span><span class="p">)</span>
+        <span class="n">sta_if</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">sta_if</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;&lt;essid&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;password&gt;&#39;</span><span class="p">)</span>
+        <span class="k">while</span> <span class="ow">not</span> <span class="n">sta_if</span><span class="o">.</span><span class="n">isconnected</span><span class="p">():</span>
+            <span class="k">pass</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;network config:&#39;</span><span class="p">,</span> <span class="n">sta_if</span><span class="o">.</span><span class="n">ifconfig</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sockets">
+<h2>4.2. Sockets<a class="headerlink" href="#sockets" title="Permalink to this headline">¶</a></h2>
+<p>Once the WiFi is set up the way to access the network is by using sockets.
+A socket represents an endpoint on a network device, and when two sockets are
+connected together communication can proceed.
+Internet protocols are built on top of sockets, such as email (SMTP), the web
+(HTTP), telnet, ssh, among many others.  Each of these protocols is assigned
+a specific port, which is just an integer.  Given an IP address and a port
+number you can connect to a remote device and start talking with it.</p>
+<p>The next part of the tutorial discusses how to use sockets to do some common
+and useful network tasks.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="network_tcp.html" class="btn btn-neutral float-right" title="5. Network - TCP sockets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="filesystem.html" class="btn btn-neutral" title="3. The internal filesystem" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, MicroPython &amp; CircuitPython contributors (https://github.com/adafruit/circuitpython/graphs/contributors).
+      Last updated on 17 Aug 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

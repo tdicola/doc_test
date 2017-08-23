@@ -1,0 +1,359 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Sphinx eager &#34;.. only::&#34; directive and other selective rendition extensions &mdash; Adafruit CircuitPython 0.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Adafruit CircuitPython 0.0.0 documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Adafruit CircuitPython
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../shared-bindings/index.html">Core Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drivers.html">Additional Libraries on GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common_hal.html">Adding <code class="docutils literal"><span class="pre">*io</span></code> support to other ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_guide.html">Design Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../supported_ports.html">Supported Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../library/index.html">MicroPython libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">Adafruit CircuitPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CONTRIBUTING.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">MicroPython &amp; CircuitPython license information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Adafruit CircuitPython</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Sphinx eager &quot;.. only::&quot; directive and other selective rendition extensions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/docs/sphinx_selective_exclude/README.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sphinx-eager-only-directive-and-other-selective-rendition-extensions">
+<span id="sphinx-eager-only-directive-and-other-selective-rendition-extensions"></span><h1>Sphinx eager &quot;.. only::&quot; directive and other selective rendition extensions<a class="headerlink" href="#sphinx-eager-only-directive-and-other-selective-rendition-extensions" title="Permalink to this headline">¶</a></h1>
+<p>Project home page: https://github.com/pfalcon/sphinx_selective_exclude</p>
+<p>The implementation of &quot;.. only::&quot; directive in Sphinx documentation
+generation tool is known to violate principles of least user surprise
+and user expectations in general. Instead of excluding content early
+in the pipeline (pre-processor style), Sphinx defers exclusion until
+output phase, and what's the worst, various stages processing ignore
+&quot;only&quot; blocks and their exclusion status, so they may leak unexpected
+information into ToC, indexes, etc.</p>
+<p>There's multiple issues submitted upstream on this matter:</p>
+<ul class="simple">
+<li>https://github.com/sphinx-doc/sphinx/issues/2150</li>
+<li>https://github.com/sphinx-doc/sphinx/issues/1717</li>
+<li>https://github.com/sphinx-doc/sphinx/issues/1488</li>
+<li>etc.</li>
+</ul>
+<p>They are largely ignored by Sphinx maintainers.</p>
+<p>This projects tries to rectify situation on users' side. It actually
+changes the way Sphinx processes &quot;only&quot; directive, but does this
+without forking the project, and instead is made as a standard
+Sphinx extension, which a user may add to their documentation config.
+Unlike normal extensions, extensions provided in this package
+monkey-patch Sphinx core to work in a way expected by users.</p>
+<div class="section" id="eager-only">
+<span id="eager-only"></span><h2>eager_only<a class="headerlink" href="#eager-only" title="Permalink to this headline">¶</a></h2>
+<p>The core extension provided by the package is called <code class="docutils literal"><span class="pre">eager_only</span></code> and
+is based on the idea by Andrea Cassioli (see bugreports above) to
+process &quot;only&quot; directive as soon as possible during parsing phase.
+This approach has some drawbacks, like producing warnings like
+&quot;WARNING: document isn't included in any toctree&quot; if &quot;only&quot; is used
+to shape up a toctree, or the fact that changing a documentation
+builder (html/latex/etc.) will almost certainly require complete
+rebuild of documentation. But these are relatively minor issues
+comparing to completely broken way &quot;only&quot; works in upstream Sphinx.</p>
+</div>
+<div class="section" id="modindex-exclude">
+<span id="modindex-exclude"></span><h2>modindex_exclude<a class="headerlink" href="#modindex-exclude" title="Permalink to this headline">¶</a></h2>
+<p>&quot;only&quot; directive allows for fine-grained conditional exclusion, but
+sometimes you may want to exclude entire module(s) at once. Even if
+you wrap an entire module description in &quot;only&quot; directive, like:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">only</span><span class="p">:</span> <span class="n">option1</span>
+    <span class="o">..</span> <span class="n">module</span><span class="p">::</span> <span class="n">my_module</span>
+
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>You will still have an HTML page generated, albeit empty. It may also
+go into indexes, so will be discoverable by users, leading to less
+than ideal experience. <code class="docutils literal"><span class="pre">modindex_exclude</span></code> extension is design to
+resolve this issue, by making sure that any reference of a module
+is excluded from Python module index (&quot;modindex&quot;), as well as
+general cross-reference index (&quot;genindex&quot;). In the latter case,
+any symbol belong to a module will be excluded. Unlike <code class="docutils literal"><span class="pre">eager_only</span></code>
+extension which appear to have issued with &quot;latexpdf&quot; builder,
+<code class="docutils literal"><span class="pre">modindex_exclude</span></code> is useful for PDF, and allows to get cleaner
+index for PDF, just the same as for HTML.</p>
+</div>
+<div class="section" id="search-auto-exclude">
+<span id="search-auto-exclude"></span><h2>search_auto_exclude<a class="headerlink" href="#search-auto-exclude" title="Permalink to this headline">¶</a></h2>
+<p>Even if you exclude some documents from toctree:: using only::
+directive, they will be indexed for full-text search, so user may
+find them and get confused. This plugin follows very simple idea
+that if you didn't include some documents in the toctree, then
+you didn't want them to be accessible (e.g. for a particular
+configuration), and so will make sure they aren't indexed either.</p>
+<p>This extension depends on <code class="docutils literal"><span class="pre">eager_only</span></code> and won't work without it.
+Note that Sphinx will issue warnings, as usual, for any documents
+not included in a toctree. This is considered a feature, and gives
+you a chance to check that document exclusions are indeed right
+for a particular configuration you build (and not that you forgot
+to add something to a toctree).</p>
+</div>
+<div class="section" id="summary">
+<span id="summary"></span><h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>Based on the above, sphinx_selective_exclude offers extension to let
+you:</p>
+<ul class="simple">
+<li>Make &quot;only::&quot; directive work in an expected, intuitive manner, using
+<code class="docutils literal"><span class="pre">eager_only</span></code> extension.</li>
+<li>However, if you apply only:: to toctree::, excluded documents will
+still be available via full-text search, so you need to use
+<code class="docutils literal"><span class="pre">search_auto_exclude</span></code> for that to work as expected.</li>
+<li>Similar to search, indexes may also require special treatment, hence
+there's the <code class="docutils literal"><span class="pre">modindex_exclude</span></code> extension.</li>
+</ul>
+<p>Most likely, you will want to use all 3 extensions together - if you
+really want build subsets of docimentation covering sufficiently different
+configurations from a single doctree. However, if one of them is enough
+to cover your usecase, that's OK to (and why they were separated into
+3 extensions, to follow KISS and &quot;least surprise&quot; principles and to
+not make people deal with things they aren't interested in). In this case,
+however remember there're other extensions, if you later hit a usecase
+when they're needed.</p>
+</div>
+<div class="section" id="usage">
+<span id="usage"></span><h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>To use these extensions, add https://github.com/pfalcon/sphinx_selective_exclude
+as a git submodule to your project, in documentation folder (where
+Sphinx conf.py is located). Alternatively, commit sphinx_selective_exclude
+directory instead of making it a submodule (you will need to pick up
+any project updates manually then).</p>
+<p>Add following lines to &quot;extensions&quot; settings in your conf.py (you
+likely already have some standard Sphinx extensions enabled):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="o">...</span>
+    <span class="s1">&#39;sphinx_selective_exclude.eager_only&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sphinx_selective_exclude.search_auto_exclude&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sphinx_selective_exclude.modindex_exclude&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>As discussed above, you may enable all extensions, or one by one.</p>
+<p>Please note that to make sure these extensions work well and avoid producing
+output docs with artifacts, it is IMPERATIVE to remove cached doctree if
+you rebuild documentation with another builder (i.e. with different output
+format). Also, to stay on safe side, it's recommended to remove old doctree
+anyway before generating production-ready documentation for publishing. To
+do that, run something like:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="n">_build</span><span class="o">/</span><span class="n">doctrees</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>A typical artificat when not following these simple rules is that content
+of some sections may be missing. If you face anything like that, just
+remember what's written above and remove cached doctrees.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, MicroPython &amp; CircuitPython contributors (https://github.com/adafruit/circuitpython/graphs/contributors).
+      Last updated on 17 Aug 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

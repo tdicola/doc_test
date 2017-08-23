@@ -1,0 +1,451 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Adafruit CircuitPython API Reference &mdash; Adafruit CircuitPython 0.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Adafruit CircuitPython 0.0.0 documentation" href="#"/>
+        <link rel="next" title="Core Modules" href="shared-bindings/index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> Adafruit CircuitPython
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="shared-bindings/index.html">Core Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/programming_guide/index.html">Programming Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/drivers.html">Additional Libraries on GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/common_hal.html">Adding <code class="docutils literal"><span class="pre">*io</span></code> support to other ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/design_guide.html">Design Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/supported_ports.html">Supported Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/library/index.html">MicroPython libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">Adafruit CircuitPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">MicroPython &amp; CircuitPython license information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Adafruit CircuitPython</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Adafruit CircuitPython API Reference</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="adafruit-circuitpython-api-reference">
+<h1>Adafruit CircuitPython API Reference<a class="headerlink" href="#adafruit-circuitpython-api-reference" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="https://travis-ci.org/adafruit/circuitpython"><img alt="Build Status" src="https://travis-ci.org/adafruit/circuitpython.svg?branch=master" /></a>
+<a class="reference external image-reference" href="http://circuitpython.readthedocs.io/"><img alt="Doc Status" src="https://readthedocs.org/projects/circuitpython/badge/?version=latest" /></a>
+<a class="reference external image-reference" href="https://gitter.im/adafruit/circuitpython?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge"><img alt="Gitter" src="https://badges.gitter.im/adafruit/circuitpython.svg" /></a>
+<a class="reference external image-reference" href="https://adafru.it/discord"><img alt="Discord" src="https://img.shields.io/discord/327254708534116352.svg" /></a>
+<p>Welcome! This is the documentation for Adafruit CircuitPython. It is an open
+source derivative of <a class="reference external" href="https://micropython.org">MicroPython</a> for use on
+educational development boards designed and sold by <a class="reference external" href="https://adafruit.com">Adafruit</a>. Adafruit CircuitPython features unified Python core
+APIs and a growing list of drivers that work with it.</p>
+<p>The Adafruit Express line of boards are specifically
+designed for use with CircuitPython. They are the
+<a class="reference external" href="https://www.adafruit.com/product/3333">CircuitPlayground Express</a>,
+<a class="reference external" href="https://www.adafruit.com/product/3403">Feather M0 Express</a>,
+and <a class="reference external" href="https://www.adafruit.com/product/3505">Metro M0 Express</a>.
+Other supported boards include the <a class="reference external" href="https://www.arduino.cc/en/Main/ArduinoBoardZero">Arduino Zero</a>, <a class="reference external" href="https://www.adafruit.com/product/2772">Adafruit Feather M0 Basic</a>, <a class="reference external" href="https://www.adafruit.com/products/2821">Adafruit Feather HUZZAH</a> and <a class="reference external" href="https://www.adafruit.com/products/2995">Adafruit Feather M0 Bluefruit LE</a>.</p>
+<p><a class="reference external" href="https://adafruit.com">Adafruit</a> has many excellent tutorials available
+through the <a class="reference external" href="https://learn.adafruit.com/">Adafruit Learning System</a>. These
+docs are low-level API docs and may link out to separate getting started guides.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="shared-bindings/index.html">Core Modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shared-bindings/index.html#support-matrix">Support Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shared-bindings/index.html#modules">Modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shared-bindings/analogio/__init__.html"><code class="docutils literal"><span class="pre">analogio</span></code> --- Analog hardware support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shared-bindings/audiobusio/__init__.html"><code class="docutils literal"><span class="pre">audiobusio</span></code> --- Support for audio input and output over digital bus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shared-bindings/audioio/__init__.html"><code class="docutils literal"><span class="pre">audioio</span></code> --- Support for audio input and output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shared-bindings/bitbangio/__init__.html"><code class="docutils literal"><span class="pre">bitbangio</span></code> --- Digital protocols implemented by the CPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shared-bindings/board/__init__.html"><code class="docutils literal"><span class="pre">board</span></code> --- Board specific pin names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shared-bindings/busio/__init__.html"><code class="docutils literal"><span class="pre">busio</span></code> --- Hardware accelerated behavior</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shared-bindings/digitalio/__init__.html"><code class="docutils literal"><span class="pre">digitalio</span></code> --- Basic digital pin support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shared-bindings/microcontroller/__init__.html"><code class="docutils literal"><span class="pre">microcontroller</span></code> --- Pin references and core functionality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shared-bindings/multiterminal/__init__.html"><code class="docutils literal"><span class="pre">multiterminal</span></code> --- Manage additional terminal sources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shared-bindings/neopixel_write/__init__.html"><code class="docutils literal"><span class="pre">neopixel_write</span></code> --- Low-level neopixel implementation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shared-bindings/os/__init__.html"><code class="docutils literal"><span class="pre">os</span></code> --- functions that an OS normally provides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shared-bindings/pulseio/__init__.html"><code class="docutils literal"><span class="pre">pulseio</span></code> --- Support for pulse based protocols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shared-bindings/random/__init__.html"><code class="docutils literal"><span class="pre">random</span></code> --- psuedo-random numbers and choices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shared-bindings/storage/__init__.html"><code class="docutils literal"><span class="pre">storage</span></code> --- storage management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shared-bindings/time/__init__.html"><code class="docutils literal"><span class="pre">time</span></code> --- time and timing related functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shared-bindings/touchio/__init__.html"><code class="docutils literal"><span class="pre">touchio</span></code> --- Touch related IO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shared-bindings/uheap/__init__.html"><code class="docutils literal"><span class="pre">uheap</span></code> --- Heap size analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shared-bindings/usb_hid/__init__.html"><code class="docutils literal"><span class="pre">usb_hid</span></code> --- USB Human Interface Device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shared-bindings/ustack/__init__.html"><code class="docutils literal"><span class="pre">ustack</span></code> --- Stack information and analysis</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docs/programming_guide/index.html">Programming Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docs/programming_guide/01_digital_io.html">1. Digital Inputs &amp; Outputs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docs/programming_guide/01_digital_io.html#digital-signals">1.1. Digital Signals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/programming_guide/01_digital_io.html#examples-of-digital-signals">1.2. Examples of Digital Signals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/programming_guide/01_digital_io.html#board-pins">1.3. Board Pins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/programming_guide/01_digital_io.html#digital-outputs">1.4. Digital Outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/programming_guide/01_digital_io.html#digital-inputs">1.5. Digital Inputs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docs/drivers.html">Additional Libraries on GitHub</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docs/drivers.html#bundle">Bundle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/drivers.html#foundational-libraries">Foundational Libraries</a><ul>
+<li class="toctree-l3"><a class="reference external" href="https://circuitpython.readthedocs.io/projects/register/en/latest/">Register Library</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://circuitpython.readthedocs.io/projects/bus_device/en/latest/">BusDevice Library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="docs/drivers.html#helper-libraries">Helper Libraries</a><ul>
+<li class="toctree-l3"><a class="reference external" href="https://circuitpython.readthedocs.io/projects/hid/en/latest/">USB Human Interface Device (Keyboard and Mouse)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="docs/drivers.html#drivers">Drivers</a><ul>
+<li class="toctree-l3"><a class="reference external" href="https://circuitpython.readthedocs.io/projects/neopixel/en/latest/">NeoPixel</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://circuitpython.readthedocs.io/projects/simpleio/en/latest/">SimpleIO</a></li>
+<li class="toctree-l3"><a class="reference external" href="http://micropython-rgb.readthedocs.io/">RGB Displays</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://circuitpython.readthedocs.io/projects/sdcard/en/latest/">SD Card</a></li>
+<li class="toctree-l3"><a class="reference external" href="http://micropython-ads1015.readthedocs.io/">Analog-to-digital converters: ADS1015 and ADS1115</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://circuitpython.readthedocs.io/projects/ds3231/en/latest/">DS3231 Real-time Clock (Precision RTC)</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://circuitpython.readthedocs.io/projects/ds1307/en/latest/">DS1307 Real-time Clock (5V RTC Breakout)</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://circuitpython.readthedocs.io/projects/pcf8523/en/latest/">PCF8523 Real-time Clock (Adalogger RTC)</a></li>
+<li class="toctree-l3"><a class="reference external" href="http://micropython-tcs34725.readthedocs.io/">TCS34725 Color Sensor</a></li>
+<li class="toctree-l3"><a class="reference external" href="http://micropython-tsl2561.readthedocs.io/">TSL2561 Light Sensor</a></li>
+<li class="toctree-l3"><a class="reference external" href="http://micropython-pca9685.readthedocs.io/">PCA9685 Motor and Servo Controllers</a></li>
+<li class="toctree-l3"><a class="reference external" href="http://micropython-ht16k33.readthedocs.io/">HT16K33 LED Matrices and Segment Displays</a></li>
+<li class="toctree-l3"><a class="reference external" href="http://micropython-is31fl3731.readthedocs.io/">IS31FL3731 Charlieplexed LED Matrix</a></li>
+<li class="toctree-l3"><a class="reference external" href="http://micropython-max7219.readthedocs.io/">MAX7219 LED Matrix</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docs/common_hal.html">Adding <code class="docutils literal"><span class="pre">*io</span></code> support to other ports</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docs/common_hal.html#file-layout">File layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/common_hal.html#adding-support">Adding support</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docs/common_hal.html#modifying-the-build">Modifying the build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/common_hal.html#hooking-the-modules-in">Hooking the modules in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/common_hal.html#implementing-the-common-hal">Implementing the Common HAL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/common_hal.html#testing">Testing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docs/design_guide.html">Design Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docs/design_guide.html#start-libraries-with-the-cookiecutter">Start libraries with the cookiecutter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/design_guide.html#module-naming">Module Naming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/design_guide.html#lifetime-and-contextmanagers">Lifetime and ContextManagers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/design_guide.html#verify-your-device">Verify your device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/design_guide.html#getters-setters">Getters/Setters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/design_guide.html#design-for-compatibility-with-cpython">Design for compatibility with CPython</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docs/design_guide.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="docs/design_guide.html#document-inline">Document inline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docs/design_guide.html#module-description">Module description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/design_guide.html#class-description">Class description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/design_guide.html#data-descriptor-description">Data descriptor description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/design_guide.html#method-description">Method description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/design_guide.html#property-description">Property description</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="docs/design_guide.html#use-busdevice">Use BusDevice</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docs/design_guide.html#i2c-example">I2C Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/design_guide.html#spi-example">SPI Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="docs/design_guide.html#use-composition">Use composition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/design_guide.html#lots-of-small-modules">Lots of small modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/design_guide.html#speed-second">Speed second</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/design_guide.html#avoid-allocations-in-drivers">Avoid allocations in drivers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docs/design_guide.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="docs/design_guide.html#sensor-properties-and-units">Sensor properties and units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/design_guide.html#common-apis">Common APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/design_guide.html#adding-native-modules">Adding native modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/design_guide.html#micropython-compatibility">MicroPython compatibility</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docs/supported_ports.html">Supported Ports</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="atmel-samd/README.html">SAMD21x18</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="atmel-samd/README.html#pinout">Pinout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atmel-samd/README.html#building">Building</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atmel-samd/README.html#deploying">Deploying</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atmel-samd/README.html#connecting">Connecting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atmel-samd/README.html#port-specific-modules">Port Specific modules</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="docs/esp8266/index.html">ESP8266</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docs/esp8266/quickref.html">Quick reference for the ESP8266</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/esp8266/general.html">General information about the ESP8266 port</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/esp8266/tutorial/index.html">MicroPython tutorial for ESP8266</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docs/library/index.html">MicroPython libraries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docs/library/index.html#python-standard-libraries-and-micro-libraries">Python standard libraries and micro-libraries</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="docs/library/index.html#micropython-specific-libraries">MicroPython-specific libraries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docs/library/btree.html"><code class="docutils literal"><span class="pre">btree</span></code> – simple BTree database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/library/framebuf.html"><code class="docutils literal"><span class="pre">framebuf</span></code> — Frame buffer manipulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/library/machine.html"><code class="docutils literal"><span class="pre">machine</span></code> — functions related to the hardware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/library/micropython.html"><code class="docutils literal"><span class="pre">micropython</span></code> – access and control MicroPython internals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/library/network.html"><code class="docutils literal"><span class="pre">network</span></code> — network configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/library/uctypes.html"><code class="docutils literal"><span class="pre">uctypes</span></code> – access binary data in a structured way</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">Adafruit CircuitPython</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="README.html#project-status">Project Status</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="README.html#supported-boards">Supported boards</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="README.html#download">Download</a></li>
+<li class="toctree-l2"><a class="reference internal" href="README.html#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="README.html#contributing">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="README.html#differences-from-micropython">Differences from MicroPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="README.html#project-structure">Project Structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="README.html#core">Core</a></li>
+<li class="toctree-l3"><a class="reference internal" href="README.html#ports">Ports</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CONTRIBUTING.html#developer-contact">Developer contact</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CONTRIBUTING.html#licensing">Licensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CONTRIBUTING.html#code-guidelines">Code guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CODE_OF_CONDUCT.html#our-pledge">Our Pledge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CODE_OF_CONDUCT.html#our-standards">Our Standards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CODE_OF_CONDUCT.html#our-responsibilities">Our Responsibilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CODE_OF_CONDUCT.html#scope">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CODE_OF_CONDUCT.html#enforcement">Enforcement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CODE_OF_CONDUCT.html#attribution">Attribution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">MicroPython &amp; CircuitPython license information</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="shared-bindings/index.html" class="btn btn-neutral float-right" title="Core Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, MicroPython &amp; CircuitPython contributors (https://github.com/adafruit/circuitpython/graphs/contributors).
+      Last updated on 22 Aug 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,331 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MicroPython libraries &mdash; Adafruit CircuitPython 0.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Adafruit CircuitPython 0.0.0 documentation" href="../../index.html"/>
+        <link rel="next" title="Builtin Functions" href="builtins.html"/>
+        <link rel="prev" title="13. Next steps" href="../esp8266/tutorial/nextsteps.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Adafruit CircuitPython
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../shared-bindings/index.html">Core Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drivers.html">Additional Libraries on GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common_hal.html">Adding <code class="docutils literal"><span class="pre">*io</span></code> support to other ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_guide.html">Design Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../supported_ports.html">Supported Ports</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MicroPython libraries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#python-standard-libraries-and-micro-libraries">Python standard libraries and micro-libraries</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#micropython-specific-libraries">MicroPython-specific libraries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="btree.html"><code class="docutils literal"><span class="pre">btree</span></code> – simple BTree database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="framebuf.html"><code class="docutils literal"><span class="pre">framebuf</span></code> — Frame buffer manipulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="machine.html"><code class="docutils literal"><span class="pre">machine</span></code> — functions related to the hardware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="micropython.html"><code class="docutils literal"><span class="pre">micropython</span></code> – access and control MicroPython internals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="network.html"><code class="docutils literal"><span class="pre">network</span></code> — network configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="uctypes.html"><code class="docutils literal"><span class="pre">uctypes</span></code> – access binary data in a structured way</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">Adafruit CircuitPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CONTRIBUTING.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">MicroPython &amp; CircuitPython license information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Adafruit CircuitPython</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>MicroPython libraries</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/docs/library/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="micropython-libraries">
+<h1>MicroPython libraries<a class="headerlink" href="#micropython-libraries" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>Important summary of this section</p>
+<ul class="last simple">
+<li>MicroPython implements a subset of Python functionality for each module.</li>
+<li>To ease extensibility, MicroPython versions of standard Python modules
+usually have <code class="docutils literal"><span class="pre">u</span></code> (micro) prefix.</li>
+<li>Any particular MicroPython variant or port may miss any feature/function
+described in this general documentation, due to resource constraints.</li>
+</ul>
+</div>
+<p>This chapter describes modules (function and class libraries) which are built
+into MicroPython and CircuitPython. There are a few categories of modules:</p>
+<ul class="simple">
+<li>Modules which implement a subset of standard Python functionality and are not
+intended to be extended by the user.</li>
+<li>Modules which implement a subset of Python functionality, with a provision
+for extension by the user (via Python code).</li>
+<li>Modules which implement MicroPython extensions to the Python standard libraries.</li>
+<li>Modules specific to a particular port and thus not portable.</li>
+</ul>
+<p>Note about the availability of modules and their contents: This documentation
+in general aspires to describe all modules and functions/classes which are
+implemented in MicroPython. However, MicroPython is highly configurable, and
+each port to a particular board/embedded system makes available only a subset
+of MicroPython libraries. For officially supported ports, there is an effort
+to either filter out non-applicable items, or mark individual descriptions
+with “Availability:” clauses describing which ports provide a given feature.
+With that in mind, please still be warned that some functions/classes
+in a module (or even the entire module) described in this documentation may be
+unavailable in a particular build of MicroPython on a particular board. The
+best place to find general information of the availability/non-availability
+of a particular feature is the “General Information” section which contains
+information pertaining to a specific port.</p>
+<p>Beyond the built-in libraries described in this documentation, many more
+modules from the Python standard library, as well as further MicroPython
+extensions to it, can be found in the <a class="reference external" href="https://github.com/micropython/micropython-lib">micropython-lib repository</a>.</p>
+<div class="section" id="python-standard-libraries-and-micro-libraries">
+<h2>Python standard libraries and micro-libraries<a class="headerlink" href="#python-standard-libraries-and-micro-libraries" title="Permalink to this headline">¶</a></h2>
+<p>The following standard Python libraries have been “micro-ified” to fit in with
+the philosophy of MicroPython.  They provide the core functionality of that
+module and are intended to be a drop-in replacement for the standard Python
+library.  Some modules below use a standard Python name, but prefixed with “u”,
+e.g. <code class="docutils literal"><span class="pre">ujson</span></code> instead of <code class="docutils literal"><span class="pre">json</span></code>. This is to signify that such a module is
+micro-library, i.e. implements only a subset of CPython module functionality.
+By naming them differently, a user has a choice to write a Python-level module
+to extend functionality for better compatibility with CPython (indeed, this is
+what done by micropython-lib project mentioned above).</p>
+<p>On some embedded platforms, where it may be cumbersome to add Python-level
+wrapper modules to achieve naming compatibility with CPython, micro-modules
+are available both by their u-name, and also by their non-u-name.  The
+non-u-name can be overridden by a file of that name in your package path.
+For example, <code class="docutils literal"><span class="pre">import</span> <span class="pre">json</span></code> will first search for a file <code class="docutils literal"><span class="pre">json.py</span></code> or
+directory <code class="docutils literal"><span class="pre">json</span></code> and load that package if it is found.  If nothing is found,
+it will fallback to loading the built-in <code class="docutils literal"><span class="pre">ujson</span></code> module.</p>
+</div>
+<div class="section" id="micropython-specific-libraries">
+<h2>MicroPython-specific libraries<a class="headerlink" href="#micropython-specific-libraries" title="Permalink to this headline">¶</a></h2>
+<p>Functionality specific to the MicroPython implementation is available in
+the following libraries.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="btree.html"><code class="docutils literal"><span class="pre">btree</span></code> – simple BTree database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="framebuf.html"><code class="docutils literal"><span class="pre">framebuf</span></code> — Frame buffer manipulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machine.html"><code class="docutils literal"><span class="pre">machine</span></code> — functions related to the hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="micropython.html"><code class="docutils literal"><span class="pre">micropython</span></code> – access and control MicroPython internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network.html"><code class="docutils literal"><span class="pre">network</span></code> — network configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uctypes.html"><code class="docutils literal"><span class="pre">uctypes</span></code> – access binary data in a structured way</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="builtins.html" class="btn btn-neutral float-right" title="Builtin Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../esp8266/tutorial/nextsteps.html" class="btn btn-neutral" title="13. Next steps" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, MicroPython &amp; CircuitPython contributors (https://github.com/adafruit/circuitpython/graphs/contributors).
+      Last updated on 17 Aug 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

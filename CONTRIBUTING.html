@@ -1,0 +1,284 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Contributing &mdash; Adafruit CircuitPython 0.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Adafruit CircuitPython 0.0.0 documentation" href="index.html"/>
+        <link rel="next" title="Contributor Covenant Code of Conduct" href="CODE_OF_CONDUCT.html"/>
+        <link rel="prev" title="Adafruit CircuitPython" href="README.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Adafruit CircuitPython
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="shared-bindings/index.html">Core Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/drivers.html">Additional Libraries on GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/common_hal.html">Adding <code class="docutils literal"><span class="pre">*io</span></code> support to other ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/design_guide.html">Design Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/supported_ports.html">Supported Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/library/index.html">MicroPython libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">Adafruit CircuitPython</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#developer-contact">Developer contact</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#licensing">Licensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-guidelines">Code guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">MicroPython &amp; CircuitPython license information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Adafruit CircuitPython</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Contributing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/CONTRIBUTING.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="contributing">
+<span id="contributing"></span><h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h1>
+<p>Please note that this project is released with a
+<a class="reference external" href="https://github.com/adafruit/circuitpython/blob/master/CODE_OF_CONDUCT.md">Contributor Code of Conduct</a>.
+By participating in this project you agree to abide by its terms. Participation
+covers any forum used to converse about CircuitPython including unofficial and official spaces. Failure to do
+so will result in corrective actions such as time out or ban from the project.</p>
+<div class="section" id="developer-contact">
+<span id="developer-contact"></span><h2>Developer contact<a class="headerlink" href="#developer-contact" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/tannewt">&#64;tannewt</a> is the main developer of CircuitPython
+and is sponsored by <a class="reference external" href="https://adafruit.com">Adafruit Industries LLC</a>. He is
+reachable on <a class="reference external" href="https://adafru.it/discord">Discord</a> as tannewt and
+<a class="reference external" href="gitter.im/adafruit/circuitpython">Gitter</a> as tannewt during US West Coast
+working hours. He also checks GitHub issues and the <a class="reference external" href="https://forums.adafruit.com/viewforum.php?f=60">Adafruit support forum</a>.</p>
+</div>
+<div class="section" id="licensing">
+<span id="licensing"></span><h2>Licensing<a class="headerlink" href="#licensing" title="Permalink to this headline">¶</a></h2>
+<p>By contributing to this repository you are certifying that you have all necessary
+permissions to license the code under an MIT License. You still retain the
+copyright but are granting many permissions under the MIT License.</p>
+<p>If you have an employment contract with your employer please make sure that they
+don't automatically own your work product. Make sure to get any necessary approvals
+before contributing. Another term for this contribution off-hours is moonlighting.</p>
+</div>
+<div class="section" id="code-guidelines">
+<span id="code-guidelines"></span><h2>Code guidelines<a class="headerlink" href="#code-guidelines" title="Permalink to this headline">¶</a></h2>
+<p>We aim to keep our code and commit style compatible with MicroPython upstream.
+Please review their
+<a class="reference external" href="https://github.com/micropython/micropython/blob/master/CODECONVENTIONS.md">code conventions</a> to do so.
+Familiarity with their <a class="reference external" href="https://github.com/micropython/micropython/wiki/ContributorGuidelines">design philosophy</a>
+is also useful though not always applicable to CircuitPython.</p>
+<p>Furthermore, CircuitPython has a
+<a class="reference external" href="https://circuitpython.readthedocs.io/en/latest/docs/design_guide.html">design guide</a>
+that covers a variety of different topics. Please read it as well.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="CODE_OF_CONDUCT.html" class="btn btn-neutral float-right" title="Contributor Covenant Code of Conduct" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="README.html" class="btn btn-neutral" title="Adafruit CircuitPython" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, MicroPython &amp; CircuitPython contributors (https://github.com/adafruit/circuitpython/graphs/contributors).
+      Last updated on 17 Aug 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

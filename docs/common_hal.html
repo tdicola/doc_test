@@ -1,0 +1,344 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Adding *io support to other ports &mdash; Adafruit CircuitPython 0.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Adafruit CircuitPython 0.0.0 documentation" href="../index.html"/>
+        <link rel="next" title="Design Guide" href="design_guide.html"/>
+        <link rel="prev" title="Additional Libraries on GitHub" href="drivers.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Adafruit CircuitPython
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../shared-bindings/index.html">Core Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drivers.html">Additional Libraries on GitHub</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Adding <code class="docutils literal"><span class="pre">*io</span></code> support to other ports</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#file-layout">File layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-support">Adding support</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modifying-the-build">Modifying the build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hooking-the-modules-in">Hooking the modules in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementing-the-common-hal">Implementing the Common HAL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing">Testing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="design_guide.html">Design Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported_ports.html">Supported Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library/index.html">MicroPython libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Adafruit CircuitPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">MicroPython &amp; CircuitPython license information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Adafruit CircuitPython</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Adding <code class="docutils literal"><span class="pre">*io</span></code> support to other ports</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/docs/common_hal.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="adding-io-support-to-other-ports">
+<span id="adding-io-support-to-other-ports"></span><h1>Adding <code class="docutils literal"><span class="pre">*io</span></code> support to other ports<a class="headerlink" href="#adding-io-support-to-other-ports" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal"><span class="pre">digitalio</span></code> provides a well-defined, cross-port hardware abstraction layer built to support different devices and their drivers. It's backed by the Common HAL, a C api suitable for supporting different hardware in a similar manner. By sharing this C api, developers can support new hardware easily and cross-port functionality to the new hardware.</p>
+<p>These instructions also apply to <code class="docutils literal"><span class="pre">analogio</span></code>, <code class="docutils literal"><span class="pre">busio</span></code>, <code class="docutils literal"><span class="pre">pulseio</span></code> and <code class="docutils literal"><span class="pre">touchio</span></code>. Most drivers depend on <code class="docutils literal"><span class="pre">analogio</span></code>, <code class="docutils literal"><span class="pre">digitalio</span></code> and <code class="docutils literal"><span class="pre">busio</span></code> so start with those.</p>
+<div class="section" id="file-layout">
+<span id="file-layout"></span><h2>File layout<a class="headerlink" href="#file-layout" title="Permalink to this headline">¶</a></h2>
+<p>Common HAL related files are found in these locations:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">shared-bindings</span></code> Shared home for the Python &lt;-&gt; C bindings which includes inline RST documentation for the created interfaces. The common hal functions are defined in the .h files of the corresponding C files.</li>
+<li><code class="docutils literal"><span class="pre">shared-modules</span></code> Shared home for C code built on the Common HAL and used by all ports. This code only uses <code class="docutils literal"><span class="pre">common_hal</span></code> methods defined in <code class="docutils literal"><span class="pre">shared-bindings</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">&lt;port&gt;/common-hal</span></code> Port-specific implementation of the Common HAL.</li>
+</ul>
+<p>Each folder has the substructure of <python module name>/<class name> and they should match 1:1. <code class="docutils literal"><span class="pre">__init__.c</span></code> is used for module globals that are not classes (similar to <code class="docutils literal"><span class="pre">__init__.py</span></code>).</p>
+</div>
+<div class="section" id="adding-support">
+<span id="adding-support"></span><h2>Adding support<a class="headerlink" href="#adding-support" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="modifying-the-build">
+<span id="modifying-the-build"></span><h3>Modifying the build<a class="headerlink" href="#modifying-the-build" title="Permalink to this headline">¶</a></h3>
+<p>The first step is to hook the <code class="docutils literal"><span class="pre">shared-bindings</span></code> into your build for the modules you wish to support. Here's an example of this step for the <code class="docutils literal"><span class="pre">atmel-samd/Makefile</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>SRC_BINDINGS = \
+    board/__init__.c \
+    microcontroller/__init__.c \
+    microcontroller/Pin.c \
+    analogio/__init__.c \
+    analogio/AnalogIn.c \
+    analogio/AnalogOut.c \
+    digitalio/__init__.c \
+    digitalio/DigitalInOut.c \
+    pulseio/__init__.c \
+    pulseio/PulseIn.c \
+    pulseio/PulseOut.c \
+    pulseio/PWMOut.c \
+    busio/__init__.c \
+    busio/I2C.c \
+    busio/SPI.c \
+    busio/UART.c \
+    neopixel_write/__init__.c \
+    time/__init__.c \
+    usb_hid/__init__.c \
+    usb_hid/Device.c
+
+SRC_BINDINGS_EXPANDED = $(addprefix shared-bindings/, $(SRC_BINDINGS)) \
+                        $(addprefix common-hal/, $(SRC_BINDINGS))
+
+# Add the resulting objects to the full list
+OBJ += $(addprefix $(BUILD)/, $(SRC_BINDINGS_EXPANDED:.c=.o))
+# Add the sources for QSTR generation
+SRC_QSTR += $(SRC_C) $(SRC_BINDINGS_EXPANDED) $(STM_SRC_C)
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">Makefile</span></code> defines the modules to build and adds the sources to include the <code class="docutils literal"><span class="pre">shared-bindings</span></code> version and the <code class="docutils literal"><span class="pre">common-hal</span></code> version within the port specific directory. You may comment out certain subfolders to reduce the number of modules to add but don't comment out individual classes. It won't compile then.</p>
+</div>
+<div class="section" id="hooking-the-modules-in">
+<span id="hooking-the-modules-in"></span><h3>Hooking the modules in<a class="headerlink" href="#hooking-the-modules-in" title="Permalink to this headline">¶</a></h3>
+<p>Built in modules are typically defined in <code class="docutils literal"><span class="pre">mpconfigport.h</span></code>. To add support you should have something like:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">extern</span> <span class="n">const</span> <span class="n">struct</span> <span class="n">_mp_obj_module_t</span> <span class="n">microcontroller_module</span><span class="p">;</span>
+<span class="n">extern</span> <span class="n">const</span> <span class="n">struct</span> <span class="n">_mp_obj_module_t</span> <span class="n">analogio_module</span><span class="p">;</span>
+<span class="n">extern</span> <span class="n">const</span> <span class="n">struct</span> <span class="n">_mp_obj_module_t</span> <span class="n">digitalio_module</span><span class="p">;</span>
+<span class="n">extern</span> <span class="n">const</span> <span class="n">struct</span> <span class="n">_mp_obj_module_t</span> <span class="n">pulseio_module</span><span class="p">;</span>
+<span class="n">extern</span> <span class="n">const</span> <span class="n">struct</span> <span class="n">_mp_obj_module_t</span> <span class="n">busio_module</span><span class="p">;</span>
+<span class="n">extern</span> <span class="n">const</span> <span class="n">struct</span> <span class="n">_mp_obj_module_t</span> <span class="n">board_module</span><span class="p">;</span>
+<span class="n">extern</span> <span class="n">const</span> <span class="n">struct</span> <span class="n">_mp_obj_module_t</span> <span class="n">time_module</span><span class="p">;</span>
+<span class="n">extern</span> <span class="n">const</span> <span class="n">struct</span> <span class="n">_mp_obj_module_t</span> <span class="n">neopixel_write_module</span><span class="p">;</span>
+
+<span class="c1">#define MICROPY_PORT_BUILTIN_MODULES \</span>
+    <span class="p">{</span> <span class="n">MP_OBJ_NEW_QSTR</span><span class="p">(</span><span class="n">MP_QSTR_microcontroller</span><span class="p">),</span> <span class="p">(</span><span class="n">mp_obj_t</span><span class="p">)</span><span class="o">&amp;</span><span class="n">microcontroller_module</span> <span class="p">},</span> \
+    <span class="p">{</span> <span class="n">MP_OBJ_NEW_QSTR</span><span class="p">(</span><span class="n">MP_QSTR_analogio</span><span class="p">),</span> <span class="p">(</span><span class="n">mp_obj_t</span><span class="p">)</span><span class="o">&amp;</span><span class="n">analogio_module</span> <span class="p">},</span> \
+    <span class="p">{</span> <span class="n">MP_OBJ_NEW_QSTR</span><span class="p">(</span><span class="n">MP_QSTR_digitalio</span><span class="p">),</span> <span class="p">(</span><span class="n">mp_obj_t</span><span class="p">)</span><span class="o">&amp;</span><span class="n">digitalio_module</span> <span class="p">},</span> \
+    <span class="p">{</span> <span class="n">MP_OBJ_NEW_QSTR</span><span class="p">(</span><span class="n">MP_QSTR_pulseio</span><span class="p">),</span> <span class="p">(</span><span class="n">mp_obj_t</span><span class="p">)</span><span class="o">&amp;</span><span class="n">pulseio_module</span> <span class="p">},</span> \
+    <span class="p">{</span> <span class="n">MP_OBJ_NEW_QSTR</span><span class="p">(</span><span class="n">MP_QSTR_busio</span><span class="p">),</span> <span class="p">(</span><span class="n">mp_obj_t</span><span class="p">)</span><span class="o">&amp;</span><span class="n">busio_module</span> <span class="p">},</span> \
+    <span class="p">{</span> <span class="n">MP_OBJ_NEW_QSTR</span><span class="p">(</span><span class="n">MP_QSTR_board</span><span class="p">),</span> <span class="p">(</span><span class="n">mp_obj_t</span><span class="p">)</span><span class="o">&amp;</span><span class="n">board_module</span> <span class="p">},</span> \
+    <span class="p">{</span> <span class="n">MP_OBJ_NEW_QSTR</span><span class="p">(</span><span class="n">MP_QSTR_time</span><span class="p">),</span> <span class="p">(</span><span class="n">mp_obj_t</span><span class="p">)</span><span class="o">&amp;</span><span class="n">time_module</span> <span class="p">},</span> \
+    <span class="p">{</span> <span class="n">MP_OBJ_NEW_QSTR</span><span class="p">(</span><span class="n">MP_QSTR_neopixel_write</span><span class="p">),(</span><span class="n">mp_obj_t</span><span class="p">)</span><span class="o">&amp;</span><span class="n">neopixel_write_module</span> <span class="p">}</span> \
+</pre></div>
+</div>
+</div>
+<div class="section" id="implementing-the-common-hal">
+<span id="implementing-the-common-hal"></span><h3>Implementing the Common HAL<a class="headerlink" href="#implementing-the-common-hal" title="Permalink to this headline">¶</a></h3>
+<p>At this point in the port, nothing will compile yet, because there's still work to be done to fix missing sources, compile issues, and link issues. I suggest start with a common-hal directory from another port that implements it such as <code class="docutils literal"><span class="pre">atmel-samd</span></code> or <code class="docutils literal"><span class="pre">esp8266</span></code>, deleting the function contents and stubbing out any return statements. Once that is done, you should be able to compile cleanly and import the modules, but nothing will work (though you are getting closer).</p>
+<p>The last step is actually implementing each function in a port specific way. I can't help you with this. :-) If you have any questions how a Common HAL function should work then see the corresponding .h file in <code class="docutils literal"><span class="pre">shared-bindings</span></code>.</p>
+</div>
+<div class="section" id="testing">
+<span id="testing"></span><h3>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h3>
+<p>Woohoo! You are almost done. After you implement everything, lots of drivers and sample code should just work. There are a number of drivers and examples written for Adafruit's Feather ecosystem. Here are places to start:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/search?q=topic%3Acircuitpython+org%3Aadafruit+fork%3Atrue">Adafruit repos with CircuitPython topic</a></li>
+<li><a class="reference external" href="https://github.com/adafruit/Adafruit_CircuitPython_Bundle">Adafruit driver bundle</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="design_guide.html" class="btn btn-neutral float-right" title="Design Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="drivers.html" class="btn btn-neutral" title="Additional Libraries on GitHub" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, MicroPython &amp; CircuitPython contributors (https://github.com/adafruit/circuitpython/graphs/contributors).
+      Last updated on 17 Aug 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

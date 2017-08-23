@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>9. Power control &mdash; Adafruit CircuitPython 0.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Adafruit CircuitPython 0.0.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="MicroPython tutorial for ESP8266" href="index.html"/>
+        <link rel="next" title="10. Controlling 1-wire devices" href="onewire.html"/>
+        <link rel="prev" title="8. Analog to Digital Conversion" href="adc.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Adafruit CircuitPython
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../shared-bindings/index.html">Core Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drivers.html">Additional Libraries on GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common_hal.html">Adding <code class="docutils literal"><span class="pre">*io</span></code> support to other ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../design_guide.html">Design Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../supported_ports.html">Supported Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../library/index.html">MicroPython libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html">Adafruit CircuitPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../CONTRIBUTING.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">MicroPython &amp; CircuitPython license information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Adafruit CircuitPython</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../supported_ports.html">Supported Ports</a> &raquo;</li>
+        
+          <li><a href="../index.html">ESP8266</a> &raquo;</li>
+        
+          <li><a href="index.html">MicroPython tutorial for ESP8266</a> &raquo;</li>
+        
+      <li>9. Power control</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/docs/esp8266/tutorial/powerctrl.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="power-control">
+<h1>9. Power control<a class="headerlink" href="#power-control" title="Permalink to this headline">¶</a></h1>
+<p>The ESP8266 provides the ability to change the CPU frequency on the fly, and
+enter a deep-sleep state.  Both can be used to manage power consumption.</p>
+<div class="section" id="changing-the-cpu-frequency">
+<h2>9.1. Changing the CPU frequency<a class="headerlink" href="#changing-the-cpu-frequency" title="Permalink to this headline">¶</a></h2>
+<p>The machine module has a function to get and set the CPU frequency.  To get the
+current frequency use:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">machine</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">machine</span><span class="o">.</span><span class="n">freq</span><span class="p">()</span>
+<span class="go">80000000</span>
+</pre></div>
+</div>
+<p>By default the CPU runs at 80MHz.  It can be change to 160MHz if you need more
+processing power, at the expense of current consumption:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">machine</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">160000000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">machine</span><span class="o">.</span><span class="n">freq</span><span class="p">()</span>
+<span class="go">160000000</span>
+</pre></div>
+</div>
+<p>You can change to the higher frequency just while your code does the heavy
+processing and then change back when its finished.</p>
+</div>
+<div class="section" id="deep-sleep-mode">
+<h2>9.2. Deep-sleep mode<a class="headerlink" href="#deep-sleep-mode" title="Permalink to this headline">¶</a></h2>
+<p>The deep-sleep mode will shut down the ESP8266 and all its peripherals,
+including the WiFi (but not including the real-time-clock, which is used to wake
+the chip).  This drastically reduces current consumption and is a good way to
+make devices that can run for a while on a battery.</p>
+<p>To be able to use the deep-sleep feature you must connect GPIO16 to the reset
+pin (RST on the Adafruit Feather HUZZAH board).  Then the following code can be
+used to sleep and wake the device:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">machine</span>
+
+<span class="c1"># configure RTC.ALARM0 to be able to wake the device</span>
+<span class="n">rtc</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">RTC</span><span class="p">()</span>
+<span class="n">rtc</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">trigger</span><span class="o">=</span><span class="n">rtc</span><span class="o">.</span><span class="n">ALARM0</span><span class="p">,</span> <span class="n">wake</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">DEEPSLEEP</span><span class="p">)</span>
+
+<span class="c1"># set RTC.ALARM0 to fire after 10 seconds (waking the device)</span>
+<span class="n">rtc</span><span class="o">.</span><span class="n">alarm</span><span class="p">(</span><span class="n">rtc</span><span class="o">.</span><span class="n">ALARM0</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+
+<span class="c1"># put the device to sleep</span>
+<span class="n">machine</span><span class="o">.</span><span class="n">deepsleep</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Note that when the chip wakes from a deep-sleep it is completely reset,
+including all of the memory.  The boot scripts will run as usual and you can
+put code in them to check the reset cause to perhaps do something different if
+the device just woke from a deep-sleep.  For example, to print the reset cause
+you can use:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">machine</span><span class="o">.</span><span class="n">reset_cause</span><span class="p">()</span> <span class="o">==</span> <span class="n">machine</span><span class="o">.</span><span class="n">DEEPSLEEP_RESET</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;woke from a deep sleep&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;power on or hard reset&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="onewire.html" class="btn btn-neutral float-right" title="10. Controlling 1-wire devices" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="adc.html" class="btn btn-neutral" title="8. Analog to Digital Conversion" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, MicroPython &amp; CircuitPython contributors (https://github.com/adafruit/circuitpython/graphs/contributors).
+      Last updated on 17 Aug 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

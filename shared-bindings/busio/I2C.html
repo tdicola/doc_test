@@ -1,0 +1,423 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>I2C --- Two wire serial protocol &mdash; Adafruit CircuitPython 0.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Adafruit CircuitPython 0.0.0 documentation" href="../../index.html"/>
+        <link rel="up" title="busio --- Hardware accelerated behavior" href="__init__.html"/>
+        <link rel="next" title="OneWire -- Lowest-level of the Maxim OneWire protocol" href="OneWire.html"/>
+        <link rel="prev" title="busio --- Hardware accelerated behavior" href="__init__.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Adafruit CircuitPython
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Core Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#support-matrix">Support Matrix</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#modules">Modules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../analogio/__init__.html"><code class="docutils literal"><span class="pre">analogio</span></code> --- Analog hardware support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../audiobusio/__init__.html"><code class="docutils literal"><span class="pre">audiobusio</span></code> --- Support for audio input and output over digital bus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../audioio/__init__.html"><code class="docutils literal"><span class="pre">audioio</span></code> --- Support for audio input and output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bitbangio/__init__.html"><code class="docutils literal"><span class="pre">bitbangio</span></code> --- Digital protocols implemented by the CPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../board/__init__.html"><code class="docutils literal"><span class="pre">board</span></code> --- Board specific pin names</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="__init__.html"><code class="docutils literal"><span class="pre">busio</span></code> --- Hardware accelerated behavior</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="docutils literal"><span class="pre">I2C</span></code> --- Two wire serial protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OneWire.html"><code class="docutils literal"><span class="pre">OneWire</span></code> -- Lowest-level of the Maxim OneWire protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SPI.html"><code class="docutils literal"><span class="pre">SPI</span></code> -- a 3-4 wire serial protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="UART.html"><code class="docutils literal"><span class="pre">UART</span></code> -- a bidirectional serial protocol</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../digitalio/__init__.html"><code class="docutils literal"><span class="pre">digitalio</span></code> --- Basic digital pin support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microcontroller/__init__.html"><code class="docutils literal"><span class="pre">microcontroller</span></code> --- Pin references and core functionality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multiterminal/__init__.html"><code class="docutils literal"><span class="pre">multiterminal</span></code> --- Manage additional terminal sources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../neopixel_write/__init__.html"><code class="docutils literal"><span class="pre">neopixel_write</span></code> --- Low-level neopixel implementation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../os/__init__.html"><code class="docutils literal"><span class="pre">os</span></code> --- functions that an OS normally provides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pulseio/__init__.html"><code class="docutils literal"><span class="pre">pulseio</span></code> --- Support for pulse based protocols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../random/__init__.html"><code class="docutils literal"><span class="pre">random</span></code> --- psuedo-random numbers and choices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../storage/__init__.html"><code class="docutils literal"><span class="pre">storage</span></code> --- storage management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../time/__init__.html"><code class="docutils literal"><span class="pre">time</span></code> --- time and timing related functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../touchio/__init__.html"><code class="docutils literal"><span class="pre">touchio</span></code> --- Touch related IO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uheap/__init__.html"><code class="docutils literal"><span class="pre">uheap</span></code> --- Heap size analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usb_hid/__init__.html"><code class="docutils literal"><span class="pre">usb_hid</span></code> --- USB Human Interface Device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ustack/__init__.html"><code class="docutils literal"><span class="pre">ustack</span></code> --- Stack information and analysis</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/drivers.html">Additional Libraries on GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/common_hal.html">Adding <code class="docutils literal"><span class="pre">*io</span></code> support to other ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/design_guide.html">Design Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/supported_ports.html">Supported Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/library/index.html">MicroPython libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">Adafruit CircuitPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CONTRIBUTING.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">MicroPython &amp; CircuitPython license information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Adafruit CircuitPython</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Core Modules</a> &raquo;</li>
+        
+          <li><a href="__init__.html"><code class="docutils literal"><span class="pre">busio</span></code> --- Hardware accelerated behavior</a> &raquo;</li>
+        
+      <li><code class="docutils literal"><span class="pre">I2C</span></code> --- Two wire serial protocol</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/shared-bindings/busio/I2C.c.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="i2c-two-wire-serial-protocol">
+<h1><a class="reference internal" href="#busio.I2C" title="busio.I2C"><code class="xref py py-class docutils literal"><span class="pre">I2C</span></code></a> --- Two wire serial protocol<a class="headerlink" href="#i2c-two-wire-serial-protocol" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="busio.I2C">
+<em class="property">class </em><code class="descclassname">busio.</code><code class="descname">I2C</code><span class="sig-paren">(</span><em>scl</em>, <em>sda</em>, <em>*</em>, <em>frequency=400000</em><span class="sig-paren">)</span><a class="headerlink" href="#busio.I2C" title="Permalink to this definition">¶</a></dt>
+<dd><p>I2C is a two-wire protocol for communicating between devices.  At the
+physical level it consists of 2 wires: SCL and SDA, the clock and data
+lines respectively.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Using this class directly requires careful lock management.
+Instead, use <a class="reference external" href="https://circuitpython.readthedocs.io/projects/bus_device/en/latest/adafruit_bus_device/index.html#adafruit_bus_device.i2c_device.I2CDevice" title="(in Adafruit CircuitPython Bus Device v0.3)"><code class="xref py py-class docutils literal"><span class="pre">I2CDevice</span></code></a> to
+manage locks.</p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Using this class to directly read registers requires manual
+bit unpacking. Instead, use an existing driver or make one with
+<a class="reference external" href="https://circuitpython.readthedocs.io/projects/register/en/latest/adafruit_register/index.html#register-module-reference" title="(in Adafruit CircuitPython Register v1.0)"><span class="xref std std-ref">Register</span></a> data descriptors.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>scl</strong> (<a class="reference internal" href="../microcontroller/Pin.html#microcontroller.Pin" title="microcontroller.Pin"><em>Pin</em></a>) -- The clock pin</li>
+<li><strong>sda</strong> (<a class="reference internal" href="../microcontroller/Pin.html#microcontroller.Pin" title="microcontroller.Pin"><em>Pin</em></a>) -- The data pin</li>
+<li><strong>frequency</strong> (<a class="reference internal" href="../../docs/library/builtins.html#int" title="int"><em>int</em></a>) -- The clock frequency in Hertz</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="busio.I2C.deinit">
+<code class="descname">deinit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#busio.I2C.deinit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Releases control of the underlying hardware so other classes can use it.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="busio.I2C.__enter__">
+<code class="descname">__enter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#busio.I2C.__enter__" title="Permalink to this definition">¶</a></dt>
+<dd><p>No-op used in Context Managers.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="busio.I2C.__exit__">
+<code class="descname">__exit__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#busio.I2C.__exit__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Automatically deinitializes the hardware on context exit. See
+<a class="reference internal" href="../../docs/design_guide.html#lifetime-and-contextmanagers"><span class="std std-ref">Lifetime and ContextManagers</span></a> for more info.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="busio.I2C.scan">
+<code class="descname">scan</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#busio.I2C.scan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scan all I2C addresses between 0x08 and 0x77 inclusive and return a
+list of those that respond.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of device ids on the I2C bus</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../../docs/library/builtins.html#list" title="list">list</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="busio.I2C.try_lock">
+<code class="descname">try_lock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#busio.I2C.try_lock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to grab the I2C lock. Returns True on success.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True when lock has been grabbed</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../../docs/library/builtins.html#bool" title="bool">bool</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="busio.I2C.unlock">
+<code class="descname">unlock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#busio.I2C.unlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Releases the I2C lock.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="busio.I2C.readfrom_into">
+<code class="descname">readfrom_into</code><span class="sig-paren">(</span><em>address</em>, <em>buffer</em>, <em>*</em>, <em>start=0</em>, <em>end=len(buffer)</em><span class="sig-paren">)</span><a class="headerlink" href="#busio.I2C.readfrom_into" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read into <code class="docutils literal"><span class="pre">buffer</span></code> from the slave specified by <code class="docutils literal"><span class="pre">address</span></code>.
+The number of bytes read will be the length of <code class="docutils literal"><span class="pre">buffer</span></code>.</p>
+<p>If <code class="docutils literal"><span class="pre">start</span></code> or <code class="docutils literal"><span class="pre">end</span></code> is provided, then the buffer will be sliced
+as if <code class="docutils literal"><span class="pre">buffer[start:end]</span></code>. This will not cause an allocation like
+<code class="docutils literal"><span class="pre">buf[start:end]</span></code> will so it saves memory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>address</strong> (<a class="reference internal" href="../../docs/library/builtins.html#int" title="int"><em>int</em></a>) -- 7-bit device address</li>
+<li><strong>buffer</strong> (<a class="reference internal" href="../../docs/library/builtins.html#bytearray" title="bytearray"><em>bytearray</em></a>) -- buffer to write into</li>
+<li><strong>start</strong> (<a class="reference internal" href="../../docs/library/builtins.html#int" title="int"><em>int</em></a>) -- Index to start writing at</li>
+<li><strong>end</strong> (<a class="reference internal" href="../../docs/library/builtins.html#int" title="int"><em>int</em></a>) -- Index to write up to but not include</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="busio.I2C.writeto">
+<code class="descname">writeto</code><span class="sig-paren">(</span><em>address</em>, <em>buffer</em>, <em>*</em>, <em>start=0</em>, <em>end=len(buffer)</em>, <em>stop=True</em><span class="sig-paren">)</span><a class="headerlink" href="#busio.I2C.writeto" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the bytes from <code class="docutils literal"><span class="pre">buffer</span></code> to the slave specified by <code class="docutils literal"><span class="pre">address</span></code>.
+Transmits a stop bit if <code class="docutils literal"><span class="pre">stop</span></code> is set.</p>
+<p>If <code class="docutils literal"><span class="pre">start</span></code> or <code class="docutils literal"><span class="pre">end</span></code> is provided, then the buffer will be sliced
+as if <code class="docutils literal"><span class="pre">buffer[start:end]</span></code>. This will not cause an allocation like
+<code class="docutils literal"><span class="pre">buffer[start:end]</span></code> will so it saves memory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>address</strong> (<a class="reference internal" href="../../docs/library/builtins.html#int" title="int"><em>int</em></a>) -- 7-bit device address</li>
+<li><strong>buffer</strong> (<a class="reference internal" href="../../docs/library/builtins.html#bytearray" title="bytearray"><em>bytearray</em></a>) -- buffer containing the bytes to write</li>
+<li><strong>start</strong> (<a class="reference internal" href="../../docs/library/builtins.html#int" title="int"><em>int</em></a>) -- Index to start writing from</li>
+<li><strong>end</strong> (<a class="reference internal" href="../../docs/library/builtins.html#int" title="int"><em>int</em></a>) -- Index to read up to but not include</li>
+<li><strong>stop</strong> (<a class="reference internal" href="../../docs/library/builtins.html#bool" title="bool"><em>bool</em></a>) -- If true, output an I2C stop condition after the
+buffer is written</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="OneWire.html" class="btn btn-neutral float-right" title="OneWire -- Lowest-level of the Maxim OneWire protocol" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="__init__.html" class="btn btn-neutral" title="busio --- Hardware accelerated behavior" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, MicroPython &amp; CircuitPython contributors (https://github.com/adafruit/circuitpython/graphs/contributors).
+      Last updated on 17 Aug 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,290 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4. The AMP audio skin &mdash; Adafruit CircuitPython 0.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Adafruit CircuitPython 0.0.0 documentation" href="../../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Adafruit CircuitPython
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../shared-bindings/index.html">Core Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drivers.html">Additional Libraries on GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common_hal.html">Adding <code class="docutils literal"><span class="pre">*io</span></code> support to other ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../design_guide.html">Design Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../supported_ports.html">Supported Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../library/index.html">MicroPython libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html">Adafruit CircuitPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../CONTRIBUTING.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">MicroPython &amp; CircuitPython license information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Adafruit CircuitPython</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>4. The AMP audio skin</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/docs/pyboard/tutorial/amp_skin.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-amp-audio-skin">
+<h1>4. The AMP audio skin<a class="headerlink" href="#the-amp-audio-skin" title="Permalink to this headline">¶</a></h1>
+<p>Soldering and using the AMP audio skin.</p>
+<a class="reference internal image-reference" href="../../../_images/skin_amp_1.jpg"><img alt="AMP skin" src="../../../_images/skin_amp_1.jpg" style="width: 250px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/skin_amp_2.jpg"><img alt="AMP skin" src="../../../_images/skin_amp_2.jpg" style="width: 250px;" /></a>
+<p>The following video shows how to solder the headers, microphone and speaker onto the AMP skin.</p>
+<iframe style="margin-left:3em;" width="560" height="315" src="http://www.youtube.com/embed/fjB1DuZRveo?rel=0" frameborder="0" allowfullscreen></iframe><p>For circuit schematics and datasheets for the components on the skin see <a class="reference internal" href="../hardware/index.html#hardware-index"><span class="std std-ref">The pyboard hardware</span></a>.</p>
+<div class="section" id="example-code">
+<h2>4.1. Example code<a class="headerlink" href="#example-code" title="Permalink to this headline">¶</a></h2>
+<p>The AMP skin has a speaker which is connected to <code class="docutils literal"><span class="pre">DAC(1)</span></code> via a small
+power amplifier.  The volume of the amplifier is controlled by a digital
+potentiometer, which is an I2C device with address 46 on the <code class="docutils literal"><span class="pre">IC2(1)</span></code> bus.</p>
+<p>To set the volume, define the following function:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyb</span>
+<span class="k">def</span> <span class="nf">volume</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
+    <span class="n">pyb</span><span class="o">.</span><span class="n">I2C</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">pyb</span><span class="o">.</span><span class="n">I2C</span><span class="o">.</span><span class="n">MASTER</span><span class="p">)</span><span class="o">.</span><span class="n">mem_write</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then you can do:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">volume</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>   <span class="c1"># minimum volume</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">volume</span><span class="p">(</span><span class="mi">127</span><span class="p">)</span> <span class="c1"># maximum volume</span>
+</pre></div>
+</div>
+<p>To play a sound, use the <code class="docutils literal"><span class="pre">write_timed</span></code> method of the <code class="docutils literal"><span class="pre">DAC</span></code> object.
+For example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">pyb</span> <span class="k">import</span> <span class="n">DAC</span>
+
+<span class="c1"># create a buffer containing a sine-wave</span>
+<span class="n">buf</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">buf</span><span class="p">)):</span>
+    <span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">128</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="mi">127</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">i</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">buf</span><span class="p">)))</span>
+
+<span class="c1"># output the sine-wave at 400Hz</span>
+<span class="n">dac</span> <span class="o">=</span> <span class="n">DAC</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">dac</span><span class="o">.</span><span class="n">write_timed</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="mi">400</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="n">DAC</span><span class="o">.</span><span class="n">CIRCULAR</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can also play WAV files using the Python <code class="docutils literal"><span class="pre">wave</span></code> module.  You can get
+the wave module <a class="reference external" href="http://micropython.org/resources/examples/wave.py">here</a> and you will also need
+the chunk module available <a class="reference external" href="http://micropython.org/resources/examples/chunk.py">here</a>.  Put these
+on your pyboard (either on the flash or the SD card in the top-level directory).  You will need an
+8-bit WAV file to play, such as <a class="reference external" href="http://micropython.org/resources/examples/test.wav">this one</a>,
+or to convert any file you have with the command:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">avconv</span> <span class="o">-</span><span class="n">i</span> <span class="n">original</span><span class="o">.</span><span class="n">wav</span> <span class="o">-</span><span class="n">ar</span> <span class="mi">22050</span> <span class="o">-</span><span class="n">codec</span> <span class="n">pcm_u8</span> <span class="n">test</span><span class="o">.</span><span class="n">wav</span>
+</pre></div>
+</div>
+<p>Then you can do:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">wave</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyb</span> <span class="k">import</span> <span class="n">DAC</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dac</span> <span class="o">=</span> <span class="n">DAC</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">wave</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;test.wav&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dac</span><span class="o">.</span><span class="n">write_timed</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readframes</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">getnframes</span><span class="p">()),</span> <span class="n">f</span><span class="o">.</span><span class="n">getframerate</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>This should play the WAV file.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, MicroPython &amp; CircuitPython contributors (https://github.com/adafruit/circuitpython/graphs/contributors).
+      Last updated on 17 Aug 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

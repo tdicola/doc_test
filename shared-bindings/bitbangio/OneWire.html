@@ -1,0 +1,357 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>OneWire -- Lowest-level of the Maxim OneWire protocol &mdash; Adafruit CircuitPython 0.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Adafruit CircuitPython 0.0.0 documentation" href="../../index.html"/>
+        <link rel="up" title="bitbangio --- Digital protocols implemented by the CPU" href="__init__.html"/>
+        <link rel="next" title="SPI -- a 3-4 wire serial protocol" href="SPI.html"/>
+        <link rel="prev" title="I2C --- Two wire serial protocol" href="I2C.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Adafruit CircuitPython
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Core Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#support-matrix">Support Matrix</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#modules">Modules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../analogio/__init__.html"><code class="docutils literal"><span class="pre">analogio</span></code> --- Analog hardware support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../audiobusio/__init__.html"><code class="docutils literal"><span class="pre">audiobusio</span></code> --- Support for audio input and output over digital bus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../audioio/__init__.html"><code class="docutils literal"><span class="pre">audioio</span></code> --- Support for audio input and output</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="__init__.html"><code class="docutils literal"><span class="pre">bitbangio</span></code> --- Digital protocols implemented by the CPU</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="I2C.html"><code class="docutils literal"><span class="pre">I2C</span></code> --- Two wire serial protocol</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="docutils literal"><span class="pre">OneWire</span></code> -- Lowest-level of the Maxim OneWire protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SPI.html"><code class="docutils literal"><span class="pre">SPI</span></code> -- a 3-4 wire serial protocol</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../board/__init__.html"><code class="docutils literal"><span class="pre">board</span></code> --- Board specific pin names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../busio/__init__.html"><code class="docutils literal"><span class="pre">busio</span></code> --- Hardware accelerated behavior</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../digitalio/__init__.html"><code class="docutils literal"><span class="pre">digitalio</span></code> --- Basic digital pin support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../microcontroller/__init__.html"><code class="docutils literal"><span class="pre">microcontroller</span></code> --- Pin references and core functionality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multiterminal/__init__.html"><code class="docutils literal"><span class="pre">multiterminal</span></code> --- Manage additional terminal sources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../neopixel_write/__init__.html"><code class="docutils literal"><span class="pre">neopixel_write</span></code> --- Low-level neopixel implementation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../os/__init__.html"><code class="docutils literal"><span class="pre">os</span></code> --- functions that an OS normally provides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pulseio/__init__.html"><code class="docutils literal"><span class="pre">pulseio</span></code> --- Support for pulse based protocols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../random/__init__.html"><code class="docutils literal"><span class="pre">random</span></code> --- psuedo-random numbers and choices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../storage/__init__.html"><code class="docutils literal"><span class="pre">storage</span></code> --- storage management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../time/__init__.html"><code class="docutils literal"><span class="pre">time</span></code> --- time and timing related functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../touchio/__init__.html"><code class="docutils literal"><span class="pre">touchio</span></code> --- Touch related IO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uheap/__init__.html"><code class="docutils literal"><span class="pre">uheap</span></code> --- Heap size analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usb_hid/__init__.html"><code class="docutils literal"><span class="pre">usb_hid</span></code> --- USB Human Interface Device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ustack/__init__.html"><code class="docutils literal"><span class="pre">ustack</span></code> --- Stack information and analysis</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/drivers.html">Additional Libraries on GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/common_hal.html">Adding <code class="docutils literal"><span class="pre">*io</span></code> support to other ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/design_guide.html">Design Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/supported_ports.html">Supported Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/library/index.html">MicroPython libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">Adafruit CircuitPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CONTRIBUTING.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">MicroPython &amp; CircuitPython license information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Adafruit CircuitPython</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Core Modules</a> &raquo;</li>
+        
+          <li><a href="__init__.html"><code class="docutils literal"><span class="pre">bitbangio</span></code> --- Digital protocols implemented by the CPU</a> &raquo;</li>
+        
+      <li><code class="docutils literal"><span class="pre">OneWire</span></code> -- Lowest-level of the Maxim OneWire protocol</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/shared-bindings/bitbangio/OneWire.c.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="onewire-lowest-level-of-the-maxim-onewire-protocol">
+<h1><a class="reference internal" href="#bitbangio.OneWire" title="bitbangio.OneWire"><code class="xref py py-class docutils literal"><span class="pre">OneWire</span></code></a> -- Lowest-level of the Maxim OneWire protocol<a class="headerlink" href="#onewire-lowest-level-of-the-maxim-onewire-protocol" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference internal" href="#bitbangio.OneWire" title="bitbangio.OneWire"><code class="xref py py-class docutils literal"><span class="pre">OneWire</span></code></a> implements the timing-sensitive foundation of
+the Maxim (formerly Dallas Semi) OneWire protocol.</p>
+<p>Protocol definition is here: <a class="reference external" href="https://www.maximintegrated.com/en/app-notes/index.mvp/id/126">https://www.maximintegrated.com/en/app-notes/index.mvp/id/126</a></p>
+<dl class="class">
+<dt id="bitbangio.OneWire">
+<em class="property">class </em><code class="descclassname">bitbangio.</code><code class="descname">OneWire</code><span class="sig-paren">(</span><em>pin</em><span class="sig-paren">)</span><a class="headerlink" href="#bitbangio.OneWire" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a OneWire object associated with the given pin. The object
+implements the lowest level timing-sensitive bits of the protocol.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pin</strong> (<a class="reference internal" href="../microcontroller/Pin.html#microcontroller.Pin" title="microcontroller.Pin"><em>Pin</em></a>) -- Pin to read pulses from.</td>
+</tr>
+</tbody>
+</table>
+<p>Read a short series of pulses:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bitbangio</span>
+<span class="kn">import</span> <span class="nn">board</span>
+
+<span class="n">onewire</span> <span class="o">=</span> <span class="n">bitbangio</span><span class="o">.</span><span class="n">OneWire</span><span class="p">(</span><span class="n">board</span><span class="o">.</span><span class="n">D7</span><span class="p">)</span>
+<span class="n">onewire</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<span class="n">onewire</span><span class="o">.</span><span class="n">write_bit</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">onewire</span><span class="o">.</span><span class="n">write_bit</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">onewire</span><span class="o">.</span><span class="n">read_bit</span><span class="p">())</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="bitbangio.OneWire.deinit">
+<code class="descname">deinit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitbangio.OneWire.deinit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deinitialize the OneWire bus and release any hardware resources for reuse.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bitbangio.OneWire.__enter__">
+<code class="descname">__enter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitbangio.OneWire.__enter__" title="Permalink to this definition">¶</a></dt>
+<dd><p>No-op used by Context Managers.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bitbangio.OneWire.__exit__">
+<code class="descname">__exit__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitbangio.OneWire.__exit__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Automatically deinitializes the hardware when exiting a context. See
+<a class="reference internal" href="../../docs/design_guide.html#lifetime-and-contextmanagers"><span class="std std-ref">Lifetime and ContextManagers</span></a> for more info.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bitbangio.OneWire.reset">
+<code class="descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitbangio.OneWire.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset the OneWire bus</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bitbangio.OneWire.read_bit">
+<code class="descname">read_bit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitbangio.OneWire.read_bit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read in a bit</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">bit state read</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../../docs/library/builtins.html#bool" title="bool">bool</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bitbangio.OneWire.write_bit">
+<code class="descname">write_bit</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#bitbangio.OneWire.write_bit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write out a bit based on value.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="SPI.html" class="btn btn-neutral float-right" title="SPI -- a 3-4 wire serial protocol" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="I2C.html" class="btn btn-neutral" title="I2C --- Two wire serial protocol" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, MicroPython &amp; CircuitPython contributors (https://github.com/adafruit/circuitpython/graphs/contributors).
+      Last updated on 17 Aug 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

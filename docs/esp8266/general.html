@@ -1,0 +1,360 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>General information about the ESP8266 port &mdash; Adafruit CircuitPython 0.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Adafruit CircuitPython 0.0.0 documentation" href="../../index.html"/>
+        <link rel="up" title="ESP8266" href="index.html"/>
+        <link rel="next" title="MicroPython tutorial for ESP8266" href="tutorial/index.html"/>
+        <link rel="prev" title="Quick reference for the ESP8266" href="quickref.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Adafruit CircuitPython
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../shared-bindings/index.html">Core Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drivers.html">Additional Libraries on GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common_hal.html">Adding <code class="docutils literal"><span class="pre">*io</span></code> support to other ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_guide.html">Design Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../supported_ports.html">Supported Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../library/index.html">MicroPython libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">Adafruit CircuitPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CONTRIBUTING.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">MicroPython &amp; CircuitPython license information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Adafruit CircuitPython</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../supported_ports.html">Supported Ports</a> &raquo;</li>
+        
+          <li><a href="index.html">ESP8266</a> &raquo;</li>
+        
+      <li>General information about the ESP8266 port</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/docs/esp8266/general.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="general-information-about-the-esp8266-port">
+<h1>General information about the ESP8266 port<a class="headerlink" href="#general-information-about-the-esp8266-port" title="Permalink to this headline">¶</a></h1>
+<p>ESP8266 is a popular WiFi-enabled System-on-Chip (SoC) by Espressif Systems.</p>
+<div class="section" id="multitude-of-boards">
+<h2>Multitude of boards<a class="headerlink" href="#multitude-of-boards" title="Permalink to this headline">¶</a></h2>
+<p>There are a multitude of modules and boards from different sources which carry
+the ESP8266 chip. MicroPython tries to provide a generic port which would run on
+as many boards/modules as possible, but there may be limitations. Adafruit
+Feather HUZZAH board is taken as a reference board for the port (for example,
+testing is performed on it). If you have another board, please make sure you
+have datasheet, schematics and other reference materials for your board
+handy to look up various aspects of your board functioning.</p>
+<p>To make a generic ESP8266 port and support as many boards as possible,
+following design and implementation decision were made:</p>
+<ul class="simple">
+<li>GPIO pin numbering is based on ESP8266 chip numbering, not some “logical”
+numbering of a particular board. Please have the manual/pin diagram of your board
+at hand to find correspondence between your board pins and actual ESP8266 pins.
+We also encourage users of various boards to share this mapping via MicroPython
+forum, with the idea to collect community-maintained reference materials
+eventually.</li>
+<li>All pins which make sense to support, are supported by MicroPython
+(for example, pins which are used to connect SPI flash
+are not exposed, as they’re unlikely useful for anything else, and
+operating on them will lead to board lock-up). However, any particular
+board may expose only subset of pins. Consult your board reference manual.</li>
+<li>Some boards may lack external pins/internal connectivity to support
+ESP8266 deepsleep mode.</li>
+</ul>
+</div>
+<div class="section" id="technical-specifications-and-soc-datasheets">
+<h2>Technical specifications and SoC datasheets<a class="headerlink" href="#technical-specifications-and-soc-datasheets" title="Permalink to this headline">¶</a></h2>
+<p>The datasheets and other reference material for ESP8266 chip are available
+from the vendor site: <a class="reference external" href="http://bbs.espressif.com/viewtopic.php?f=67&amp;t=225">http://bbs.espressif.com/viewtopic.php?f=67&amp;t=225</a> .
+They are the primary reference for the chip technical specifications, capabilities,
+operating modes, internal functioning, etc.</p>
+<p>For your convenience, some of technical specifications are provided below:</p>
+<ul class="simple">
+<li>Architecture: Xtensa lx106</li>
+<li>CPU frequency: 80MHz overclockable to 160MHz</li>
+<li>Total RAM available: 96KB (part of it reserved for system)</li>
+<li>BootROM: 64KB</li>
+<li>Internal FlashROM: None</li>
+<li>External FlashROM: code and data, via SPI Flash. Normal sizes 512KB-4MB.</li>
+<li>GPIO: 16 + 1 (GPIOs are multiplexed with other functions, including
+external FlashROM, UART, deep sleep wake-up, etc.)</li>
+<li>UART: One RX/TX UART (no hardware handshaking), one TX-only UART.</li>
+<li>SPI: 2 SPI interfaces (one used for FlashROM).</li>
+<li>I2C: No native external I2C (bitbang implementation available on any pins).</li>
+<li>I2S: 1.</li>
+<li>Programming: using BootROM bootloader from UART. Due to external FlashROM
+and always-available BootROM bootloader, ESP8266 is not brickable.</li>
+</ul>
+</div>
+<div class="section" id="scarcity-of-runtime-resources">
+<h2>Scarcity of runtime resources<a class="headerlink" href="#scarcity-of-runtime-resources" title="Permalink to this headline">¶</a></h2>
+<p>ESP8266 has very modest resources (first of all, RAM memory). So, please
+avoid allocating too big container objects (lists, dictionaries) and
+buffers. There is also no full-fledged OS to keep track of resources
+and automatically clean them up, so that’s the task of a user/user
+application: please be sure to close open files, sockets, etc. as soon
+as possible after use.</p>
+</div>
+<div class="section" id="boot-process">
+<h2>Boot process<a class="headerlink" href="#boot-process" title="Permalink to this headline">¶</a></h2>
+<p>On boot, MicroPython EPS8266 port executes <code class="docutils literal"><span class="pre">_boot.py</span></code> script from internal
+frozen modules. It mounts filesystem in FlashROM, or if it’s not available,
+performs first-time setup of the module and creates the filesystem. This
+part of the boot process is considered fixed, and not available for customization
+for end users (even if you build from source, please refrain from changes to
+it; customization of early boot process is available only to advanced users
+and developers, who can diagnose themselves any issues arising from
+modifying the standard process).</p>
+<p>Once the filesystem is mounted, <code class="docutils literal"><span class="pre">boot.py</span></code> is executed from it. The standard
+version of this file is created during first-time module set up and has
+commands to start a WebREPL daemon (disabled by default, configurable
+with <code class="docutils literal"><span class="pre">webrepl_setup</span></code> module), etc. This
+file is customizable by end users (for example, you may want to set some
+parameters or add other services which should be run on
+a module start-up). But keep in mind that incorrect modifications to boot.py
+may still lead to boot loops or lock ups, requiring to reflash a module
+from scratch. (In particular, it’s recommended that you use either
+<code class="docutils literal"><span class="pre">webrepl_setup</span></code> module or manual editing to configure WebREPL, but not
+both).</p>
+<p>As a final step of boot procedure, <code class="docutils literal"><span class="pre">main.py</span></code> is executed from filesystem,
+if exists. This file is a hook to start up a user application each time
+on boot (instead of going to REPL). For small test applications, you may
+name them directly as <code class="docutils literal"><span class="pre">main.py</span></code>, and upload to module, but instead it’s
+recommended to keep your application(s) in separate files, and have just
+the following in <code class="docutils literal"><span class="pre">main.py</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">my_app</span>
+<span class="n">my_app</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This will allow to keep the structure of your application clear, as well as
+allow to install multiple applications on a board, and switch among them.</p>
+</div>
+<div class="section" id="known-issues">
+<h2>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="real-time-clock">
+<h3>Real-time clock<a class="headerlink" href="#real-time-clock" title="Permalink to this headline">¶</a></h3>
+<p>RTC in ESP8266 has very bad accuracy, drift may be seconds per minute. As
+a workaround, to measure short enough intervals you can use
+<code class="docutils literal"><span class="pre">utime.time()</span></code>, etc. functions, and for wall clock time, synchronize from
+the net using included <code class="docutils literal"><span class="pre">ntpdate.py</span></code> module.</p>
+<p>Due to limitations of the ESP8266 chip the internal real-time clock (RTC)
+will overflow every 7:45h.  If a long-term working RTC time is required then
+<code class="docutils literal"><span class="pre">time()</span></code> or <code class="docutils literal"><span class="pre">localtime()</span></code> must be called at least once within 7 hours.
+MicroPython will then handle the overflow.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tutorial/index.html" class="btn btn-neutral float-right" title="MicroPython tutorial for ESP8266" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="quickref.html" class="btn btn-neutral" title="Quick reference for the ESP8266" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, MicroPython &amp; CircuitPython contributors (https://github.com/adafruit/circuitpython/graphs/contributors).
+      Last updated on 17 Aug 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

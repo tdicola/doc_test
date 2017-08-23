@@ -1,0 +1,700 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Design Guide &mdash; Adafruit CircuitPython 0.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Adafruit CircuitPython 0.0.0 documentation" href="../index.html"/>
+        <link rel="next" title="Supported Ports" href="supported_ports.html"/>
+        <link rel="prev" title="Adding *io support to other ports" href="common_hal.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Adafruit CircuitPython
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../shared-bindings/index.html">Core Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drivers.html">Additional Libraries on GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common_hal.html">Adding <code class="docutils literal"><span class="pre">*io</span></code> support to other ports</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Design Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#start-libraries-with-the-cookiecutter">Start libraries with the cookiecutter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-naming">Module Naming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lifetime-and-contextmanagers">Lifetime and ContextManagers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#verify-your-device">Verify your device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getters-setters">Getters/Setters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#design-for-compatibility-with-cpython">Design for compatibility with CPython</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#document-inline">Document inline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-description">Module description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#class-description">Class description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-descriptor-description">Data descriptor description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#method-description">Method description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#property-description">Property description</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#use-busdevice">Use BusDevice</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#i2c-example">I2C Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spi-example">SPI Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#use-composition">Use composition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lots-of-small-modules">Lots of small modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#speed-second">Speed second</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#avoid-allocations-in-drivers">Avoid allocations in drivers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ustruct-pack">ustruct.pack</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sensor-properties-and-units">Sensor properties and units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#common-apis">Common APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-native-modules">Adding native modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#micropython-compatibility">MicroPython compatibility</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="supported_ports.html">Supported Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library/index.html">MicroPython libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Adafruit CircuitPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">MicroPython &amp; CircuitPython license information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Adafruit CircuitPython</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Design Guide</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/docs/design_guide.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="design-guide">
+<h1>Design Guide<a class="headerlink" href="#design-guide" title="Permalink to this headline">¶</a></h1>
+<p>MicroPython has created a great foundation to build upon and to make it even
+better for beginners we’ve created CircuitPython. This guide covers a number of
+ways the core and libraries are geared towards beginners.</p>
+<div class="section" id="start-libraries-with-the-cookiecutter">
+<h2>Start libraries with the cookiecutter<a class="headerlink" href="#start-libraries-with-the-cookiecutter" title="Permalink to this headline">¶</a></h2>
+<p>Cookiecutter is a cool tool that lets you bootstrap a new repo based on another
+repo. We’ve made one <a class="reference external" href="https://github.com/adafruit/cookiecutter-adafruit-circuitpython">here</a>
+for CircuitPython libraries that include configs for Travis CI and ReadTheDocs
+along with a setup.py, license, code of conduct and readme.</p>
+</div>
+<div class="section" id="module-naming">
+<h2>Module Naming<a class="headerlink" href="#module-naming" title="Permalink to this headline">¶</a></h2>
+<p>Adafruit funded libraries should be under the
+<a class="reference external" href="https://github.com/adafruit">adafruit organization</a> and have the format
+<code class="docutils literal"><span class="pre">Adafruit_CircuitPython_&lt;name&gt;</span></code> and have a corresponding <code class="docutils literal"><span class="pre">adafruit_&lt;name&gt;</span></code>
+directory (aka package) or <code class="docutils literal"><span class="pre">adafruit_&lt;name&gt;.py</span></code> file (aka module).</p>
+<p>Community created libraries should have the format <code class="docutils literal"><span class="pre">CircuitPython_&lt;name&gt;</span></code> and
+not have the <code class="docutils literal"><span class="pre">adafruit_</span></code> module or package prefix.</p>
+<p>Both should have the CircuitPython repository topic on GitHub.</p>
+</div>
+<div class="section" id="lifetime-and-contextmanagers">
+<span id="id1"></span><h2>Lifetime and ContextManagers<a class="headerlink" href="#lifetime-and-contextmanagers" title="Permalink to this headline">¶</a></h2>
+<p>A driver should be initialized and ready to use after construction. If the
+device requires deinitialization, then provide it through <code class="docutils literal"><span class="pre">deinit()</span></code> and also
+provide <code class="docutils literal"><span class="pre">__enter__</span></code> and <code class="docutils literal"><span class="pre">__exit__</span></code> to create a context manager usable with
+<code class="docutils literal"><span class="pre">with</span></code>.</p>
+<p>For example, a user can then use <code class="docutils literal"><span class="pre">deinit()`</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">digitalio</span>
+<span class="kn">import</span> <span class="nn">board</span>
+
+<span class="n">led</span> <span class="o">=</span> <span class="n">digitalio</span><span class="o">.</span><span class="n">DigitalInOut</span><span class="p">(</span><span class="n">board</span><span class="o">.</span><span class="n">D13</span><span class="p">)</span>
+<span class="n">led</span><span class="o">.</span><span class="n">direction</span> <span class="o">=</span> <span class="n">digitalio</span><span class="o">.</span><span class="n">Direction</span><span class="o">.</span><span class="n">OUTPUT</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">led</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
+    <span class="n">led</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">led</span><span class="o">.</span><span class="n">deinit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This will deinit the underlying hardware at the end of the program as long as no
+exceptions occur.</p>
+<p>Alternatively, using a <code class="docutils literal"><span class="pre">with</span></code> statement ensures that the hardware is deinitialized:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">digitalio</span>
+<span class="kn">import</span> <span class="nn">board</span>
+
+<span class="k">with</span> <span class="n">digitalio</span><span class="o">.</span><span class="n">DigitalInOut</span><span class="p">(</span><span class="n">board</span><span class="o">.</span><span class="n">D13</span><span class="p">)</span> <span class="k">as</span> <span class="n">led</span><span class="p">:</span>
+    <span class="n">led</span><span class="o">.</span><span class="n">direction</span> <span class="o">=</span> <span class="n">digitalio</span><span class="o">.</span><span class="n">Direction</span><span class="o">.</span><span class="n">OUTPUT</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="n">led</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
+        <span class="n">led</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Python’s <code class="docutils literal"><span class="pre">with</span></code> statement ensures that the deinit code is run regardless of
+whether the code within the with statement executes without exceptions.</p>
+<p>For small programs like the examples this isn’t a major concern because all
+user usable hardware is reset after programs are run or the REPL is run. However,
+for more complex programs that may use hardware intermittently and may also
+handle exceptions on their own, deinitializing the hardware using a with
+statement will ensure hardware isn’t enabled longer than needed.</p>
+</div>
+<div class="section" id="verify-your-device">
+<h2>Verify your device<a class="headerlink" href="#verify-your-device" title="Permalink to this headline">¶</a></h2>
+<p>Whenever possible, make sure device you are talking to is the device you expect.
+If not, raise a ValueError. Beware that I2C addresses can be identical on
+different devices so read registers you know to make sure they match your
+expectation. Validating this upfront will help catch mistakes.</p>
+</div>
+<div class="section" id="getters-setters">
+<h2>Getters/Setters<a class="headerlink" href="#getters-setters" title="Permalink to this headline">¶</a></h2>
+<p>When designing a driver for a device, use properties for device state and use
+methods for sequences of abstract actions that the device performs. State is a
+property of the device as a whole that exists regardless of what the code is
+doing. This includes things like temperature, time, sound, light and the state
+of a switch. For a more complete list see the sensor properties bullet below.</p>
+<p>Another way to separate state from actions is that state is usually something
+the user can sense themselves by sight or feel for example. Actions are
+something the user can watch. The device does this and then this.</p>
+<p>Making this separation clear to the user will help beginners understand when to
+use what.</p>
+<p>Here is more info on properties from
+<a class="reference external" href="https://docs.python.org/3/library/functions.html#property">Python</a>.</p>
+</div>
+<div class="section" id="design-for-compatibility-with-cpython">
+<h2>Design for compatibility with CPython<a class="headerlink" href="#design-for-compatibility-with-cpython" title="Permalink to this headline">¶</a></h2>
+<p>CircuitPython is aimed to be one’s first experience with code.  It will be the
+first step into the world of hardware and software. To ease one’s exploration
+out from this first step, make sure that functionality shared with CPython shares
+the same API. It doesn’t need to be the full API it can be a subset. However, do
+not add non-CPython APIs to the same modules. Instead, use separate non-CPython
+modules to add extra functionality. By distinguishing API boundaries at modules
+you increase the likelihood that incorrect expectations are found on import and
+not randomly during runtime.</p>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>When adding extra functionality to CircuitPython to mimic what a normal
+operating system would do, either copy an existing CPython API (for example file
+writing) or create a separate module to achieve what you want. For example,
+mounting and unmount drives is not a part of CPython so it should be done in a
+module, such as a new <code class="docutils literal"><span class="pre">storage</span></code> module, that is only available in CircuitPython.
+That way when someone moves the code to CPython they know what parts need to be
+adapted.</p>
+</div>
+</div>
+<div class="section" id="document-inline">
+<h2>Document inline<a class="headerlink" href="#document-inline" title="Permalink to this headline">¶</a></h2>
+<p>Whenever possible, document your code right next to the code that implements it.
+This makes it more likely to stay up to date with the implementation itself. Use
+Sphinx’s automodule to format these all nicely in ReadTheDocs. The cookiecutter
+helps set these up.</p>
+<p>Use <a class="reference external" href="http://www.sphinx-doc.org/en/stable/rest.html">Sphinx flavor rST</a> for markup.</p>
+<p>Lots of documentation is a good thing but it can take a lot of space. To
+minimize the space used on disk and on load, distribute the library as both .py
+and .mpy, MicroPython and CircuitPython’s bytecode format that omits comments.</p>
+<div class="section" id="module-description">
+<h3>Module description<a class="headerlink" href="#module-description" title="Permalink to this headline">¶</a></h3>
+<p>After the license comment:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">`&lt;module name&gt;` - &lt;Short description&gt;</span>
+<span class="sd">=================================================</span>
+<span class="sd">&lt;Longer description.&gt;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="class-description">
+<h3>Class description<a class="headerlink" href="#class-description" title="Permalink to this headline">¶</a></h3>
+<p>Documenting what the object does:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">DS3231</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Interface to the DS3231 RTC.&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>Renders as:</p>
+<dl class="class">
+<dt>
+<em class="property">class </em><code class="descname">DS3231</code></dt>
+<dd><p>Interface to the DS3231 RTC.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="data-descriptor-description">
+<h3>Data descriptor description<a class="headerlink" href="#data-descriptor-description" title="Permalink to this headline">¶</a></h3>
+<p>Comment is after even though its weird:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">lost_power</span> <span class="o">=</span> <span class="n">i2c_bit</span><span class="o">.</span><span class="n">RWBit</span><span class="p">(</span><span class="mh">0x0f</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;True if the device has lost power since the time was set.&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>Renders as:</p>
+<dl class="attribute">
+<dt>
+<code class="descname">lost_power</code></dt>
+<dd><p>True if the device has lost power since the time was set.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="method-description">
+<h3>Method description<a class="headerlink" href="#method-description" title="Permalink to this headline">¶</a></h3>
+<p>First line after the method definition:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">turn_right</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">degrees</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Turns the bot ``degrees`` right.</span>
+
+<span class="sd">       :param float degrees: Degrees to turn right</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>Renders as:</p>
+<dl class="method">
+<dt>
+<code class="descname">turn_right</code><span class="sig-paren">(</span><em>degrees</em><span class="sig-paren">)</span></dt>
+<dd><p>Turns the bot <code class="docutils literal"><span class="pre">degrees</span></code> right.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>degrees</strong> (<a class="reference internal" href="library/builtins.html#float" title="float"><em>float</em></a>) – Degrees to turn right</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="property-description">
+<h3>Property description<a class="headerlink" href="#property-description" title="Permalink to this headline">¶</a></h3>
+<p>Comment comes from the getter:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@property</span>
+<span class="k">def</span> <span class="nf">datetime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;The current date and time&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">datetime_register</span>
+
+<span class="nd">@datetime</span><span class="o">.</span><span class="n">setter</span>
+<span class="k">def</span> <span class="nf">datetime</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Renders as:</p>
+<dl class="attribute">
+<dt>
+<code class="descname">datetime</code></dt>
+<dd><p>The current date and time</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="use-busdevice">
+<h2>Use BusDevice<a class="headerlink" href="#use-busdevice" title="Permalink to this headline">¶</a></h2>
+<p>[BusDevice](<a class="reference external" href="https://github.com/adafruit/Adafruit_CircuitPython_BusDevice">https://github.com/adafruit/Adafruit_CircuitPython_BusDevice</a>) is an
+awesome foundational library that manages talking on a shared I2C or SPI device
+for you. The devices manage locking which ensures that a transfer is done as a
+single unit despite CircuitPython internals and, in the future, other Python
+threads. For I2C, the device also manages the device address. The SPI device,
+manages baudrate settings, chip select line and extra post-transaction clock
+cycles.</p>
+<div class="section" id="i2c-example">
+<h3>I2C Example<a class="headerlink" href="#i2c-example" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">adafruit_bus_device</span> <span class="kn">import</span> <span class="n">i2c_device</span>
+
+<span class="k">class</span> <span class="nc">Widget</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;A generic widget.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i2c</span><span class="p">):</span>
+        <span class="c1"># Always on address 0x40.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">i2c_device</span> <span class="o">=</span> <span class="n">i2c_device</span><span class="o">.</span><span class="n">I2CDevice</span><span class="p">(</span><span class="n">i2c</span><span class="p">,</span> <span class="mh">0x40</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buf</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Widget&#39;s one register.&quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">i2c_device</span> <span class="k">as</span> <span class="n">i2c</span><span class="p">:</span>
+            <span class="n">i2c</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;0x00&#39;</span><span class="p">)</span>
+            <span class="n">i2c</span><span class="o">.</span><span class="n">readfrom_into</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">buf</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">buf</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="spi-example">
+<h3>SPI Example<a class="headerlink" href="#spi-example" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">adafruit_bus_device</span> <span class="kn">import</span> <span class="n">spi_device</span>
+
+<span class="k">class</span> <span class="nc">SPIWidget</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;A generic widget with a weird baudrate.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spi</span><span class="p">,</span> <span class="n">chip_select</span><span class="p">):</span>
+        <span class="c1"># chip_select is a pin reference such as board.D10.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spi_device</span> <span class="o">=</span> <span class="n">spi_device</span><span class="o">.</span><span class="n">SPIDevice</span><span class="p">(</span><span class="n">spi</span><span class="p">,</span> <span class="n">chip_select</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">12345</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buf</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Widget&#39;s one register.&quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">spi_device</span> <span class="k">as</span> <span class="n">spi</span><span class="p">:</span>
+            <span class="n">spi</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;0x00&#39;</span><span class="p">)</span>
+            <span class="n">i2c</span><span class="o">.</span><span class="n">readinto</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">buf</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">buf</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="use-composition">
+<h2>Use composition<a class="headerlink" href="#use-composition" title="Permalink to this headline">¶</a></h2>
+<p>When writing a driver, take in objects that provide the functionality you need
+rather than taking their arguments and constructing them yourself or subclassing
+a parent class with functionality. This technique is known as composition and
+leads to code that is more flexible and testable than traditional inheritance.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="https://en.wikipedia.org/wiki/Dependency_inversion_principle">Wikipedia</a>
+has more information on “dependency inversion”.</p>
+</div>
+<p>For example, if you are writing a driver for an I2C device, then take in an I2C
+object instead of the pins themselves. This allows the calling code to provide
+any object with the appropriate methods such as an I2C expansion board.</p>
+<p>Another example is to expect a <a class="reference internal" href="../shared-bindings/digitalio/DigitalInOut.html#digitalio.DigitalInOut" title="digitalio.DigitalInOut"><code class="xref any py py-class docutils literal"><span class="pre">DigitalInOut</span></code></a> for a pin to toggle instead of a
+<a class="reference internal" href="../shared-bindings/microcontroller/Pin.html#microcontroller.Pin" title="microcontroller.Pin"><code class="xref any py py-class docutils literal"><span class="pre">microcontroller.Pin</span></code></a> from <a class="reference internal" href="../shared-bindings/board/__init__.html#module-board" title="board: Board specific pin names (SAMD21)"><code class="xref any py py-mod docutils literal"><span class="pre">board</span></code></a>. Taking in the <code class="xref any docutils literal"><span class="pre">~microcontroller.Pin</span></code> object
+alone would limit the driver to pins on the actual microcontroller instead of pins
+provided by another driver such as an IO expander.</p>
+</div>
+<div class="section" id="lots-of-small-modules">
+<h2>Lots of small modules<a class="headerlink" href="#lots-of-small-modules" title="Permalink to this headline">¶</a></h2>
+<p>CircuitPython boards tend to have a small amount of internal flash and a small
+amount of ram but large amounts of external flash for the file system. So, create
+many small libraries that can be loaded as needed instead of one large file that
+does everything.</p>
+</div>
+<div class="section" id="speed-second">
+<h2>Speed second<a class="headerlink" href="#speed-second" title="Permalink to this headline">¶</a></h2>
+<p>Speed isn’t as important as API clarity and code size. So, prefer simple APIs
+like properties for state even if it sacrifices a bit of speed.</p>
+</div>
+<div class="section" id="avoid-allocations-in-drivers">
+<h2>Avoid allocations in drivers<a class="headerlink" href="#avoid-allocations-in-drivers" title="Permalink to this headline">¶</a></h2>
+<p>Although Python doesn’t require managing memory, its still a good practice for
+library writers to think about memory allocations. Avoid them in drivers if
+you can because you never know how much something will be called. Fewer
+allocations means less time spent cleaning up. So, where you can, prefer
+bytearray buffers that are created in <code class="docutils literal"><span class="pre">__init__</span></code> and used throughout the
+object with methods that read or write into the buffer instead of creating new
+objects. Unified hardware API classes such as <a class="reference internal" href="../shared-bindings/busio/SPI.html#busio.SPI" title="busio.SPI"><code class="xref any py py-class docutils literal"><span class="pre">busio.SPI</span></code></a> are design to read and
+write to subsections of buffers.</p>
+<p>Its ok to allocate an object to return to the user. Just beware of causing more
+than one allocation per call due to internal logic.</p>
+<p><strong>However</strong>, this is a memory tradeoff so do not do it for large or rarely used
+buffers.</p>
+<div class="section" id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="ustruct-pack">
+<h4>ustruct.pack<a class="headerlink" href="#ustruct-pack" title="Permalink to this headline">¶</a></h4>
+<p>Use <a class="reference internal" href="library/ustruct.html#ustruct.pack_into" title="ustruct.pack_into"><code class="xref any py py-func docutils literal"><span class="pre">ustruct.pack_into</span></code></a> instead of <a class="reference internal" href="library/ustruct.html#ustruct.pack" title="ustruct.pack"><code class="xref any py py-func docutils literal"><span class="pre">ustruct.pack</span></code></a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="sensor-properties-and-units">
+<h2>Sensor properties and units<a class="headerlink" href="#sensor-properties-and-units" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://learn.adafruit.com/using-the-adafruit-unified-sensor-driver/introduction">Adafruit Unified Sensor Driver Arduino library</a> has a
+<a class="reference external" href="https://learn.adafruit.com/using-the-adafruit-unified-sensor-driver?view=all#standardised-si-units-for-sensor-data">great list</a>
+of measurements and their units. Use the same ones including the property name
+itself so that drivers can be used interchangeably when they have the same
+properties.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="19%" />
+<col width="61%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property name</th>
+<th class="head">Python type</th>
+<th class="head">Units</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">acceleration</span></code></td>
+<td>(float, float, float)</td>
+<td>x, y, z meter per second per second</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">magnetic</span></code></td>
+<td>float</td>
+<td>micro-Tesla (uT)</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">orientation</span></code></td>
+<td>(float, float, float)</td>
+<td>x, y, z degrees</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">gyro</span></code></td>
+<td>(float, float, float)</td>
+<td>x, y, z radians per second</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">temperature</span></code></td>
+<td>float</td>
+<td>degrees centigrade</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">distance</span></code></td>
+<td>float</td>
+<td>centimeters</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">light</span></code></td>
+<td>float</td>
+<td>SI lux</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">pressure</span></code></td>
+<td>float</td>
+<td>hectopascal (hPa)</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">relative_humidity</span></code></td>
+<td>float</td>
+<td>percent</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">current</span></code></td>
+<td>float</td>
+<td>milliamps (mA)</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">voltage</span></code></td>
+<td>float</td>
+<td>volts (V)</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">color</span></code></td>
+<td>int</td>
+<td>RGB, eight bits per channel (0xff0000 is red)</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">alarm</span></code></td>
+<td>(time.struct, str)</td>
+<td>Sample alarm time and string to characterize frequency such as “hourly”</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">datetime</span></code></td>
+<td>time.struct</td>
+<td>date and time</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="common-apis">
+<h2>Common APIs<a class="headerlink" href="#common-apis" title="Permalink to this headline">¶</a></h2>
+<p>Outside of sensors, having common methods amongst drivers for similar devices
+such as devices can be really useful. Its early days however. For now, try to
+adhere to guidelines in this document. Once a design is settled on, add it as a
+subsection to this one.</p>
+</div>
+<div class="section" id="adding-native-modules">
+<h2>Adding native modules<a class="headerlink" href="#adding-native-modules" title="Permalink to this headline">¶</a></h2>
+<p>The Python API for a new module should be defined and documented in
+<code class="docutils literal"><span class="pre">shared-bindings</span></code> and define an underlying C API. If the implementation is
+port-agnostic or relies on underlying APIs of another module, the code should
+live in <code class="docutils literal"><span class="pre">shared-module</span></code>. If it is port specific then it should live in <code class="docutils literal"><span class="pre">common-hal</span></code>
+within the port’s folder. In either case, the file and folder structure should
+mimic the structure in <code class="docutils literal"><span class="pre">shared-bindings</span></code>.</p>
+</div>
+<div class="section" id="micropython-compatibility">
+<h2>MicroPython compatibility<a class="headerlink" href="#micropython-compatibility" title="Permalink to this headline">¶</a></h2>
+<p>Keeping compatibility with MicroPython isn’t a high priority. It should be done
+when its not in conflict with any of the above goals.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="supported_ports.html" class="btn btn-neutral float-right" title="Supported Ports" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common_hal.html" class="btn btn-neutral" title="Adding *io support to other ports" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, MicroPython &amp; CircuitPython contributors (https://github.com/adafruit/circuitpython/graphs/contributors).
+      Last updated on 17 Aug 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

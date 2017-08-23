@@ -1,0 +1,511 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Digital Inputs &amp; Outputs &mdash; Adafruit CircuitPython 0.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Adafruit CircuitPython 0.0.0 documentation" href="../../index.html"/>
+        <link rel="up" title="CircuitPython Programming Guide" href="index.html"/>
+        <link rel="next" title="Additional Libraries on GitHub" href="../drivers.html"/>
+        <link rel="prev" title="CircuitPython Programming Guide" href="index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Adafruit CircuitPython
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../shared-bindings/index.html">Core Modules</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">CircuitPython Programming Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1. Digital Inputs &amp; Outputs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#digital-signals">1.1. Digital Signals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples-of-digital-signals">1.2. Examples of Digital Signals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#board-pins">1.3. Board Pins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#digital-outputs">1.4. Digital Outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#digital-inputs">1.5. Digital Inputs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../drivers.html">Additional Libraries on GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common_hal.html">Adding <code class="docutils literal"><span class="pre">*io</span></code> support to other ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_guide.html">Design Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../supported_ports.html">Supported Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../library/index.html">MicroPython libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">Adafruit CircuitPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CONTRIBUTING.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">MicroPython &amp; CircuitPython license information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Adafruit CircuitPython</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">CircuitPython Programming Guide</a> &raquo;</li>
+        
+      <li>1. Digital Inputs &amp; Outputs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/docs/programming_guide/01_digital_io.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="digital-inputs-outputs">
+<h1>1. Digital Inputs &amp; Outputs<a class="headerlink" href="#digital-inputs-outputs" title="Permalink to this headline">¶</a></h1>
+<p>Digital inputs and outputs (or I/O) are some of the simplest and most powerful
+ways to interact with hardware.  Using digital I/O you can talk to devices with
+simple on and off signals, like turning a LED on/off or reading if a button is
+pressed.  In CircuitPython using digital I/O is easy with a few modules that
+this guide will explore.</p>
+<div class="section" id="digital-signals">
+<h2>1.1. Digital Signals<a class="headerlink" href="#digital-signals" title="Permalink to this headline">¶</a></h2>
+<p>Before diving in to how to digital I/O works you’ll want to understand what is a
+digial signal.  In the simplest sense a digital signal is a simple on or off
+signal–i.e. there are only two possible states for the signal to be in.  Think
+of this almost like a binary digit that’s either 0 or 1.  With a digital signal
+it can only ever be 0/off or 1/on, there is no in-between!</p>
+<p>At a physical level digital signals are represented with high and low voltage
+levels.  A digital signal that’s on will be at a ‘high’ voltage level, typically
+3.3 volts or more (depending on the specifications of your microprocessor or
+development board), and a signal that’s off will be at a ‘low’ voltage level of
+zero volts (also called ground).  You can actually see this voltage with a
+multimeter set to measure DC voltage–try connecting a multimeter to a button or
+LED and watch the voltage as digital signal changes from on to off and
+vice-versa.</p>
+</div>
+<div class="section" id="examples-of-digital-signals">
+<h2>1.2. Examples of Digital Signals<a class="headerlink" href="#examples-of-digital-signals" title="Permalink to this headline">¶</a></h2>
+<p>What can you do with a digital signal?  It turns out quite a few interesting components are controlled with simple on/off digital I/O!</p>
+<p>Digital inputs:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.adafruit.com/category/155">Buttons and switches</a></li>
+<li><a class="reference external" href="https://www.adafruit.com/product/158">Magnetic or hall-effect sensors</a></li>
+<li><a class="reference external" href="https://www.adafruit.com/product/189">PIR motion sensors</a></li>
+<li><a class="reference external" href="https://www.adafruit.com/product/1766">Simple vibration sensors</a></li>
+<li><a class="reference external" href="https://www.adafruit.com/product/2167">Beam-break sensors</a></li>
+<li><a class="reference external" href="https://www.adafruit.com/product/3397">Liquid level sensors</a></li>
+<li><a class="reference external" href="https://www.adafruit.com/product/173">Tilt switches</a></li>
+<li><a class="reference external" href="https://www.adafruit.com/product/1096">Simple wireless remote controls</a></li>
+</ul>
+<p>Digital outputs:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.adafruit.com/category/90">Single color LEDs</a></li>
+<li><a class="reference external" href="https://www.adafruit.com/product/2935">Relays to control high-power devices</a></li>
+<li><a class="reference external" href="https://www.adafruit.com/product/2776">Solenoids that push or pull objects</a></li>
+<li><a class="reference external" href="https://www.adafruit.com/product/1201">Vibration motors</a></li>
+<li><a class="reference external" href="https://www.adafruit.com/product/1536">Buzzers (not piezo buzzers that require an analog signal though!)</a></li>
+</ul>
+<p>In addition to devices like the above you can also use digital signals for
+simple communication between two devices.  A digital output of one device, like
+your development board, can be connected to another device’s digital input, like
+an <a class="reference external" href="https://www.adafruit.com/product/2217">audio FX board</a> that plays music
+and sound effects.  There are even fast protocols like I2C or SPI for sending
+large amounts of data over a digital signal, but we’ll cover those in a later
+guide.</p>
+</div>
+<div class="section" id="board-pins">
+<h2>1.3. Board Pins<a class="headerlink" href="#board-pins" title="Permalink to this headline">¶</a></h2>
+<p>To use digital I/O you need to learn how to access the pins on your board.
+These are the physical points where you connect wires to access the digital
+signals.  On some boards, like Arduino Zero and Metro M0, the digital I/O pins
+are exposed with female headers that work well with breadboard-friendly hookup
+wires.  On other boards like Circuit Playground Express and Gemma M0 the digital
+I/O pins are large copper pads with holes that are easy to connect to alligator
+clips or conductive thread.  Check your board’s documentation to see where all
+of the digital I/O pins are located.</p>
+<p>In CircuitPython you use the board module to reference digital I/O pins.  The
+<a class="reference internal" href="../../shared-bindings/board/__init__.html#module-board" title="board: Board specific pin names (SAMD21)"><code class="xref py py-mod docutils literal"><span class="pre">board</span></code></a> module contains an object for each pin on the board and they’re
+typically named after labels on the board.  You can list all of the pins in the
+board module with <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#dir">Python’s dir function</a>, for example from a
+board’s REPL run:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">board</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">(</span><span class="n">board</span><span class="p">)</span>
+<span class="go">[&#39;A0&#39;, &#39;SPEAKER&#39;, &#39;A1&#39;, &#39;A2&#39;, &#39;A3&#39;, &#39;A4&#39;, &#39;SCL&#39;, &#39;A5&#39;, &#39;SDA&#39;, &#39;A6&#39;, &#39;RX&#39;,</span>
+<span class="go">&#39;A7&#39;, &#39;TX&#39;, &#39;LIGHT&#39;, &#39;A8&#39;, &#39;TEMPERATURE&#39;, &#39;A9&#39;, &#39;BUTTON_A&#39;, &#39;D4&#39;, &#39;BUTTON_B&#39;,</span>
+<span class="go">&#39;D5&#39;, &#39;SLIDE_SWITCH&#39;, &#39;D7&#39;, &#39;NEOPIXEL&#39;, &#39;D8&#39;, &#39;D13&#39;, &#39;REMOTEIN&#39;, &#39;IR_RX&#39;,</span>
+<span class="go">&#39;REMOTEOUT&#39;, &#39;IR_TX&#39;, &#39;IR_PROXIMITY&#39;, &#39;MICROPHONE_SCK&#39;, &#39;MICROPHONE_DO&#39;,</span>
+<span class="go">&#39;ACCELEROMETER_INTERRUPT&#39;, &#39;ACCELEROMETER_SDA&#39;, &#39;ACCELEROMETER_SCL&#39;,</span>
+<span class="go">&#39;SPEAKER_ENABLE&#39;, &#39;SCK&#39;, &#39;MOSI&#39;, &#39;MISO&#39;, &#39;FLASH_CS&#39;]</span>
+</pre></div>
+</div>
+<p>Each of the objects returned by the dir command represents a named pin on the
+board.  Above you see the output on a Circuit Playground Express board which has
+pins like A0, A1, D4, D5, etc. that represent pins that run around the diameter
+of the board.  There are even named pins like BUTTON_A, BUTTON_B, and
+SLIDE_SWITCH that represent pins connected to components built-in to the board.</p>
+</div>
+<div class="section" id="digital-outputs">
+<h2>1.4. Digital Outputs<a class="headerlink" href="#digital-outputs" title="Permalink to this headline">¶</a></h2>
+<p>Controlling a digital output with CircuitPython is easy to do with a few lines
+of code.  In fact you can connect to a board’s REPL and directly turn digital
+outputs on and off with a few simple commands.</p>
+<p>An easy way to demonstrate digital outputs is with a simple single-color LED.
+You can connect a LED to a digital output of your board and turn it on or off by
+setting the output to a high or low voltage level.  Remember digital outputs are
+only on or off and never in-between so you can’t control the brightness of the
+LED!  To wire a LED to your board you’ll need these components:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.adafruit.com/product/777">A single color LED.</a>  You want a simple single color LED and not a fancier multi-color LED or NeoPixel.  Look for a LED that has two legs, a short one and long one.  Check out <a class="reference external" href="https://learn.adafruit.com/all-about-leds/overview">the Adafruit LED guide</a> for more details on LEDs.</li>
+<li><a class="reference external" href="https://www.adafruit.com/product/2781">A resistor in the range of 300-1,000 ohms.</a>  You <em>must</em> use a resistor when wiring up a LED to your board or else you might damage the digital output on the board.  The resistor limits the amount of current to the LED and prevents damage to the board or LED.  The exact value of the resistor isn’t super important for this demonstration–pick any resistor in the 300-1,000 ohm range.</li>
+<li>A breadboard and wires to connect the components and board together.</li>
+</ul>
+<p>Connect the components to your board as follows:</p>
+<img alt="../../_images/01_digital_io_figure_1.png" src="../../_images/01_digital_io_figure_1.png" />
+<ul class="simple">
+<li>The short leg (cathode) of the LED connects to one end of the resistor.</li>
+<li>The other end of the resistor connects to the ground or GND pin of the board.</li>
+<li>The long leg (anode) of the LED connects to a digital output on your board.</li>
+</ul>
+<p>Now connect to your board’s REPL and you can use the <a class="reference internal" href="../../shared-bindings/digitalio/__init__.html#module-digitalio" title="digitalio: Basic digital pin support (SAMD21, ESP8266)"><code class="xref py py-mod docutils literal"><span class="pre">digitalio</span></code></a> module
+to control the digital output connected to the LED.  Run the following code to
+first import the necessary modules and create a
+<a class="reference internal" href="../../shared-bindings/digitalio/DigitalInOut.html#digitalio.DigitalInOut" title="digitalio.DigitalInOut"><code class="xref py py-class docutils literal"><span class="pre">digitalio.DigitalInOut</span></code></a> object for the pin (pin A1 in this example
+but you can use any digital output from your board):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">board</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">digitalio</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">led</span> <span class="o">=</span> <span class="n">digitalio</span><span class="o">.</span><span class="n">DigitalInOut</span><span class="p">(</span><span class="n">board</span><span class="o">.</span><span class="n">A1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <a class="reference internal" href="../../shared-bindings/digitalio/DigitalInOut.html#digitalio.DigitalInOut" title="digitalio.DigitalInOut"><code class="xref py py-class docutils literal"><span class="pre">digitalio.DigitalInOut</span></code></a> class is your gateway for controlling
+both digital inputs and outputs.  By default when you create an instance of one
+it starts as a digital input, however you can call the
+<a class="reference internal" href="../../shared-bindings/digitalio/DigitalInOut.html#digitalio.DigitalInOut.switch_to_output" title="digitalio.DigitalInOut.switch_to_output"><code class="xref py py-func docutils literal"><span class="pre">digitalio.DigitalInOut.switch_to_output()</span></code></a> function to turn it into a
+digital output:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">led</span><span class="o">.</span><span class="n">switch_to_output</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Once a digital output is created and initialized you simply change the value of
+its <a class="reference internal" href="../../shared-bindings/digitalio/DigitalInOut.html#digitalio.DigitalInOut.value" title="digitalio.DigitalInOut.value"><code class="xref py py-attr docutils literal"><span class="pre">digitalio.DigitalInOut.value</span></code></a> property to turn the output on or
+off.  For example to turn the LED on set value to true:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">led</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>And to turn the LED off set value to false:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">led</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<p>Remember with digital signals you can only set them to on or off states, i.e.
+true or false values.  There is no in-between or half on and half off!</p>
+<p>Finally you can blink the LED by simply changing the value in a loop with a
+small delay:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">time</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="gp">... </span>   <span class="n">led</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="gp">... </span>   <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">... </span>   <span class="n">led</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="gp">... </span>   <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+<p>Remember in the REPL you need to press delete to de-indent the while loop and then press enter for it to see you’re done typing code in the loop!  Alternatively press enter three times an CircuitPython will automatically close the loop and run it.  You can press Ctrl-C to stop the loop from running with a keyboard interrupt exception.</p>
+</div>
+<div class="section" id="digital-inputs">
+<h2>1.5. Digital Inputs<a class="headerlink" href="#digital-inputs" title="Permalink to this headline">¶</a></h2>
+<p>Just like digital outputs, digital inputs are easy to control with a few lines
+of CircuitPython code.  A great example of using digital inputs is reading the
+state of a button or switch.  To do this you’ll need the following parts:</p>
+<ul class="simple">
+<li>A <a class="reference external" href="https://www.adafruit.com/product/805">slide switch</a> or toggle switch.  These are switches that have three legs and physically connect one of the legs to another when the switch is flipped.  You’ll see two different ways to wire this switch to your board–one that uses all three legs and another that uses just two legs.</li>
+<li>A breadboard and wires to connect the components and board together.</li>
+</ul>
+<p>Wire up the switch to your board as follows:</p>
+<img alt="../../_images/01_digital_io_figure_2.png" src="../../_images/01_digital_io_figure_2.png" />
+<ul class="simple">
+<li>The middle leg or output of the switch is connected to one of the digital inputs of the board.</li>
+<li>Another leg of the switch is connected to the board’s ground or GND pin.  When the switch is flipped to this position it will read a low digital logic signal.</li>
+<li>The opposite leg of the switch is connected to the board’s 3.3V output.  You want to connect this switch to a voltage output that matches your board’s voltage for a high digital logic signal, typically 3.3V but sometimes 5V.  When the switch is flipped to this position it will read a high digital logic signal.</li>
+</ul>
+<p>Now connect to the board’s REPL and create a digital input object just like you
+saw previously with digital outputs.  For example using pin A1 of a board:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">board</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">digitalio</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">switch</span> <span class="o">=</span> <span class="n">digitalio</span><span class="o">.</span><span class="n">DigitalInOut</span><span class="p">(</span><span class="n">board</span><span class="o">.</span><span class="n">A1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>By default <a class="reference internal" href="../../shared-bindings/digitalio/DigitalInOut.html#digitalio.DigitalInOut" title="digitalio.DigitalInOut"><code class="xref py py-class docutils literal"><span class="pre">digitalio.DigitalInOut</span></code></a> objects are created as digital
+inputs so you don’t need to do anything else to read the switch.  However if you
+were doing other things with the pin you can use the
+<a class="reference internal" href="../../shared-bindings/digitalio/DigitalInOut.html#digitalio.DigitalInOut.switch_to_input" title="digitalio.DigitalInOut.switch_to_input"><code class="xref py py-func docutils literal"><span class="pre">digitalio.DigitalInOut.switch_to_input()</span></code></a> function:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">switch</span><span class="o">.</span><span class="n">switch_to_input</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>After a digital input object is created you simply read the
+<a class="reference internal" href="../../shared-bindings/digitalio/DigitalInOut.html#digitalio.DigitalInOut.value" title="digitalio.DigitalInOut.value"><code class="xref py py-attr docutils literal"><span class="pre">digitalio.DigitalInOut.value</span></code></a> property to check if the input is at a
+high or low logic level.  If the value is a boolean true value it’s at a high
+digital logic level and if it’s false it’s at a low digital logic level.</p>
+<p>Try reading the switch state, for example you might see:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">switch</span><span class="o">.</span><span class="n">value</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p>Then flip the switch to its opposite position and read it again:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">switch</span><span class="o">.</span><span class="n">value</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Notice the value changed from false to true!  This shows that the board first
+saw the digital input connected to ground or low digital logic level and then
+saw the input connected to 3.3V or high digital logic level.  By flipping the
+switch you physicaly changed how the legs of the switch were connected to switch
+between high and low levels!</p>
+<p>Remember you can use boolean values in conditional statements, like to print out a message if the switch is turned on:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">switch</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Switch is on!&quot;</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Switch is off!&quot;</span><span class="p">)</span>
+<span class="go">Switch is on!</span>
+</pre></div>
+</div>
+<p>There’s one other way to read the switch which only requires two of its legs to
+be connected to your board.  This is useful to reduce the number of physical
+connections or to connect to momentary or push buttons that only have two legs.
+Change the wiring of the switch to look like:</p>
+<img alt="../../_images/01_digital_io_figure_3.png" src="../../_images/01_digital_io_figure_3.png" />
+<ul class="simple">
+<li>The middle leg or output of the switch is still connected to one of the digital inputs of the board.</li>
+<li>Another leg of the switch is connected to the board’s ground or GND pin.</li>
+</ul>
+<p>The opposite leg of the switch remains disconnected–only two wires are
+connected to the switch.  When the switch is wired like this it means it will
+read a ground or low logic level in one position, but what happens when it’s in
+the opposite position and not connected to anything on the board?  This state is
+called ‘floating’ and the input will actually read random values–you might get
+a high or low logic level depending on the electrical noise around the pin!</p>
+<p>Luckily there’s an easy way to prevent an input from floating by using special
+built-in pull-up or pull-down resistors available on most development board
+digital I/O pins.  You can turn on a pull-up resistor that will bring the
+digital input up to a high digital logic level if nothing is connected to it.
+This prevents the input from floating and will instead read a high digital logic
+level.  Then when the switch is flipped and connected to ground / low logic it
+will ‘overpower’ the small pull-up resistor and read a low digital logic level.</p>
+<p>To enable a digital input with a pull-up (or pull-down) resistor you do so with
+a parameter to the <a class="reference internal" href="../../shared-bindings/digitalio/DigitalInOut.html#digitalio.DigitalInOut.switch_to_input" title="digitalio.DigitalInOut.switch_to_input"><code class="xref py py-func docutils literal"><span class="pre">digitalio.DigitalInOut.switch_to_input()</span></code></a> function:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">switch</span><span class="o">.</span><span class="n">switch_to_input</span><span class="p">(</span><span class="n">pull</span><span class="o">=</span><span class="n">digitalio</span><span class="o">.</span><span class="n">Pull</span><span class="o">.</span><span class="n">UP</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now the digital input is configured with a pull-up resistor!  Note that you can
+instead specify a pull-down resistor (connected to ground / low digital logic
+level) by setting the pull parameter to the <code class="xref py py-attr docutils literal"><span class="pre">digitalio.Pull.DOWN</span></code>
+value.</p>
+<p>Once the input is configured with a pull-up resistor use the
+<a class="reference internal" href="../../shared-bindings/digitalio/DigitalInOut.html#digitalio.DigitalInOut.value" title="digitalio.DigitalInOut.value"><code class="xref py py-attr docutils literal"><span class="pre">digitalio.DigitalInOut.value</span></code></a> attribute to read its value:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">switch</span><span class="o">.</span><span class="n">value</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p>Then flip the switch and read its value again:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">switch</span><span class="o">.</span><span class="n">value</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Notice the switch value changes depending on how the switch is flipped.  When
+the switch connects to ground you’ll read a false or low digital logic level,
+and when the switch connects to nothing (i.e. is floating) you’ll read a true or
+high logic level because of the pull-up resistor connected internally to 3.3V.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../drivers.html" class="btn btn-neutral float-right" title="Additional Libraries on GitHub" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="CircuitPython Programming Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, MicroPython &amp; CircuitPython contributors (https://github.com/adafruit/circuitpython/graphs/contributors).
+      Last updated on 22 Aug 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

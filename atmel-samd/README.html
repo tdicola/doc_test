@@ -1,0 +1,1612 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SAMD21x18 &mdash; Adafruit CircuitPython 0.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Adafruit CircuitPython 0.0.0 documentation" href="../index.html"/>
+        <link rel="up" title="Supported Ports" href="../docs/supported_ports.html"/>
+        <link rel="next" title="samd --- SAMD implementation settings" href="bindings/samd/__init__.html"/>
+        <link rel="prev" title="Supported Ports" href="../docs/supported_ports.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Adafruit CircuitPython
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../shared-bindings/index.html">Core Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/drivers.html">Additional Libraries on GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/common_hal.html">Adding <code class="docutils literal"><span class="pre">*io</span></code> support to other ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/design_guide.html">Design Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../docs/supported_ports.html">Supported Ports</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">SAMD21x18</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pinout">Pinout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building">Building</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deploying">Deploying</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#arduino-bootloader">Arduino Bootloader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#no-bootloader-via-gdb">No Bootloader via GDB</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#connecting">Connecting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#serial">Serial</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mass-storage">Mass storage</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#port-specific-modules">Port Specific modules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bindings/samd/__init__.html"><code class="docutils literal"><span class="pre">samd</span></code> --- SAMD implementation settings</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../docs/esp8266/index.html">ESP8266</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/library/index.html">MicroPython libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Adafruit CircuitPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">MicroPython &amp; CircuitPython license information</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Adafruit CircuitPython</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../docs/supported_ports.html">Supported Ports</a> &raquo;</li>
+        
+      <li>SAMD21x18</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/atmel-samd/README.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="samd21x18">
+<h1>SAMD21x18<a class="headerlink" href="#samd21x18" title="Permalink to this headline">¶</a></h1>
+<p>This port brings MicroPython to SAMD21x18 based development boards under the name
+CircuitPython. Supported boards include the Adafruit CircuitPlayground Express,
+Adafruit Feather M0 Express, Adafruit Metro M0 Express, Arduino Zero, Adafruit
+Feather M0 Basic and Adafruit M0 Bluefruit LE.</p>
+<div class="section" id="pinout">
+<h2>Pinout<a class="headerlink" href="#pinout" title="Permalink to this headline">¶</a></h2>
+<p>All of the boards share the same core pin functionality but call pins by
+different names. The table below matches the pin order in
+<a class="reference external" href="http://ww1.microchip.com/downloads/en/DeviceDoc/40001882A.pdf">the datasheet</a>
+and omits the pins only available on the largest package because all supported
+boards use smaller version.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="9%" />
+<col width="16%" />
+<col width="11%" />
+<col width="9%" />
+<col width="10%" />
+<col width="14%" />
+<col width="9%" />
+<col width="9%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><a class="reference internal" href="../shared-bindings/microcontroller/__init__.html#module-microcontroller.pin" title="microcontroller.pin: Microcontroller pin names (SAMD21)"><code class="xref any py py-mod docutils literal"><span class="pre">microcontroller.pin</span></code></a></th>
+<th class="head" colspan="8"><a class="reference internal" href="../shared-bindings/board/__init__.html#module-board" title="board: Board specific pin names (SAMD21)"><code class="xref any py py-mod docutils literal"><span class="pre">board</span></code></a></th>
+</tr>
+<tr class="row-even"><th class="head">Datasheet</th>
+<th class="head">arduino_zero</th>
+<th class="head">circuitplayground_express</th>
+<th class="head">feather_m0_adalogger</th>
+<th class="head">feather_m0_basic</th>
+<th class="head">feather_m0_express</th>
+<th class="head">gemma_m0</th>
+<th class="head">metro_m0_express</th>
+<th class="head">trinket_m0</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-odd"><td>PA00</td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">ACCELEROMETER_SDA</span></code></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">APA102_MOSI</span></code></td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">APA102_MOSI</span></code></td>
+</tr>
+<tr class="row-even"><td>PA01</td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">ACCELEROMETER_SCL</span></code></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">APA102_SCK</span></code></td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">APA102_SCK</span></code></td>
+</tr>
+<tr class="row-odd"><td>PA02</td>
+<td><code class="docutils literal"><span class="pre">A0</span></code></td>
+<td><code class="docutils literal"><span class="pre">A0</span></code> / <code class="docutils literal"><span class="pre">SPEAKER</span></code></td>
+<td><code class="docutils literal"><span class="pre">A0</span></code></td>
+<td><code class="docutils literal"><span class="pre">A0</span></code></td>
+<td><code class="docutils literal"><span class="pre">A0</span></code></td>
+<td><code class="docutils literal"><span class="pre">A0</span></code> / <code class="docutils literal"><span class="pre">D1</span></code></td>
+<td><code class="docutils literal"><span class="pre">A0</span></code></td>
+<td><code class="docutils literal"><span class="pre">D1</span></code> / <code class="docutils literal"><span class="pre">A0</span></code></td>
+</tr>
+<tr class="row-even"><td>PA03</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>PB08</td>
+<td><code class="docutils literal"><span class="pre">A1</span></code></td>
+<td><code class="docutils literal"><span class="pre">A7</span></code> / <code class="docutils literal"><span class="pre">TX</span></code></td>
+<td><code class="docutils literal"><span class="pre">A1</span></code></td>
+<td><code class="docutils literal"><span class="pre">A1</span></code></td>
+<td><code class="docutils literal"><span class="pre">A1</span></code></td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">A1</span></code></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PB09</td>
+<td><code class="docutils literal"><span class="pre">A2</span></code></td>
+<td><code class="docutils literal"><span class="pre">A6</span></code> / <code class="docutils literal"><span class="pre">RX</span></code></td>
+<td><code class="docutils literal"><span class="pre">A2</span></code></td>
+<td><code class="docutils literal"><span class="pre">A2</span></code></td>
+<td><code class="docutils literal"><span class="pre">A2</span></code></td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">A2</span></code></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>PA04</td>
+<td><code class="docutils literal"><span class="pre">A3</span></code></td>
+<td><code class="docutils literal"><span class="pre">IR_PROXIMITY</span></code></td>
+<td><code class="docutils literal"><span class="pre">A3</span></code></td>
+<td><code class="docutils literal"><span class="pre">A3</span></code></td>
+<td><code class="docutils literal"><span class="pre">A3</span></code></td>
+<td><code class="docutils literal"><span class="pre">D0</span></code> / <code class="docutils literal"><span class="pre">TX</span></code> / <code class="docutils literal"><span class="pre">SDA</span></code></td>
+<td><code class="docutils literal"><span class="pre">A3</span></code></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PA05</td>
+<td><code class="docutils literal"><span class="pre">A4</span></code></td>
+<td><code class="docutils literal"><span class="pre">A1</span></code></td>
+<td><code class="docutils literal"><span class="pre">A4</span></code></td>
+<td><code class="docutils literal"><span class="pre">A4</span></code></td>
+<td><code class="docutils literal"><span class="pre">A4</span></code></td>
+<td><code class="docutils literal"><span class="pre">D2</span></code> / <code class="docutils literal"><span class="pre">RX</span></code> / <code class="docutils literal"><span class="pre">SCL</span></code></td>
+<td><code class="docutils literal"><span class="pre">A4</span></code></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>PA06</td>
+<td><code class="docutils literal"><span class="pre">D8</span></code></td>
+<td><code class="docutils literal"><span class="pre">A2</span></code></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">NEOPIXEL</span></code></td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">D8</span></code></td>
+<td><code class="docutils literal"><span class="pre">D4</span></code> / <code class="docutils literal"><span class="pre">TX</span></code></td>
+</tr>
+<tr class="row-even"><td>PA07</td>
+<td><code class="docutils literal"><span class="pre">D9</span></code></td>
+<td><code class="docutils literal"><span class="pre">A3</span></code></td>
+<td><code class="docutils literal"><span class="pre">D9</span></code></td>
+<td><code class="docutils literal"><span class="pre">D9</span></code></td>
+<td><code class="docutils literal"><span class="pre">D9</span></code></td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">D9</span></code></td>
+<td><code class="docutils literal"><span class="pre">D3</span></code> / <code class="docutils literal"><span class="pre">RX</span></code></td>
+</tr>
+<tr class="row-odd"><td>PA08</td>
+<td><code class="docutils literal"><span class="pre">D4</span></code></td>
+<td><code class="docutils literal"><span class="pre">MICROPHONE_DO</span></code></td>
+<td><code class="docutils literal"><span class="pre">SD_CS</span></code></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">D4</span></code></td>
+<td><code class="docutils literal"><span class="pre">D0</span></code> / <code class="docutils literal"><span class="pre">SDA</span></code></td>
+</tr>
+<tr class="row-even"><td>PA09</td>
+<td><code class="docutils literal"><span class="pre">D3</span></code></td>
+<td><code class="docutils literal"><span class="pre">TEMPERATURE</span></code> / <code class="docutils literal"><span class="pre">A9</span></code></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">D3</span></code></td>
+<td><code class="docutils literal"><span class="pre">D2</span></code> / <code class="docutils literal"><span class="pre">SCL</span></code></td>
+</tr>
+<tr class="row-odd"><td>PA10</td>
+<td><code class="docutils literal"><span class="pre">D1</span></code> / <code class="docutils literal"><span class="pre">TX</span></code></td>
+<td><code class="docutils literal"><span class="pre">MICROPHONE_SCK</span></code></td>
+<td><code class="docutils literal"><span class="pre">D1</span></code> / <code class="docutils literal"><span class="pre">TX</span></code></td>
+<td><code class="docutils literal"><span class="pre">D1</span></code> / <code class="docutils literal"><span class="pre">TX</span></code></td>
+<td><code class="docutils literal"><span class="pre">D1</span></code> / <code class="docutils literal"><span class="pre">TX</span></code></td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">D1</span></code> / <code class="docutils literal"><span class="pre">TX</span></code></td>
+<td><code class="docutils literal"><span class="pre">D13</span></code></td>
+</tr>
+<tr class="row-even"><td>PA11</td>
+<td><code class="docutils literal"><span class="pre">D0</span></code> / <code class="docutils literal"><span class="pre">RX</span></code></td>
+<td><code class="docutils literal"><span class="pre">LIGHT</span></code> / <code class="docutils literal"><span class="pre">A8</span></code></td>
+<td><code class="docutils literal"><span class="pre">D0</span></code> / <code class="docutils literal"><span class="pre">RX</span></code></td>
+<td><code class="docutils literal"><span class="pre">D0</span></code> / <code class="docutils literal"><span class="pre">RX</span></code></td>
+<td><code class="docutils literal"><span class="pre">D0</span></code> / <code class="docutils literal"><span class="pre">RX</span></code></td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">D0</span></code> / <code class="docutils literal"><span class="pre">RX</span></code></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>PB10</td>
+<td><code class="docutils literal"><span class="pre">MOSI</span></code></td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">MOSI</span></code></td>
+<td><code class="docutils literal"><span class="pre">MOSI</span></code></td>
+<td><code class="docutils literal"><span class="pre">MOSI</span></code></td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">MOSI</span></code></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PB11</td>
+<td><code class="docutils literal"><span class="pre">SCK</span></code></td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">SCK</span></code></td>
+<td><code class="docutils literal"><span class="pre">SCK</span></code></td>
+<td><code class="docutils literal"><span class="pre">SCK</span></code></td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">SCK</span></code></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>PA12</td>
+<td><code class="docutils literal"><span class="pre">MISO</span></code></td>
+<td><code class="docutils literal"><span class="pre">REMOTEIN</span></code> / <code class="docutils literal"><span class="pre">IR_RX</span></code></td>
+<td><code class="docutils literal"><span class="pre">MISO</span></code></td>
+<td><code class="docutils literal"><span class="pre">MISO</span></code></td>
+<td><code class="docutils literal"><span class="pre">MISO</span></code></td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">MISO</span></code></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PA13</td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">ACCELEROMETER_INTERRUPT</span></code></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">FLASH_CS</span></code></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>PA14</td>
+<td><code class="docutils literal"><span class="pre">D2</span></code></td>
+<td><code class="docutils literal"><span class="pre">BUTTON_B</span></code> / <code class="docutils literal"><span class="pre">D5</span></code></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">D2</span></code></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PA15</td>
+<td><code class="docutils literal"><span class="pre">D5</span></code></td>
+<td><code class="docutils literal"><span class="pre">SLIDE_SWITCH</span></code> / <code class="docutils literal"><span class="pre">D7</span></code></td>
+<td><code class="docutils literal"><span class="pre">D5</span></code></td>
+<td><code class="docutils literal"><span class="pre">D5</span></code></td>
+<td><code class="docutils literal"><span class="pre">D5</span></code></td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">D5</span></code></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>PA16</td>
+<td><code class="docutils literal"><span class="pre">D11</span></code></td>
+<td><code class="docutils literal"><span class="pre">MISO</span></code></td>
+<td><code class="docutils literal"><span class="pre">D11</span></code></td>
+<td><code class="docutils literal"><span class="pre">D11</span></code></td>
+<td><code class="docutils literal"><span class="pre">D11</span></code></td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">D11</span></code></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PA17</td>
+<td><code class="docutils literal"><span class="pre">D13</span></code></td>
+<td><code class="docutils literal"><span class="pre">D13</span></code></td>
+<td><code class="docutils literal"><span class="pre">D13</span></code></td>
+<td><code class="docutils literal"><span class="pre">D13</span></code></td>
+<td><code class="docutils literal"><span class="pre">D13</span></code></td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">D13</span></code></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>PA18</td>
+<td><code class="docutils literal"><span class="pre">D10</span></code></td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">D10</span></code></td>
+<td><code class="docutils literal"><span class="pre">D10</span></code></td>
+<td><code class="docutils literal"><span class="pre">D10</span></code></td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">D10</span></code></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PA19</td>
+<td><code class="docutils literal"><span class="pre">D12</span></code></td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">D12</span></code></td>
+<td><code class="docutils literal"><span class="pre">D12</span></code></td>
+<td><code class="docutils literal"><span class="pre">D12</span></code></td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">D12</span></code></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>PA20</td>
+<td><code class="docutils literal"><span class="pre">D6</span></code></td>
+<td><code class="docutils literal"><span class="pre">MOSI</span></code></td>
+<td><code class="docutils literal"><span class="pre">D6</span></code></td>
+<td><code class="docutils literal"><span class="pre">D6</span></code></td>
+<td><code class="docutils literal"><span class="pre">D6</span></code></td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">D6</span></code></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PA21</td>
+<td><code class="docutils literal"><span class="pre">D7</span></code></td>
+<td><code class="docutils literal"><span class="pre">SCK</span></code></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">D7</span></code></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>PA22</td>
+<td><code class="docutils literal"><span class="pre">SDA</span></code></td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">SDA</span></code></td>
+<td><code class="docutils literal"><span class="pre">SDA</span></code></td>
+<td><code class="docutils literal"><span class="pre">SDA</span></code></td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">SDA</span></code></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PA23</td>
+<td><code class="docutils literal"><span class="pre">SCL</span></code></td>
+<td><code class="docutils literal"><span class="pre">REMOTEOUT</span></code> / <code class="docutils literal"><span class="pre">IR_TX</span></code></td>
+<td><code class="docutils literal"><span class="pre">SCL</span></code></td>
+<td><code class="docutils literal"><span class="pre">SCL</span></code></td>
+<td><code class="docutils literal"><span class="pre">SCL</span></code></td>
+<td><code class="docutils literal"><span class="pre">L</span></code> / <code class="docutils literal"><span class="pre">D13</span></code></td>
+<td><code class="docutils literal"><span class="pre">SCL</span></code></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>PA24</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PA25</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>PB22</td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">FLASH_CS</span></code></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PB23</td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">NEOPIXEL</span></code> / <code class="docutils literal"><span class="pre">D8</span></code></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>PA27</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PA28</td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">BUTTON_A</span></code> / <code class="docutils literal"><span class="pre">D4</span></code></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>PA29</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PA30</td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">SPEAKER_ENABLE</span></code></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">NEOPIXEL</span></code></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>PA31</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PB02</td>
+<td><code class="docutils literal"><span class="pre">A5</span></code></td>
+<td><code class="docutils literal"><span class="pre">A5</span></code> / <code class="docutils literal"><span class="pre">SDA</span></code></td>
+<td><code class="docutils literal"><span class="pre">A5</span></code></td>
+<td><code class="docutils literal"><span class="pre">A5</span></code></td>
+<td><code class="docutils literal"><span class="pre">A5</span></code></td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">A5</span></code></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>PB03</td>
+<td>&#160;</td>
+<td><code class="docutils literal"><span class="pre">A4</span></code> / <code class="docutils literal"><span class="pre">SCL</span></code></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<p>Here is a table about which pins can do what in CircuitPython terms. However,
+just because something is listed, doesn’t mean it will always work. Existing use
+of other pins and functionality will impact your ability to use a pin for your
+desired purpose. For example, only certain combinations of SPI pins will work
+because they use shared hardware internally.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="5%" />
+<col width="5%" />
+<col width="4%" />
+<col width="6%" />
+<col width="6%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="7%" />
+<col width="4%" />
+<col width="4%" />
+<col width="5%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><a class="reference internal" href="../shared-bindings/microcontroller/__init__.html#module-microcontroller.pin" title="microcontroller.pin: Microcontroller pin names (SAMD21)"><code class="xref any py py-mod docutils literal"><span class="pre">microcontroller.pin</span></code></a></th>
+<th class="head" colspan="2"><a class="reference internal" href="../shared-bindings/analogio/__init__.html#module-analogio" title="analogio: Analog hardware support (SAMD21, ESP8266)"><code class="xref any py py-mod docutils literal"><span class="pre">analogio</span></code></a></th>
+<th class="head"><a class="reference internal" href="../shared-bindings/audioio/__init__.html#module-audioio" title="audioio: Support for audio input and output (SAMD21)"><code class="xref any py py-mod docutils literal"><span class="pre">audioio</span></code></a></th>
+<th class="head" colspan="3"><a class="reference internal" href="../shared-bindings/bitbangio/__init__.html#module-bitbangio" title="bitbangio: Digital protocols implemented by the CPU (SAMD21, ESP8266)"><code class="xref any py py-mod docutils literal"><span class="pre">bitbangio</span></code></a></th>
+<th class="head" colspan="8"><a class="reference internal" href="../shared-bindings/busio/__init__.html#module-busio" title="busio: Hardware accelerated behavior (SAMD21)"><code class="xref any py py-mod docutils literal"><span class="pre">busio</span></code></a></th>
+<th class="head"><a class="reference internal" href="../shared-bindings/digitalio/__init__.html#module-digitalio" title="digitalio: Basic digital pin support (SAMD21, ESP8266)"><code class="xref any py py-mod docutils literal"><span class="pre">digitalio</span></code></a></th>
+<th class="head" colspan="2"><a class="reference internal" href="../shared-bindings/pulseio/__init__.html#module-pulseio" title="pulseio: Support for pulse based protocols (SAMD21, ESP8266)"><code class="xref any py py-mod docutils literal"><span class="pre">pulseio</span></code></a></th>
+<th class="head"><a class="reference internal" href="../shared-bindings/touchio/__init__.html#module-touchio" title="touchio: Hardware accelerated behavior (SAMD21)"><code class="xref any py py-mod docutils literal"><span class="pre">touchio</span></code></a></th>
+</tr>
+<tr class="row-even"><th class="head">Datasheet</th>
+<th class="head">AnalogIn</th>
+<th class="head">AnalogOut</th>
+<th class="head">AudioOut</th>
+<th class="head">I2C</th>
+<th class="head">OneWire</th>
+<th class="head">SPI</th>
+<th class="head">I2C - SDA</th>
+<th class="head">I2C - SCL</th>
+<th class="head">OneWire</th>
+<th class="head">SPI - MISO</th>
+<th class="head">SPI - MOSI</th>
+<th class="head">SPI - SCK</th>
+<th class="head">UART - RX</th>
+<th class="head">UART - TX</th>
+<th class="head">DigitalInOut</th>
+<th class="head">PulseIn</th>
+<th class="head">PWMOut</th>
+<th class="head">TouchIn</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-odd"><td>PA00</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PA01</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>PA02</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+</tr>
+<tr class="row-even"><td>PA03</td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+</tr>
+<tr class="row-odd"><td>PB08</td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+</tr>
+<tr class="row-even"><td>PB09</td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+</tr>
+<tr class="row-odd"><td>PA04</td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+</tr>
+<tr class="row-even"><td>PA05</td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+</tr>
+<tr class="row-odd"><td>PA06</td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+</tr>
+<tr class="row-even"><td>PA07</td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+</tr>
+<tr class="row-odd"><td>PA08</td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PA09</td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>PA10</td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PA11</td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>PB10</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PB11</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>PA12</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PA13</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>PA14</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PA15</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>PA16</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PA17</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>PA18</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PA19</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>PA20</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PA21</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>PA22</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PA23</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>PA24</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PA25</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>PB22</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PB23</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>PA27</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PA28</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>PA29</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PA30</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>PA31</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PB02</td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+</tr>
+<tr class="row-odd"><td>PB03</td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#160;</td>
+<td><strong>Yes</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="building">
+<h2>Building<a class="headerlink" href="#building" title="Permalink to this headline">¶</a></h2>
+<p>To build for the Arduino Zero:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span></span>make
+</pre></div>
+</div>
+<p>To build for other boards you must change it by setting <code class="docutils literal"><span class="pre">BOARD</span></code>. For example:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span></span>make <span class="nv">BOARD</span><span class="o">=</span>feather_m0_basic
+</pre></div>
+</div>
+<p>Board names are the directory names in the <a class="reference external" href="https://github.com/adafruit/circuitpython/tree/master/atmel-samd/boards">boards</a> folder.</p>
+</div>
+<div class="section" id="deploying">
+<h2>Deploying<a class="headerlink" href="#deploying" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="arduino-bootloader">
+<h3>Arduino Bootloader<a class="headerlink" href="#arduino-bootloader" title="Permalink to this headline">¶</a></h3>
+<p>If your board has an existing Arduino bootloader on it then you can use bossac
+to flash MicroPython. First, activate the bootloader. On Adafruit Feathers you
+can double click the reset button and the #13 will fade in and out. Finally,
+run bossac:</p>
+<blockquote>
+<div>tools/bossac_osx -e -w -v -b -R build-feather_m0_basic/firmware.bin</div></blockquote>
+</div>
+<div class="section" id="no-bootloader-via-gdb">
+<h3>No Bootloader via GDB<a class="headerlink" href="#no-bootloader-via-gdb" title="Permalink to this headline">¶</a></h3>
+<p>This method works for loading MicroPython onto the Arduino Zero via the
+programming port rather than the native USB port.</p>
+<p>Note: These instructions are tested on Mac OSX and will vary for different
+platforms.</p>
+<blockquote>
+<div>openocd -f ~/Library/Arduino15/packages/arduino/hardware/samd/1.6.6/variants/arduino_zero/openocd_scripts/arduino_zero.cfg</div></blockquote>
+<p>In another terminal from <code class="docutils literal"><span class="pre">micropython/atmel-samd</span></code>:</p>
+<blockquote>
+<div>arm-none-eabi-gdb build-arduino_zero/firmware.elf
+(gdb) tar ext :3333
+…
+(gdb) load
+…
+(gdb) monitor reset init
+…
+(gdb) continue</div></blockquote>
+</div>
+</div>
+<div class="section" id="connecting">
+<h2>Connecting<a class="headerlink" href="#connecting" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="serial">
+<h3>Serial<a class="headerlink" href="#serial" title="Permalink to this headline">¶</a></h3>
+<p>All boards are currently configured to work over USB rather than UART. To
+connect to it from OSX do something like this:</p>
+<blockquote>
+<div>screen /dev/tty.usbmodem142422 115200</div></blockquote>
+<p>You may not see a prompt immediately because it doesn’t know you connected. To
+get one either hit enter to get <a class="reference external" href="https://docs.python.org/3/glossary.html#term" title="(in Python v3.6)"><code class="xref any docutils literal"><span class="pre">&gt;&gt;&gt;</span></code></a> or do CTRL-B to get the full header.</p>
+</div>
+<div class="section" id="mass-storage">
+<h3>Mass storage<a class="headerlink" href="#mass-storage" title="Permalink to this headline">¶</a></h3>
+<p>All boards will also show up as a mass storage device. Make sure to eject it
+before resetting or disconnecting the board.</p>
+</div>
+</div>
+<div class="section" id="port-specific-modules">
+<h2>Port Specific modules<a class="headerlink" href="#port-specific-modules" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bindings/samd/__init__.html"><code class="docutils literal"><span class="pre">samd</span></code> --- SAMD implementation settings</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="bindings/samd/__init__.html" class="btn btn-neutral float-right" title="samd --- SAMD implementation settings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../docs/supported_ports.html" class="btn btn-neutral" title="Supported Ports" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, MicroPython &amp; CircuitPython contributors (https://github.com/adafruit/circuitpython/graphs/contributors).
+      Last updated on 17 Aug 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
